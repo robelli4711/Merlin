@@ -16,6 +16,10 @@ phimail = {
 
   onClickProduct: function () {
 
+    // remove the old selection
+    $(issues).children().remove();    
+    $(_troubleshooting).children().remove();    
+    
     var e = document.getElementById("#product"); // selected element in product box
     ProductToIssue.get(document.getElementById("#product"), document.getElementById("issues"), e.options[e.selectedIndex].value);
   },
@@ -24,6 +28,7 @@ phimail = {
 
     output += "Retailer:\n" + document.getElementById("#retailer").value + "\n";
   },
+
 
   makeIssue: function (id) {
 
@@ -38,17 +43,19 @@ phimail = {
 
 
   makeTroubleshooting: function (arr) {
-   
+
+    $(_troubleshooting).children().remove();    // remove the old selection
+
     arr.forEach(function (element) {
 
       var res = Issue.getTroubleshooting(element);
-      
-      var line = '<div class="col-md-4"><div id="div1" class="checkbox"><input id="id' + res.troubleshooting +
-        '" type="checkbox" onclick=\'phimail.makeOutput("' + res.id + '");\'><label id="label1" for="id' + res.id + '">' + res.troubleshooting +
+
+      var line = '<div class="col-md-4"><div id="div2" class="checkbox"><input id="idt' + res.troubleshooting +
+        '" type="checkbox" onclick=\'phimail.makeOutput("' + res.id + '");\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
         '</label></div></div>';
 
       $(_troubleshooting).append(line);
-      output += Issue.getTroubleshooting(element).troubleshooting + "\n";     // TODO: should be removed after testing
+      output += Issue.getTroubleshooting(element).troubleshooting + "\n"; // TODO: should be removed after testing
     });
 
     // additional custom comments
@@ -58,6 +65,7 @@ phimail = {
 
   // make OUTPUT
   makeOutput: function (txt) {
+
     output = "";
     this.leaveRetailer();
 
@@ -80,10 +88,8 @@ phimail = {
     // make TROUBLESHOOTING
     output += "\nTroubleshooting:\n"
     phimail.makeTroubleshooting(quest);
-    
 
     // finally push it out
     document.getElementById("#preview").value = output;
-
   }
 }
