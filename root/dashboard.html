@@ -52,7 +52,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="# " onclick="phimail.notImplemented() ">
+                        <a href="# " onclick="phiwiz.notImplemented() ">
                             <i class="pe-7s-mail-open "></i>
                             <p>Mails</p>
                         </a>
@@ -107,7 +107,7 @@
 
                                 <br>
                                 <div class="form-group form-red label-floating is-empty ">
-                                    <input id="#retailer" type="text " class="form-control " onfocusout="phimail.makeOutput();" placeholder="fill in the Retailer here..."
+                                    <input id="#retailer" type="text " class="form-control " onfocusout="phiwiz.makeOutput();" placeholder="fill in the Retailer here..."
                                         value="N/A">
                                 </div>
                                 <br>
@@ -127,7 +127,7 @@
                                             <label>Group</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <select id="#group" class="dropdown " onclick="phimail.onClickGroup()">
+                                            <select id="#group" class="dropdown " onclick="phiwiz.onClickGroup()">
                                             </select>
                                         </div>
                                     </div>
@@ -139,7 +139,7 @@
                                             <label>Product</label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <select id="_product" class="dropdown" onclick="phimail.onClickProduct()">
+                                            <select id="_product" class="dropdown" onclick="phiwiz.onClickProduct()">
                                             </select>
                                         </div>
                                     </div>
@@ -168,7 +168,7 @@
                                 <div class="row ">
                                     <div class="col-md-12 ">
                                         <div class="form-group form-red label-floating is-empty">
-                                            <input id="_customIssue" type="text" class="form-control" onfocusout="phimail.makeOutput();" placeholder="additional comments...">
+                                            <input id="_customIssue" type="text" class="form-control" onfocusout="phiwiz.makeOutput();" placeholder="additional comments...">
                                         </div>
                                     </div>
                                 </div>
@@ -197,7 +197,7 @@
                                 <div class="row ">
                                     <div class="col-md-12 ">
                                         <div class="form-group form-red label-floating is-empty">
-                                            <input id="_customTroubleshooting" type="text" class="form-control" onfocusout="phimail.selectTroubleshooting();" placeholder="additional comments...">
+                                            <input id="_customTroubleshooting" type="text" class="form-control" onfocusout="phiwiz.selectTroubleshooting();" placeholder="additional comments...">
                                         </div>
                                     </div>
                                 </div>
@@ -219,25 +219,25 @@
                                         <div id="_solution">
                                             <div class=col-md-4 "">
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_1" type="checkbox" onclick="phimail.onSelectSolution();">
+                                                    <input id="s_1" type="checkbox" onclick="phiwiz.onSelectSolution();">
                                                     <label id="label2" for="s_1">Solved</label>
                                                 </div>
                                             </div>
                                             <div class=col-md-4 "">
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_2" type="checkbox" onclick="phimail.onSelectSolution();">
+                                                    <input id="s_2" type="checkbox" onclick="phiwiz.onSelectSolution();">
                                                     <label id="label2" for="s_2">Service Center</label>
                                                 </div>
                                             </div>
                                             <div class=col-md-4 "">
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_3" type="checkbox" onclick="phimail.onSelectSolution();">
+                                                    <input id="s_3" type="checkbox" onclick="phiwiz.onSelectSolution();">
                                                     <label id="label2" for="s_3">OLS</label>
                                                 </div>
                                             </div>
                                             <div class=col-md-4 "">
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_4" type="checkbox" onclick="phimail.onSelectSolution();">
+                                                    <input id="s_4" type="checkbox" onclick="phiwiz.onSelectSolution();">
                                                     <label id="label2" for="s_4">EMail</label>
                                                 </div>
                                             </div>
@@ -250,7 +250,7 @@
                                 <div class="row ">
                                     <div class="col-md-12 ">
                                         <div class="form-group form-red label-floating is-empty">
-                                            <input id="_customSolution" type="text" class="form-control" onfocusout="phimail.selectTroubleshooting();" placeholder="additional comments...">
+                                            <input id="_customSolution" type="text" class="form-control" onfocusout="phiwiz.onSelectSolution();" placeholder="additional comments...">
                                         </div>
                                     </div>
                                 </div>
@@ -258,10 +258,10 @@
                                 <!-- end SOLUTION -->
 
                                 <!--start SUBMITT-->
-                                <hr>
-                                <button class="btn btn-danger btn-round " onclick="phimail.makeOutput();">Preview
+                                <!-- <hr> -->
+                                <!-- <button class="btn btn-danger btn-round " onclick="phiwiz.makeOutput();">Preview -->
                                     <!--<i class="material-icons ">pe-7s-magic-wand</i>-->
-                                </button>
+                                <!-- </button> -->
                                 <!--end SUBMITT-->
 
                             </div>
@@ -291,8 +291,8 @@
 
 </body>
 
-<!--   phimail Functions   -->
-<script src="assets/js/phimailevents.js " type="text/javascript "></script>
+<!--   phiwiz Functions   -->
+<script src="assets/js/phiwizevents.js " type="text/javascript "></script>
 <script src="assets/js/datamodel/Group.js " type="text/javascript "></script>
 <script src="assets/js/datamodel/Product.js " type="text/javascript "></script>
 <script src="assets/js/datamodel/Issue.js " type="text/javascript "></script>
@@ -302,21 +302,17 @@
 <script src="assets/js/jquery.3.2.1.min.js " type="text/javascript "></script>
 <script src="assets/js/bootstrap.min.js " type="text/javascript "></script>
 
-<!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js "></script>
-
 <!--  Notifications Plugin    -->
 <script src="assets/js/bootstrap-notify.js "></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0 "></script>
 
-
 <!--DOCUMENT READY-->
 <script type="text/javascript ">
     $(document).ready(function () {
         $("body").css("overflow", "hidden");
-        phimail.onInit();
+        phiwiz.onInit();
     });
 </script>
 

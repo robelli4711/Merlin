@@ -1,7 +1,12 @@
 var output = "";
 
-phimail = {
+phiwiz = {
 
+  /**
+   * one of the Solution Checkboxes is clicked
+   * @param 
+   * @return 
+   */
   onSelectSolution: function () {
 
     // clear the previous solution text
@@ -31,22 +36,39 @@ phimail = {
       output += "\n- The customer will get a EMail with the necessary instructions";
     }
 
+    output += "\n- " + document.getElementById("_customSolution").value;
+
     // put it out
     document.getElementById("#preview").value = output;
   },
 
+  /**
+   * Initial call from the trigger
+   * @param 
+   * @return 
+   */
   onInit: function () {
 
     Group.get(document.getElementById("#group"));
     this.makeOutput("");
   },
 
+  /**
+   * Group Checkbox was clicked
+   * @param 
+   * @return 
+   */
   onClickGroup: function () {
 
     var e = document.getElementById("#group"); // selected element in group box
     Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
   },
 
+  /**
+   * Product Checkbox was clicked
+   * @param 
+   * @return 
+   */
   onClickProduct: function () {
 
     // remove the old selection
@@ -57,17 +79,27 @@ phimail = {
     ProductToIssue.get(document.getElementById("_product"), document.getElementById("issues"), e.options[e.selectedIndex].value);
   },
 
+  /**
+   * Input for the Retailer lost the cursor focus
+   * @param 
+   * @return 
+   */
   leaveRetailer: function () {
 
     output += "Retailer:\n" + document.getElementById("#retailer").value + "\n";
   },
 
 
+  /**
+   * Create a IssueList
+   * @param Array - List with all Issues for this Product
+   * @return 
+   */
   makeIssue: function (id) {
 
     id.forEach(function (element) {
 
-      output += Issue.getQuestion(element) + "\n";
+      output += "- " + Issue.getQuestion(element);
     });
 
     // additional custom comments
@@ -75,6 +107,11 @@ phimail = {
   },
 
 
+  /**
+   * Create a Troubleshooting Step List
+   * @param Array - List with all TS Steps for this Product
+   * @return 
+   */
   makeTroubleshooting: function (arr) {
 
     $(_troubleshooting).children().remove(); // remove the old selection
@@ -84,7 +121,7 @@ phimail = {
       var res = Issue.getTroubleshooting(element);
 
       var line = '<div class="col-md-4"><div id="div2" class="checkbox"><input id="idt' + res.id +
-        '" type="checkbox" onclick=\'phimail.selectTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
+        '" type="checkbox" onclick=\'phiwiz.selectTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
         '</label></div></div>';
 
       $(_troubleshooting).append(line);
@@ -95,8 +132,11 @@ phimail = {
   },
 
 
-  //-----------------------
-  // select troubleshooting
+  /**
+   * Troubleshooting Step is choosen
+   * @param 
+   * @return 
+   */
   selectTroubleshooting: function () {
 
     isClicked = true;
@@ -105,7 +145,7 @@ phimail = {
     // remove the last ts steps
     var TextSearch = document.getElementById("#preview").value;
     var index = TextSearch.indexOf('Troubleshooting:');
-    output = TextSearch.substring(0, index + 18);
+    output = TextSearch.substring(0, index + 17);
 
     // go trough the selected checkboxes
     jQuery(_troubleshooting).find('*').each(function (index, value) {
@@ -128,8 +168,11 @@ phimail = {
   },
 
 
-  //------------
-  // make OUTPUT
+  /**
+   * Create the Preview Output
+   * @param String - Control ID
+   * @return 
+   */
   makeOutput: function (txt) {
 
     output = "";
@@ -161,7 +204,7 @@ phimail = {
     output += "\nIssue: "
     output += prod + "\n";
 
-    phimail.makeIssue(quest);
+    phiwiz.makeIssue(quest);
 
     // make TROUBLESHOOTING
     jQuery(_troubleshooting).find('*').each(function (index, value) {
@@ -176,11 +219,10 @@ phimail = {
     });
 
     output += "\nTroubleshooting:"
-    phimail.makeTroubleshooting(quest);
+    phiwiz.makeTroubleshooting(quest);
 
-
+    // Solution
     output += "\nSolution:"
-
 
     // finally push it out
     document.getElementById("#preview").value = output;
