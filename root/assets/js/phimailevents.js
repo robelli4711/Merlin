@@ -50,7 +50,7 @@ phimail = {
 
       var res = Issue.getTroubleshooting(element);
 
-      var line = '<div class="col-md-4"><div id="div2" class="checkbox"><input id="idt' + res.troubleshooting +
+      var line = '<div class="col-md-4"><div id="div2" class="checkbox"><input id="idt' + res.id +
         '" type="checkbox" onclick=\'phimail.makeOutput("' + res.id + '");\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
         '</label></div></div>';
 
@@ -82,10 +82,26 @@ phimail = {
       }
     });
 
-    output += "\nIssue:\n"
+    var e = document.getElementById("#product");
+    var prod = e.options[e.selectedIndex].innerHTML;
+
+    output += "\nIssue: "
+    output += prod + "\n";
+
     phimail.makeIssue(quest);
 
     // make TROUBLESHOOTING
+    jQuery(_troubleshooting).find('*').each(function (index, value) {
+      
+            if (value.className === 'checkbox') {
+              if (value.children[0].checked) {
+                quest.push(value.children[0].id.substring(2));
+
+                console.log(value.children[0].checked);
+              }
+            }
+          });
+
     output += "\nTroubleshooting:\n"
     phimail.makeTroubleshooting(quest);
 

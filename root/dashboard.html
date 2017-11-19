@@ -62,7 +62,7 @@
         </div>
 
         <!--start MAIN PANEL-->
-        <div class="main-panel ">
+        <div class="main-panel style="height: 100%; overflow-y: scroll;"">
             <nav class="navbar navbar-default navbar-fixed " data-color="blue ">
                 <div class="container-fluid ">
                     <div class="navbar-header " data-color="blue ">
@@ -85,10 +85,10 @@
         </nav>
 
         <!-- start working body -->
-        <div class="content ">
+        <div class="content">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-8" style="height: 500px; overflow-y: scroll;">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title ">Choose Options</h4>
@@ -188,14 +188,7 @@
                                 <div class="row ">
                                     <div class="col-md-12">
                                         <div id="_troubleshooting">
-                                            <div class="col-md-6">
-                                                <label>Power is on</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label-success>YES</label>
-                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <!--end TROUBLESHOOTIING-->
@@ -222,8 +215,8 @@
                     </div>
 
                     <!--start PREVIEW-->
-                    <div class="col-md-6 ">
-                        <div class="card ">
+                    <div class="col-md-4">
+                        <div class="card">
                             <div class="header ">
                                 <h4 class="title ">Preview</h4>
                                 <p class="category ">How it looks like</p>
@@ -269,6 +262,7 @@
 <!--DOCUMENT READY-->
 <script type="text/javascript ">
     $(document).ready(function () {
+        $("body").css("overflow", "hidden");
         phimail.onInit();
     });
 </script>
