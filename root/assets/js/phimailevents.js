@@ -1,4 +1,5 @@
 var output = "";
+var isClicked = false;
 
 phimail = {
 
@@ -11,17 +12,17 @@ phimail = {
   onClickGroup: function () {
 
     var e = document.getElementById("#group"); // selected element in group box
-    Product.get(document.getElementById("#product"), e.options[e.selectedIndex].value);
+    Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
   },
 
   onClickProduct: function () {
 
     // remove the old selection
-    $(issues).children().remove();    
-    $(_troubleshooting).children().remove();    
-    
-    var e = document.getElementById("#product"); // selected element in product box
-    ProductToIssue.get(document.getElementById("#product"), document.getElementById("issues"), e.options[e.selectedIndex].value);
+    $(issues).children().remove();
+    $(_troubleshooting).children().remove();
+
+    var e = document.getElementById("_product"); // selected element in product box
+    ProductToIssue.get(document.getElementById("_product"), document.getElementById("issues"), e.options[e.selectedIndex].value);
   },
 
   leaveRetailer: function () {
@@ -44,18 +45,17 @@ phimail = {
 
   makeTroubleshooting: function (arr) {
 
-    $(_troubleshooting).children().remove();    // remove the old selection
+    $(_troubleshooting).children().remove(); // remove the old selection
 
     arr.forEach(function (element) {
 
       var res = Issue.getTroubleshooting(element);
 
       var line = '<div class="col-md-4"><div id="div2" class="checkbox"><input id="idt' + res.id +
-        '" type="checkbox" onclick=\'phimail.makeOutput("' + res.id + '");\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
+        '" type="checkbox" onclick=\'phimail.selectTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
         '</label></div></div>';
 
       $(_troubleshooting).append(line);
-      output += Issue.getTroubleshooting(element).troubleshooting + "\n"; // TODO: should be removed after testing
     });
 
     // additional custom comments
@@ -63,6 +63,40 @@ phimail = {
   },
 
 
+  //-----------------------
+  // select troubleshooting
+  selectTroubleshooting: function () {
+
+    isClicked = true;
+    var arr = [];
+
+    // remove the last ts steps
+    var TextSearch = document.getElementById("#preview").value;
+    var index = TextSearch.indexOf('Troubleshooting:');
+    output = TextSearch.substring(0, index + 20);
+
+    // go trough the selected checkboxes
+    jQuery(_troubleshooting).find('*').each(function (index, value) {
+
+      if (value.className === 'checkbox') {
+        if (value.children[0].checked) {
+          arr.push(value.children[0].id.substring(3)); // get issue id out from control-id
+        }
+      }
+    });
+
+    // write out the ts steps
+    arr.forEach(function (element) {
+      output += Issue.getTroubleshooting(element).troubleshooting + " = OK\n"; // TODO: should be removed after testing
+    });
+
+    // additional custom comments
+    output += document.getElementById("_customTroubleshooting").value + '\n';
+    document.getElementById("#preview").value = output;
+  },
+
+
+  //------------
   // make OUTPUT
   makeOutput: function (txt) {
 
@@ -82,8 +116,15 @@ phimail = {
       }
     });
 
-    var e = document.getElementById("#product");
-    var prod = e.options[e.selectedIndex].innerHTML;
+    var e = document.getElementById("_product");
+    var prod;
+    try {
+
+      prod = e.options[e.selectedIndex].innerHTML;
+    } catch (error) {
+
+      prod = "";
+    }
 
     output += "\nIssue: "
     output += prod + "\n";
@@ -92,18 +133,21 @@ phimail = {
 
     // make TROUBLESHOOTING
     jQuery(_troubleshooting).find('*').each(function (index, value) {
-      
-            if (value.className === 'checkbox') {
-              if (value.children[0].checked) {
-                quest.push(value.children[0].id.substring(2));
 
-                console.log(value.children[0].checked);
-              }
-            }
-          });
+      if (value.className === 'checkbox') {
+        if (value.children[0].checked) {
+          quest.push(value.children[0].id.substring(2));
+
+          console.log(value.children[0].checked);
+        }
+      }
+    });
 
     output += "\nTroubleshooting:\n"
+    // if (!isClicked) {
     phimail.makeTroubleshooting(quest);
+    isClicked = false;
+    // }
 
     // finally push it out
     document.getElementById("#preview").value = output;
