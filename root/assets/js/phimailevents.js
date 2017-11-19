@@ -5,6 +5,7 @@ phimail = {
   onInit: function () {
 
     Group.get(document.getElementById("#group"));
+    this.makeOutput("");
   },
 
   onClickGroup: function () {
@@ -30,6 +31,9 @@ phimail = {
 
       output += Issue.getQuestion(element) + "\n";
     });
+
+    // additional custom comments
+    output += document.getElementById("_customIssue").value + '\n';
   },
 
   // make RETAILER
