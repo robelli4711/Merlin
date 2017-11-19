@@ -32,22 +32,18 @@ phimail = {
     });
   },
 
-  // make retailer
+  // make RETAILER
   makeOutput: function (txt) {
     output = "";
     this.leaveRetailer();
 
-    // get all selected issues
+    // make ISSUES
     var i = 0; // counter 
     var quest = []; // lists all selected issues
 
     jQuery(issues).find('*').each(function (index, value) {
 
       if (value.className === 'checkbox') {
-        console.log(value.innerText);
-        console.log(value.children[0].checked);
-        console.log(value.children[0].id);
-
         if (value.children[0].checked) {
           quest.push(value.children[0].id.substring(2));
         }
@@ -56,6 +52,13 @@ phimail = {
 
     output += "\nIssue:\n"
     phimail.makeIssue(quest);
+
+    // make TROUBLESHOOTING
+    output += "\nTroubleshooting:\n"
+
+
+    // finally push it out
     document.getElementById("#preview").value = output;
+
   }
 }
