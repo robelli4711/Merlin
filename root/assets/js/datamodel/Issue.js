@@ -61,7 +61,7 @@ Issue = {
 
         issue.push({
             id: 1,
-            issue: "has Power?",
+            issue: "Power",
             solution: "Power was missing",
             question: "The Device is not starting",
             troubleshooting: "Is the Device on power?"
@@ -69,7 +69,7 @@ Issue = {
 
         issue.push({
             id: 2,
-            issue: "has Fluid?",
+            issue: "Contains",
             solution: "Fluid was missing",
             question: "No Result after starting",
             troubleshooting: "Has the device the needed Fluids?"
@@ -77,7 +77,7 @@ Issue = {
 
         issue.push({
             id: 3,
-            issue: "is Cleaned?",
+            issue: "Maintanance",
             solution: "was not cleaned",
             question: "The device stocks",
             troubleshooting: "Was the device cleaned before?"
@@ -85,7 +85,7 @@ Issue = {
 
         issue.push({
             id: 4,
-            issue: "is Closed?",
+            issue: "Power but not working",
             solution: "was open",
             question: "The device is not working",
             troubleshooting: "Is the Lid closed?"
@@ -93,7 +93,7 @@ Issue = {
 
         issue.push({
             id: 5,
-            issue: "is Descaled",
+            issue: "Performance",
             solution: "wasn't descaled",
             question: "The device is not working",
             troubleshooting: "Descaled recently?"
