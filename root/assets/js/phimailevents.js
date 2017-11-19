@@ -36,7 +36,27 @@ phimail = {
     output += document.getElementById("_customIssue").value + '\n';
   },
 
-  // make RETAILER
+
+  makeTroubleshooting: function (arr) {
+   
+    arr.forEach(function (element) {
+
+      var res = Issue.getTroubleshooting(element);
+      
+      var line = '<div class="col-md-4"><div id="div1" class="checkbox"><input id="id' + res.troubleshooting +
+        '" type="checkbox" onclick=\'phimail.makeOutput("' + res.id + '");\'><label id="label1" for="id' + res.id + '">' + res.troubleshooting +
+        '</label></div></div>';
+
+      $(_troubleshooting).append(line);
+      output += Issue.getTroubleshooting(element).troubleshooting + "\n";     // TODO: should be removed after testing
+    });
+
+    // additional custom comments
+    output += document.getElementById("_customTroubleshooting").value + '\n';
+  },
+
+
+  // make OUTPUT
   makeOutput: function (txt) {
     output = "";
     this.leaveRetailer();
@@ -59,7 +79,8 @@ phimail = {
 
     // make TROUBLESHOOTING
     output += "\nTroubleshooting:\n"
-
+    phimail.makeTroubleshooting(quest);
+    
 
     // finally push it out
     document.getElementById("#preview").value = output;
