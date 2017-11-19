@@ -16,17 +16,39 @@ phimail = {
   onClickProduct: function () {
 
     var e = document.getElementById("#product"); // selected element in product box
-    ProductToIssue.get(document.getElementById("#product"), document.getElementById("#issues"), e.options[e.selectedIndex].value);
+    ProductToIssue.get(document.getElementById("#product"), document.getElementById("issues"), e.options[e.selectedIndex].value);
   },
 
   leaveRetailer: function () {
 
-    var output = "Retailer:\n" + document.getElementById("#retailer").value + "\n";
-    document.getElementById("#preview").value += output;
+    output += "Retailer:\n" + document.getElementById("#retailer").value + "\n";
+  },
+
+  makeIssue: function (id) {
+
+    output += Issue.getQuestion(id) + "\n";
   },
 
 
+  makeOutput: function (txt) {
+    output = "";
+    this.leaveRetailer();
 
+    output += "\nIssue:\n"
+    this.makeIssue(txt);
+    var i = 0;
+
+    jQuery(issues).find('*').each(function (index, value) {
+
+      if(value.className === 'checkbox') {
+      console.log(value.innerText);
+      console.log(value.children[0].checked);
+      }
+    });
+
+
+    document.getElementById("#preview").value = output;
+  },
 
 
 

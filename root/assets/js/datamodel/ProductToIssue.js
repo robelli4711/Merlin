@@ -15,26 +15,20 @@ ProductToIssue = {
 
             if (element.pid === parseInt(index)) {
 
-                var result = $.grep(issue, function(e){ 
-                    return e.id == element.iid; 
+                var result = $.grep(issue, function (e) {
+                    return e.id == element.iid;
                 });
 
-                var line = '<div class="col-md-4"><div class="checkbox"><input id="checkbox' + i +
-                    '" type="checkbox"><label for="checkbox' + i + '">' + result[0].issue +
+                var line = '<div class="col-md-4"><div id="div1" class="checkbox"><input id="checkbox' + i +
+                    '" type="checkbox" onclick=\'phimail.makeOutput("' + element.iid + '");\'><label id="label1" for="checkbox' + i + '">' + result[0].issue +
                     '</label></div></div>';
 
                 $(target).append(line);
+
+                i++;
             }
-
-            i++;
         });
-
-        function findCherries(val) { 
-            return pid === val;
-        }
-    
     },
-
 
     /**
      * Get content Data
