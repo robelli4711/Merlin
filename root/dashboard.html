@@ -62,7 +62,7 @@
         </div>
 
         <!--start MAIN PANEL-->
-        <div class="main-panel ">
+        <div class="main-panel style="height: 100%; overflow-y: scroll;" ">
             <nav class="navbar navbar-default navbar-fixed " data-color="blue ">
                 <div class="container-fluid ">
                     <div class="navbar-header " data-color="blue ">
@@ -85,10 +85,10 @@
         </nav>
 
         <!-- start working body -->
-        <div class="content ">
+        <div class="content">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-8" style="height: 500px; overflow-y: scroll;">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title ">Choose Options</h4>
@@ -107,7 +107,8 @@
 
                                 <br>
                                 <div class="form-group form-red label-floating is-empty ">
-                                    <input id="#retailer" type="text " class="form-control " onfocusout="phimail.makeOutput() " placeholder="fill in the Retailer here... ">
+                                    <input id="#retailer" type="text " class="form-control " onfocusout="phimail.makeOutput();" placeholder="fill in the Retailer here..."
+                                        value="N/A">
                                 </div>
                                 <br>
                                 <!-- end RETAILER -->
@@ -138,7 +139,7 @@
                                             <label>Product</label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <select id="#product" class="dropdown" onclick="phimail.onClickProduct()">
+                                            <select id="_product" class="dropdown" onclick="phimail.onClickProduct()">
                                             </select>
                                         </div>
                                     </div>
@@ -157,7 +158,7 @@
                                 <!--start ISSUE-->
                                 <div class="row ">
                                     <div class="col-md-12">
-                                        <div id="issues">                                            
+                                        <div id="issues">
                                         </div>
                                     </div>
                                 </div>
@@ -166,46 +167,73 @@
                                 <!--start CUSTOM ISSUE-->
                                 <div class="row ">
                                     <div class="col-md-12 ">
-
-                                        <div class="form-group form-red label-floating is-empty ">
-                                            <input id="#customIssue" type="text " class="form-control placeholder=" Customers Name ">
-                                            </div>
+                                        <div class="form-group form-red label-floating is-empty">
+                                            <input id="_customIssue" type="text" class="form-control" onfocusout="phimail.makeOutput();" placeholder="additional comments...">
                                         </div>
                                     </div>
-                                    <!--end CUSTOM ISSUE-->
-                                    <!-- end ISSUE -->
-
-                                    <!--SUBMITT-->
-                                    <hr>
-                                    <button class="btn btn-danger btn-round " onclick="phimail.makePreview();">Preview
-                                        <!--<i class="material-icons ">pe-7s-magic-wand</i>-->
-                                    </button>
-
                                 </div>
+                                <!--end CUSTOM ISSUE-->
+                                <!-- end ISSUE -->
+
+                                <!-- start TROUBLESHOOTIING -->
+                                <hr>
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+                                        <span class="label label-primary ">Troubleshooting</span>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <!--start TROUBLESHOOTIING-->
+                                <div class="row ">
+                                    <div class="col-md-12">
+                                        <div id="_troubleshooting">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end TROUBLESHOOTIING-->
+
+                                <!--start CUSTOM TROUBLESHOOTIING-->
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+                                        <div class="form-group form-red label-floating is-empty">
+                                            <input id="_customTroubleshooting" type="text" class="form-control" onfocusout="phimail.selectTroubleshooting();" placeholder="additional comments...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end CUSTOM TROUBLESHOOTIING-->
+                                <!-- end TROUBLESHOOTIING -->
+
+                                <!--SUBMITT-->
+                                <hr>
+                                <button class="btn btn-danger btn-round " onclick="phimail.makeOutput();">Preview
+                                    <!--<i class="material-icons ">pe-7s-magic-wand</i>-->
+                                </button>
+
                             </div>
                         </div>
-
-                        <!--start PREVIEW-->
-                        <div class="col-md-6 ">
-                            <div class="card ">
-                                <div class="header ">
-                                    <h4 class="title ">Preview</h4>
-                                    <p class="category ">How it looks like</p>
-                                </div>
-                                <div class="content ">
-                                    <textarea id="#preview" class="form-control " placeholder="Here will be your nice
-                                                text " rows="20 "></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end PREVIEW-->
-
                     </div>
+
+                    <!--start PREVIEW-->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Preview</h4>
+                                <p class="category">How it looks like</p>
+                            </div>
+                            <div class="content">
+                                <textarea id="#preview" class="form-control" placeholder="Here will be your nice text" rows="20"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end PREVIEW-->
+
                 </div>
             </div>
-            <!-- end working body -->
         </div>
-        <!--end MAIN PANEL-->
+        <!-- end working body -->
+    </div>
+    <!--end MAIN PANEL-->
 
 </body>
 
@@ -233,6 +261,7 @@
 <!--DOCUMENT READY-->
 <script type="text/javascript ">
     $(document).ready(function () {
+        $("body").css("overflow", "hidden");
         phimail.onInit();
     });
 </script>

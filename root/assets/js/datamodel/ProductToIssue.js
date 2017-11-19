@@ -19,8 +19,8 @@ ProductToIssue = {
                     return e.id == element.iid;
                 });
 
-                var line = '<div class="col-md-4"><div id="div1" class="checkbox"><input id="checkbox' + i +
-                    '" type="checkbox" onclick=\'phimail.makeOutput("' + element.iid + '");\'><label id="label1" for="checkbox' + i + '">' + result[0].issue +
+                var line = '<div class="col-md-4"><div id="div1" class="checkbox"><input id="id' + element.iid +
+                    '" type="checkbox" onclick=\'phimail.makeOutput("' + element.iid + '");\'><label id="label1" for="id' + element.iid + '">' + result[0].issue +
                     '</label></div></div>';
 
                 $(target).append(line);
