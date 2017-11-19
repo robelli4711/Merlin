@@ -43,7 +43,8 @@ phimail = {
       if(value.className === 'checkbox') {
       console.log(value.innerText);
       console.log(value.children[0].checked);
-      }
+      console.log(value.children[0].id);
+    }
     });
 
 
