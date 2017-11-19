@@ -2,14 +2,20 @@ Issue = {
 
     /**
      * setup Issue Combo
-     * @param Selection Box 
-     * @return none
+     * @param 
+     * @return Array - Alle Products Datas
      */
     get: function () {
 
         return this.set();
     },
 
+
+    /**
+     * setup get qustion from issue
+     * @param int - product id
+     * @return String - the question
+     */
     getQuestion: function (id) {
         var x = this.set();
 
