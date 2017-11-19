@@ -1,7 +1,39 @@
 var output = "";
-var isClicked = false;
 
 phimail = {
+
+  onSelectSolution: function () {
+
+    // clear the previous solution text
+    var TextSearch = document.getElementById("#preview").value;
+    var index = TextSearch.indexOf('Solution:');
+
+    if (index >= 0) { // prevent to clear the text when solution is not written
+      output = TextSearch.substring(0, index);
+    }
+
+    // select the text
+    output += "Solution:";
+
+    if (document.getElementById("s_1").checked) {
+      output += "\n- The problem is solved :-)";
+    }
+
+    if (document.getElementById("s_2").checked) {
+      output += "\n- A Repair Order is created, the cusotmer is informed";
+    }
+
+    if (document.getElementById("s_3").checked) {
+      output += "\n- The Spare Part is available in the Online Shop";
+    }
+
+    if (document.getElementById("s_4").checked) {
+      output += "\n- The customer will get a EMail with the necessary instructions";
+    }
+
+    // put it out
+    document.getElementById("#preview").value = output;
+  },
 
   onInit: function () {
 
@@ -73,7 +105,7 @@ phimail = {
     // remove the last ts steps
     var TextSearch = document.getElementById("#preview").value;
     var index = TextSearch.indexOf('Troubleshooting:');
-    output = TextSearch.substring(0, index + 20);
+    output = TextSearch.substring(0, index + 18);
 
     // go trough the selected checkboxes
     jQuery(_troubleshooting).find('*').each(function (index, value) {
@@ -143,11 +175,12 @@ phimail = {
       }
     });
 
-    output += "\nTroubleshooting:\n"
-    // if (!isClicked) {
+    output += "\nTroubleshooting:"
     phimail.makeTroubleshooting(quest);
-    isClicked = false;
-    // }
+
+
+    output += "\nSolution:"
+
 
     // finally push it out
     document.getElementById("#preview").value = output;

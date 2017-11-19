@@ -88,7 +88,7 @@
         <div class="content">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-md-8" style="height: 500px; overflow-y: scroll;">
+                    <div class="col-md-8" style="height: 550px; overflow-y: scroll;">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title ">Choose Options</h4>
@@ -204,11 +204,65 @@
                                 <!--end CUSTOM TROUBLESHOOTIING-->
                                 <!-- end TROUBLESHOOTIING -->
 
-                                <!--SUBMITT-->
+                                <!-- start SOLUTION -->
+                                <hr>
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+                                        <span class="label label-primary ">Solution</span>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <!--start SOLUTION-->
+                                <div class="row ">
+                                    <div class="col-md-12">
+                                        <div id="_solution">
+                                            <div class=col-md-4 "">
+                                                <div id="div2" class="checkbox">
+                                                    <input id="s_1" type="checkbox" onclick="phimail.onSelectSolution();">
+                                                    <label id="label2" for="s_1">Solved</label>
+                                                </div>
+                                            </div>
+                                            <div class=col-md-4 "">
+                                                <div id="div2" class="checkbox">
+                                                    <input id="s_2" type="checkbox" onclick="phimail.onSelectSolution();">
+                                                    <label id="label2" for="s_2">Service Center</label>
+                                                </div>
+                                            </div>
+                                            <div class=col-md-4 "">
+                                                <div id="div2" class="checkbox">
+                                                    <input id="s_3" type="checkbox" onclick="phimail.onSelectSolution();">
+                                                    <label id="label2" for="s_3">OLS</label>
+                                                </div>
+                                            </div>
+                                            <div class=col-md-4 "">
+                                                <div id="div2" class="checkbox">
+                                                    <input id="s_4" type="checkbox" onclick="phimail.onSelectSolution();">
+                                                    <label id="label2" for="s_4">EMail</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end SOLUTION-->
+
+                                <!--start CUSTOM SOLUTION-->
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+                                        <div class="form-group form-red label-floating is-empty">
+                                            <input id="_customSolution" type="text" class="form-control" onfocusout="phimail.selectTroubleshooting();" placeholder="additional comments...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end CUSTOM SOLUTION-->
+                                <!-- end SOLUTION -->
+
+                                <!--start SUBMITT-->
                                 <hr>
                                 <button class="btn btn-danger btn-round " onclick="phimail.makeOutput();">Preview
                                     <!--<i class="material-icons ">pe-7s-magic-wand</i>-->
                                 </button>
+                                <!--end SUBMITT-->
 
                             </div>
                         </div>
