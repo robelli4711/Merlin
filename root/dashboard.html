@@ -24,7 +24,11 @@
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+  
+    <!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='fonts/googlecss/fonts/roboto/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'> -->
+
+    
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 
@@ -88,7 +92,7 @@
         <div class="content">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-md-8" style="height: 550px; overflow-y: scroll;">
+                    <div id="_workingbody" class="col-md-8" style="height: 500px; overflow-y: scroll;">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title ">Choose Options</h4>
@@ -312,6 +316,10 @@
 <script type="text/javascript ">
     $(document).ready(function () {
         $("body").css("overflow", "hidden");
+
+        var windowHeight = document.innerHeight;
+        $('_workingbody').height(windowHeight);
+
         phiwiz.onInit();
     });
 </script>
