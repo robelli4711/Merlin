@@ -2,16 +2,67 @@ var output = "";
 
 merlin = {
 
+  createOutput: function () {
+
+    output = ""
+
+    // hastag
+    try {
+      output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+      
+    } catch (error) {
+      
+    }
+
+    // retailer (!!!is combined with _customretailer)
+    output += 'Retailer: ' + JSON.parse(localStorage.getItem("retailer")) + '\n';
+
+    // issue
+    output += "\nIssue: "
+    var e = document.getElementById("_product");
+    var prod;
+    try {
+
+      prod = e.options[e.selectedIndex].innerHTML;
+      output += e.options[e.selectedIndex].innerHTML + "\n";
+    } catch (error) {
+
+      prod = "";
+    }
+
+    var id = JSON.parse(localStorage.getItem("issues"))
+
+    id.forEach(function (element) {
+
+      output += "- " + element + '\n';
+    });
+
+
+    // finally push it out
+    document.getElementById("_preview").value = output;
+  },
+
+
+
+  clear: function () {
+
+    localStorage.setItem("hashtag", "");
+    localStorage.setItem("retailer", "N/A");
+    localStorage.setItem("issues", "");
+    
+  },
+
+
   /**
    * Copy Buttonis clicked
    * @param 
    * @return 
    */
   onClickCopy: function () {
-      $(_preview).select();
-      document.execCommand('copy');
-      merlin.showNotification("The RITS is copied.\nPaste it in Salesforce (Ctrl + v)", "top", "center", "success");     
-    },
+    $(_preview).select();
+    document.execCommand('copy');
+    merlin.showNotification("The RITS is copied.\nPaste it in Salesforce (Ctrl + v)", "top", "center", "success");
+  },
 
 
   /**
@@ -65,6 +116,8 @@ merlin = {
    */
   onInit: function () {
 
+    this.clear();
+
     Group.get(document.getElementById("_group"));
     Hashtag.get(document.getElementById("_hashtag"));
     Retailer.get(document.getElementById("_retailerDD"));
@@ -78,8 +131,8 @@ merlin = {
    */
   onClickHashtag: function () {
 
-    output = document.getElementById("_retailerDD").value;
-    document.getElementById("_preview").value = output;
+    localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
+    this.createOutput();
   },
 
   /**
@@ -88,9 +141,13 @@ merlin = {
    * @return 
    */
   onClickRetailer: function () {
-    output += "Retailer: " + document.getElementById("_retailerDD").value + "\n";
+
+    localStorage.setItem("retailer", JSON.stringify(document.getElementById('_retailerDD').value));
     document.getElementById("_customretailer").value = document.getElementById("_retailerDD").value;
-    document.getElementById("_preview").value = output;
+    this.createOutput();
+
+    // output += "Retailer: " + document.getElementById("_retailerDD").value + "\n";
+    // document.getElementById("_preview").value = output;
   },
 
 
@@ -104,6 +161,7 @@ merlin = {
     var e = document.getElementById("_group"); // selected element in group box
     Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
 
+    // plausi retailer
     if (document.getElementById('_customretailer').value === "") {
       merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
     }
@@ -126,6 +184,29 @@ merlin = {
   },
 
   /**
+   * Issue Checkbox was clicked
+   * @param 
+   * @return 
+   */
+  onClickIssue: function (id) {
+
+    var quest = []; // lists all selected issues
+
+    jQuery(issues).find('*').each(function (index, value) {
+
+      if (value.className === 'checkbox') {
+        if (value.children[0].checked) {
+          quest.push(value.children['label1'].innerHTML);
+        }
+      }
+    });
+
+    localStorage.setItem("issues", JSON.stringify(quest));
+    this.createOutput();    
+  },
+
+
+  /**
    * Input for the Retailer lost the cursor focus
    * @param 
    * @return 
@@ -138,7 +219,10 @@ merlin = {
       return;
     }
 
-    output += "Retailer:\n" + document.getElementById("_customretailer").value + "\n";
+    localStorage.setItem("retailer", JSON.stringify(document.getElementById('_customretailer').value));
+    this.createOutput();
+
+    // output += "Retailer:\n" + document.getElementById("_customretailer").value + "\n";
   },
 
 

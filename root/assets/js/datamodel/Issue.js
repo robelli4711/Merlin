@@ -28,7 +28,27 @@ Issue = {
         } catch (error) {
             return "";
         }
-    },
+    },   
+    
+    
+    /**
+    * get question from issue
+    * @param int - product id
+    * @return String - the issue
+    */
+   getIssue: function (id) {
+       var x = this.set();
+
+       var result = $.grep(x, function (e) {
+           return e.id == id;
+       });
+
+       try {
+           return result[0].issue;            
+       } catch (error) {
+           return "";
+       }
+   },
 
 
     /**

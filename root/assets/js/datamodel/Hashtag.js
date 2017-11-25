@@ -17,7 +17,7 @@ Hashtag = {
             obj.add(option, 0);
         });
     },
-
+  
     /**
    * Get content Data
    * @param none 
