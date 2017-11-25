@@ -1,6 +1,6 @@
 var output = "";
 
-phiwiz = {
+merlin = {
 
   /**
    * one of the Solution Checkboxes is clicked
@@ -21,19 +21,23 @@ phiwiz = {
     output += "Solution:";
 
     if (document.getElementById("s_1").checked) {
-      output += "\n- The problem is solved :-)";
+      output += "\n- Das Problem wurde gelöst";
     }
 
     if (document.getElementById("s_2").checked) {
-      output += "\n- A Repair Order is created, the cusotmer is informed";
+      output += "\n- Ein Reparaturauftrag wurde aufgesetzt, der Kunde ist informiert";
     }
 
     if (document.getElementById("s_3").checked) {
-      output += "\n- The Spare Part is available in the Online Shop";
+      output += "\n- Das ERsatzteil ist im Online Shop verfügbar";
     }
 
     if (document.getElementById("s_4").checked) {
-      output += "\n- The customer will get a EMail with the necessary instructions";
+      output += "\n- Der Kunde bekommt eine EMail mit den notwendigen Instruktionen";
+    }
+
+    if (document.getElementById("s_5").checked) {
+      output += "\n- Der Fall wurde an die Backline eskaliert.";
     }
 
     output += "\n- " + document.getElementById("_customSolution").value;
@@ -50,8 +54,33 @@ phiwiz = {
   onInit: function () {
 
     Group.get(document.getElementById("#group"));
+    Hashtag.get(document.getElementById("_hashtag"));
+    Retailer.get(document.getElementById("_retailerDD"));
     this.makeOutput("");
   },
+
+  /**
+   * Hashtag Checkbox was clicked
+   * @param 
+   * @return 
+   */
+  onClickHashtag: function () {
+    
+       output = document.getElementById("_retailerDD").value;
+       document.getElementById("#preview").value = output;
+   },
+
+  /**
+   * Retailer Checkbox was clicked
+   * @param 
+   * @return 
+   */
+  onClickRetailer: function () {
+       output += "Retailer: " + document.getElementById("_retailerDD").value + "\n";
+       document.getElementById("_customretailer").value = document.getElementById("_retailerDD").value;
+       document.getElementById("#preview").value = output;
+  },
+
 
   /**
    * Group Checkbox was clicked
@@ -62,7 +91,12 @@ phiwiz = {
 
     var e = document.getElementById("#group"); // selected element in group box
     Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
+
+    if(document.getElementById('_customretailer').value === "") {
+      merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
+    }
   },
+
 
   /**
    * Product Checkbox was clicked
@@ -86,7 +120,7 @@ phiwiz = {
    */
   leaveRetailer: function () {
 
-    output += "Retailer:\n" + document.getElementById("#retailer").value + "\n";
+    output += "Retailer:\n" + document.getElementById("_customretailer").value + "\n";
   },
 
 
@@ -99,7 +133,7 @@ phiwiz = {
 
     id.forEach(function (element) {
 
-      output += "- " + Issue.getQuestion(element);
+      output += "- " + Issue.getQuestion(element) + '\n';
     });
 
     // additional custom comments
@@ -121,7 +155,7 @@ phiwiz = {
       var res = Issue.getTroubleshooting(element);
 
       var line = '<div class="col-md-4"><div id="div2" class="checkbox"><input id="idt' + res.id +
-        '" type="checkbox" onclick=\'phiwiz.selectTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
+        '" type="checkbox" onclick=\'merlin.selectTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
         '</label></div></div>';
 
       $(_troubleshooting).append(line);
@@ -159,7 +193,7 @@ phiwiz = {
 
     // write out the ts steps
     arr.forEach(function (element) {
-      output += Issue.getTroubleshooting(element).troubleshooting + " = OK\n"; // TODO: should be removed after testing
+      output += '-' + Issue.getTroubleshooting(element).troubleshooting + " = OK\n"; // TODO: should be removed after testing
     });
 
     // additional custom comments
@@ -204,7 +238,7 @@ phiwiz = {
     output += "\nIssue: "
     output += prod + "\n";
 
-    phiwiz.makeIssue(quest);
+    merlin.makeIssue(quest);
 
     // make TROUBLESHOOTING
     jQuery(_troubleshooting).find('*').each(function (index, value) {
@@ -219,12 +253,45 @@ phiwiz = {
     });
 
     output += "\nTroubleshooting:"
-    phiwiz.makeTroubleshooting(quest);
+    merlin.makeTroubleshooting(quest);
 
     // Solution
     output += "\nSolution:"
 
     // finally push it out
     document.getElementById("#preview").value = output;
+  },
+
+
+    /**
+   * Show "not implemented" Notification
+   */
+  notImplemented: function () {
+
+    merlin.showNotification("Sorry, not implemented yet", 'top', 'center', 'warning', 500);
+  },
+
+  
+  /**
+   * Show a Notification
+   * @param txt - Text to Show 
+   * @param from - from where the Notification is showing (top, bottom) 
+   * @param align - from where the Notification is aligning (center, left, right) 
+   * @param color - Color ('', 'info', 'success', 'warning', 'danger') 
+   * @param time - Time to show the notification ('', 'info', 'success', 'warning', 'danger') 
+   */
+  showNotification: function (txt, from, align, color, time) {
+
+    $.notify({
+      icon: "pe-7s-info",
+      message: txt
+    }, {
+          type: color,
+          timer: time,
+          placement: {
+          from: from,
+          align: align
+      }
+    });
   }
 }

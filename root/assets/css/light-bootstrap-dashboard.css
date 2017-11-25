@@ -69,7 +69,7 @@ td,
 button.close {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+    /* font-family: "Roboto","Helvetica Neue",Arial,sans-serif; */
     font-weight: 400;
 }
 
@@ -1000,10 +1000,10 @@ fieldset[disabled] .btn-neutral.active {
 .form-control {
     background-color: #FFFFFF;
     border: 1px solid #E3E3E3;
-    border-radius: 4px;
+    border-radius: 6px;
     color: #565656;
     padding: 8px 12px;
-    height: 40px;
+    height: 30px;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
@@ -1299,10 +1299,10 @@ fieldset[disabled] .btn-neutral.active {
 
 .checkbox label::before,
 .checkbox label::after {
-    font-family: 'FontAwesome';
-    content: "\f096";
+    font-family: 'Roboto';
+    /* content: "\f096"; */
     display: inline-block;
-    position: absolute;
+    position: fixed;
     width: 20px;
     height: 20px;
     left: -1px;
@@ -1312,7 +1312,7 @@ fieldset[disabled] .btn-neutral.active {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     top: 1px;
-    color: #DDDDDD;
+    color: #ffffff;
     transition: color 0.2s linear;
     padding: 1px;
 }
@@ -1327,7 +1327,7 @@ fieldset[disabled] .btn-neutral.active {
 
 .checkbox input[type="checkbox"],
 .radio input[type="radio"] {
-    opacity: 0;
+    opacity: 1;
     margin-left: 0;
 }
 
@@ -1337,7 +1337,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .checkbox input[type="checkbox"]:checked + label::after {
-    color: #1DC7EA;
+    color: #ffffff;
 }
 
 .checkbox input[type="checkbox"]:checked + label::before {

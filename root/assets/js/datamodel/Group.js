@@ -27,54 +27,48 @@ Group = {
 
         var group = [];
 
-        // BODY CARE
+        // Haushaltsgeräte
         group.push({
             id: 1,
-            group: "Body Care",
+            group: "Haushaltsgeräte",
         });
 
-        // HEALTH CARE
+        // Avent
         group.push({
             id: 2,
-            group: "Health Care",
-        });
-
-        // GARMIN
-        group.push({
-            id: 3,
-            group: "Garmin",
-        });
-
-        // TOOTHBRUSH
-        group.push({
-            id: 4,
-            group: "Toothbrush",
-        });
-
-        // SHAVING
-        group.push({
-            id: 5,
-            group: "Shaving",
-        });
-
-        // AVENT
-        group.push({
-            id: 6,
             group: "Avent",
         });
 
-        // COOKING
+        // Körperpflege
+        group.push({
+            id: 3,
+            group: "Körperpflege",
+        });
+
+        // Gesundheit
+        group.push({
+            id: 4,
+            group: "Gesundheit",
+        });
+
+        // Referral
+        group.push({
+            id: 5,
+            group: "Referral",
+        });
+
+        // Promotion
+        group.push({
+            id: 6,
+            group: "Promotion",
+        });
+
+        // Ersatzteile
         group.push({
             id: 7,
-            group: "Cooking",
+            group: "Ersatzteile",
         });
 
-        // BLENDER
-        group.push({
-            id: 8,
-            group: "Blender",
-        });
-
-        return group;
+        return group.sort();
     }
 }
