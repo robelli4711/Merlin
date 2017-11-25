@@ -9,20 +9,19 @@ merlin = {
     // hastag
     try {
       output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
-      
+
     } catch (error) {
-      
+
     }
 
     // retailer (!!!is combined with _customretailer)
     output += 'Retailer: ' + JSON.parse(localStorage.getItem("retailer")) + '\n';
 
-    // issue
+    // issues
     output += "\nIssue: "
     var e = document.getElementById("_product");
     var prod;
     try {
-
       prod = e.options[e.selectedIndex].innerHTML;
       output += e.options[e.selectedIndex].innerHTML + "\n";
     } catch (error) {
@@ -30,12 +29,12 @@ merlin = {
       prod = "";
     }
 
-    var id = JSON.parse(localStorage.getItem("issues"))
-
-    id.forEach(function (element) {
-
-      output += "- " + element + '\n';
-    });
+    try {
+      var id = JSON.parse(localStorage.getItem("issues"))
+      id.forEach(function (element) {
+        output += "- " + element + '\n';
+      });
+    } catch (error) {}
 
 
     // finally push it out
@@ -49,7 +48,7 @@ merlin = {
     localStorage.setItem("hashtag", "");
     localStorage.setItem("retailer", "N/A");
     localStorage.setItem("issues", "");
-    
+
   },
 
 
@@ -190,19 +189,23 @@ merlin = {
    */
   onClickIssue: function (id) {
 
-    var quest = []; // lists all selected issues
+    var quest = []; // lists all selected issue Text
+    var ts = [];    // lists all selected issue ID's
 
     jQuery(issues).find('*').each(function (index, value) {
 
       if (value.className === 'checkbox') {
         if (value.children[0].checked) {
           quest.push(value.children['label1'].innerHTML);
+          ts.push(value.children[0].id.substring(2));  
         }
       }
     });
 
     localStorage.setItem("issues", JSON.stringify(quest));
-    this.createOutput();    
+    this.createOutput();
+
+    merlin.makeTroubleshooting(ts);     // set the possible ts steps   
   },
 
 
