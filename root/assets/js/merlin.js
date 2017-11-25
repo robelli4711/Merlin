@@ -10,9 +10,7 @@ merlin = {
     try {
       output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
 
-    } catch (error) {
-
-    }
+    } catch (error) {}
 
     // retailer (!!!is combined with _customretailer)
     output += 'Retailer: ' + JSON.parse(localStorage.getItem("retailer")) + '\n';
@@ -36,6 +34,16 @@ merlin = {
       });
     } catch (error) {}
 
+    // troubleshooting
+    output += "\nTroubleshooting:\n"
+
+    try {
+      var id = JSON.parse(localStorage.getItem("troubleshooting"))
+      id.forEach(function (element) {
+        output += "- " + element + '\n';
+      });
+    } catch (error) {}
+
 
     // finally push it out
     document.getElementById("_preview").value = output;
@@ -48,7 +56,8 @@ merlin = {
     localStorage.setItem("hashtag", "");
     localStorage.setItem("retailer", "N/A");
     localStorage.setItem("issues", "");
-
+    localStorage.setItem("troubleshooting", "");
+    
   },
 
 
@@ -91,7 +100,7 @@ merlin = {
     }
 
     if (document.getElementById("s_3").checked) {
-      output += "\n- Das ERsatzteil ist im Online Shop verfügbar";
+      output += "\n- Das Ersatzteil ist im Online Shop verfügbar";
     }
 
     if (document.getElementById("s_4").checked) {
@@ -144,9 +153,6 @@ merlin = {
     localStorage.setItem("retailer", JSON.stringify(document.getElementById('_retailerDD').value));
     document.getElementById("_customretailer").value = document.getElementById("_retailerDD").value;
     this.createOutput();
-
-    // output += "Retailer: " + document.getElementById("_retailerDD").value + "\n";
-    // document.getElementById("_preview").value = output;
   },
 
 
@@ -190,14 +196,14 @@ merlin = {
   onClickIssue: function (id) {
 
     var quest = []; // lists all selected issue Text
-    var ts = [];    // lists all selected issue ID's
+    var ts = []; // lists all selected issue ID's
 
     jQuery(issues).find('*').each(function (index, value) {
 
       if (value.className === 'checkbox') {
         if (value.children[0].checked) {
           quest.push(value.children['label1'].innerHTML);
-          ts.push(value.children[0].id.substring(2));  
+          ts.push(value.children[0].id.substring(2));
         }
       }
     });
@@ -205,7 +211,34 @@ merlin = {
     localStorage.setItem("issues", JSON.stringify(quest));
     this.createOutput();
 
-    merlin.makeTroubleshooting(ts);     // set the possible ts steps   
+    merlin.makeTroubleshooting(ts); // set the possible ts steps   
+  },
+
+
+  /**
+   * Troubleshooting Checkbox was clicked
+   * @param 
+   * @return 
+   */
+  onClickTroubleshooting: function (id) {
+
+    var quest = []; // lists all selected TS Text
+    var ts = []; // lists all selected TS ID's
+
+    jQuery(_troubleshooting).find('*').each(function (index, value) {
+
+      if (value.className === 'checkbox') {
+        if (value.children[0].checked) {
+          quest.push(value.children['label2'].innerHTML);
+          ts.push(value.children[0].id.substring(2));
+        }
+      }
+    });
+
+    localStorage.setItem("troubleshooting", JSON.stringify(quest));
+    this.createOutput();
+
+    // merlin.makeTroubleshooting(ts); // set the possible ts steps   
   },
 
 
@@ -260,7 +293,7 @@ merlin = {
       var res = Issue.getTroubleshooting(element);
 
       var line = '<div class="col-md-4"><div id="div2" class="checkbox"><input id="idt' + res.id +
-        '" type="checkbox" onclick=\'merlin.selectTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
+        '" type="checkbox" onclick=\'merlin.onClickTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
         '</label></div></div>';
 
       $(_troubleshooting).append(line);
