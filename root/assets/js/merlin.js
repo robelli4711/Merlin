@@ -65,10 +65,10 @@ merlin = {
    * @return 
    */
   onClickHashtag: function () {
-    
-       output = document.getElementById("_retailerDD").value;
-       document.getElementById("#preview").value = output;
-   },
+
+    output = document.getElementById("_retailerDD").value;
+    document.getElementById("#preview").value = output;
+  },
 
   /**
    * Retailer Checkbox was clicked
@@ -76,9 +76,9 @@ merlin = {
    * @return 
    */
   onClickRetailer: function () {
-       output += "Retailer: " + document.getElementById("_retailerDD").value + "\n";
-       document.getElementById("_customretailer").value = document.getElementById("_retailerDD").value;
-       document.getElementById("#preview").value = output;
+    output += "Retailer: " + document.getElementById("_retailerDD").value + "\n";
+    document.getElementById("_customretailer").value = document.getElementById("_retailerDD").value;
+    document.getElementById("#preview").value = output;
   },
 
 
@@ -92,7 +92,7 @@ merlin = {
     var e = document.getElementById("#group"); // selected element in group box
     Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
 
-    if(document.getElementById('_customretailer').value === "") {
+    if (document.getElementById('_customretailer').value === "") {
       merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
     }
   },
@@ -119,6 +119,12 @@ merlin = {
    * @return 
    */
   leaveRetailer: function () {
+
+    // retailer is mandatory
+    if (document.getElementById('_customretailer').value === "") {
+      merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
+      return;
+    }
 
     output += "Retailer:\n" + document.getElementById("_customretailer").value + "\n";
   },
@@ -263,7 +269,7 @@ merlin = {
   },
 
 
-    /**
+  /**
    * Show "not implemented" Notification
    */
   notImplemented: function () {
@@ -271,7 +277,7 @@ merlin = {
     merlin.showNotification("Sorry, not implemented yet", 'top', 'center', 'warning', 500);
   },
 
-  
+
   /**
    * Show a Notification
    * @param txt - Text to Show 
@@ -286,11 +292,11 @@ merlin = {
       icon: "pe-7s-info",
       message: txt
     }, {
-          type: color,
-          timer: time,
-          placement: {
-          from: from,
-          align: align
+      type: color,
+      timer: time,
+      placement: {
+        from: from,
+        align: align
       }
     });
   }
