@@ -3,6 +3,17 @@ var output = "";
 merlin = {
 
   /**
+   * Copy Buttonis clicked
+   * @param 
+   * @return 
+   */
+  onClickCopy: function () {
+      $(_preview).select();
+      document.execCommand('copy');
+    },
+
+
+  /**
    * one of the Solution Checkboxes is clicked
    * @param 
    * @return 

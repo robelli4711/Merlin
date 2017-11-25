@@ -107,7 +107,7 @@
                                         <span class="label label-primary " data-color="blue ">Header</span>
                                     </div>
                                 </div>
-
+                                <br>
                                 <div class="row ">
                                     <div class="col-md-3 ">
                                         <!--start HASHTAG-->
@@ -315,12 +315,21 @@
                     <div class="col-md-4 " style="height: 100%; overflow: auto; ">
                         <div class="card ">
                             <div class="header ">
-                                <h4 class="title ">Preview</h4>
-                                <p class="category ">How it looks like</p>
+                                <div class='row'>
+                                    <div class='col-md-7'>
+                                        <h4 class="title ">Preview</h4>
+                                    </div>
+
+                                    <div class='col-md-5'>
+                                        <button class="btn btn-info btn-round " onclick="merlin.onClickCopy();">Copy</button> 
+                                    </div>
+                                </div>
                             </div>
                             <div class="content ">
-                                <textarea id="_preview" class="form-control " placeholder="Here will be your nice text
-                        " rows="20 "></textarea>
+                                <textarea id="_preview" class="form-control" placeholder='Here will be your nice text' rows="20"></textarea>
+                            </div>
+                            <!--end SUBMITT-->
+
                             </div>
                         </div>
                     </div>
