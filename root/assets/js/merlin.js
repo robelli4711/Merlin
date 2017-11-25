@@ -10,10 +10,19 @@ merlin = {
     try {
       output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
 
+      if (JSON.parse(localStorage.getItem("hashtag")) === ' ') {
+        output = JSON.parse(localStorage.getItem("hashtag")) + '\n';
+      } else {
+        output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+      }
     } catch (error) {}
 
     // retailer (!!!is combined with _customretailer)
-    output += 'Retailer: ' + JSON.parse(localStorage.getItem("retailer")) + '\n';
+    try {
+      output += 'Retailer: ' + JSON.parse(localStorage.getItem("retailer")) + '\n';
+    } catch (error) {
+      output += 'Retailer: N/A\n';
+    }
 
     // issues
     output += "\nIssue: "
@@ -35,7 +44,7 @@ merlin = {
     } catch (error) {}
 
     // troubleshooting
-    output += "\nTroubleshooting:\n"
+    output += "\n\nTroubleshooting:\n"
 
     try {
       var id = JSON.parse(localStorage.getItem("troubleshooting"))
@@ -44,6 +53,14 @@ merlin = {
       });
     } catch (error) {}
 
+    // Solution
+    output += "\nSolution:";
+    try {
+      var id = JSON.parse(localStorage.getItem("solution"))
+      id.forEach(function (element) {
+        output += element;
+      });
+    } catch (error) {}
 
     // finally push it out
     document.getElementById("_preview").value = output;
@@ -57,7 +74,7 @@ merlin = {
     localStorage.setItem("retailer", "N/A");
     localStorage.setItem("issues", "");
     localStorage.setItem("troubleshooting", "");
-    
+    localStorage.setItem("solution", "");
   },
 
 
@@ -80,41 +97,26 @@ merlin = {
    */
   onSelectSolution: function () {
 
-    // clear the previous solution text
-    var TextSearch = document.getElementById("_preview").value;
-    var index = TextSearch.indexOf('Solution:');
-
-    if (index >= 0) { // prevent to clear the text when solution is not written
-      output = TextSearch.substring(0, index);
-    }
-
-    // select the text
-    output += "Solution:";
+    var quest = []; // lists all selected issue Text
 
     if (document.getElementById("s_1").checked) {
-      output += "\n- Das Problem wurde gelöst";
+      quest.push("\n- Das Problem wurde geloest");
     }
-
     if (document.getElementById("s_2").checked) {
-      output += "\n- Ein Reparaturauftrag wurde aufgesetzt, der Kunde ist informiert";
+      quest.push("\n- Ein Reparaturauftrag wurde aufgesetzt, der Kunde ist informiert");
     }
-
     if (document.getElementById("s_3").checked) {
-      output += "\n- Das Ersatzteil ist im Online Shop verfügbar";
+      quest.push("\n- Das Ersatzteil ist im Online Shop verfügbar");
     }
-
     if (document.getElementById("s_4").checked) {
-      output += "\n- Der Kunde bekommt eine EMail mit den notwendigen Instruktionen";
+      quest.push("\n- Der Kunde bekommt eine EMail mit den notwendigen Instruktionen");
     }
-
     if (document.getElementById("s_5").checked) {
-      output += "\n- Der Fall wurde an die Backline eskaliert.";
+      quest.push("\n- Der Fall wurde an die Backline eskaliert.");
     }
 
-    output += "\n- " + document.getElementById("_customSolution").value;
-
-    // put it out
-    document.getElementById("_preview").value = output;
+    localStorage.setItem("solution", JSON.stringify(quest));
+    this.createOutput();
   },
 
   /**
@@ -129,7 +131,7 @@ merlin = {
     Group.get(document.getElementById("_group"));
     Hashtag.get(document.getElementById("_hashtag"));
     Retailer.get(document.getElementById("_retailerDD"));
-    this.makeOutput("");
+    this.createOutput();
   },
 
   /**
@@ -237,8 +239,6 @@ merlin = {
 
     localStorage.setItem("troubleshooting", JSON.stringify(quest));
     this.createOutput();
-
-    // merlin.makeTroubleshooting(ts); // set the possible ts steps   
   },
 
 
@@ -257,8 +257,6 @@ merlin = {
 
     localStorage.setItem("retailer", JSON.stringify(document.getElementById('_customretailer').value));
     this.createOutput();
-
-    // output += "Retailer:\n" + document.getElementById("_customretailer").value + "\n";
   },
 
 
@@ -390,7 +388,7 @@ merlin = {
       }
     });
 
-    output += "\nTroubleshooting:"
+    output += "\n\nTroubleshooting:"
     merlin.makeTroubleshooting(quest);
 
     // Solution
