@@ -10,7 +10,7 @@ merlin = {
   onSelectSolution: function () {
 
     // clear the previous solution text
-    var TextSearch = document.getElementById("#preview").value;
+    var TextSearch = document.getElementById("_preview").value;
     var index = TextSearch.indexOf('Solution:');
 
     if (index >= 0) { // prevent to clear the text when solution is not written
@@ -43,7 +43,7 @@ merlin = {
     output += "\n- " + document.getElementById("_customSolution").value;
 
     // put it out
-    document.getElementById("#preview").value = output;
+    document.getElementById("_preview").value = output;
   },
 
   /**
@@ -53,7 +53,7 @@ merlin = {
    */
   onInit: function () {
 
-    Group.get(document.getElementById("#group"));
+    Group.get(document.getElementById("_group"));
     Hashtag.get(document.getElementById("_hashtag"));
     Retailer.get(document.getElementById("_retailerDD"));
     this.makeOutput("");
@@ -67,7 +67,7 @@ merlin = {
   onClickHashtag: function () {
 
     output = document.getElementById("_retailerDD").value;
-    document.getElementById("#preview").value = output;
+    document.getElementById("_preview").value = output;
   },
 
   /**
@@ -78,7 +78,7 @@ merlin = {
   onClickRetailer: function () {
     output += "Retailer: " + document.getElementById("_retailerDD").value + "\n";
     document.getElementById("_customretailer").value = document.getElementById("_retailerDD").value;
-    document.getElementById("#preview").value = output;
+    document.getElementById("_preview").value = output;
   },
 
 
@@ -89,7 +89,7 @@ merlin = {
    */
   onClickGroup: function () {
 
-    var e = document.getElementById("#group"); // selected element in group box
+    var e = document.getElementById("_group"); // selected element in group box
     Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
 
     if (document.getElementById('_customretailer').value === "") {
@@ -183,7 +183,7 @@ merlin = {
     var arr = [];
 
     // remove the last ts steps
-    var TextSearch = document.getElementById("#preview").value;
+    var TextSearch = document.getElementById("_preview").value;
     var index = TextSearch.indexOf('Troubleshooting:');
     output = TextSearch.substring(0, index + 17);
 
@@ -204,7 +204,7 @@ merlin = {
 
     // additional custom comments
     output += document.getElementById("_customTroubleshooting").value + '\n';
-    document.getElementById("#preview").value = output;
+    document.getElementById("_preview").value = output;
   },
 
 
@@ -265,7 +265,7 @@ merlin = {
     output += "\nSolution:"
 
     // finally push it out
-    document.getElementById("#preview").value = output;
+    document.getElementById("_preview").value = output;
   },
 
 
