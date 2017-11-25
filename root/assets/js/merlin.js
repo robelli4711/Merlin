@@ -10,6 +10,7 @@ merlin = {
   onClickCopy: function () {
       $(_preview).select();
       document.execCommand('copy');
+      merlin.showNotification("The RITS is copied.\nPaste it in Salesforce (Ctrl + v)", "top", "center", "success");     
     },
 
 
