@@ -78,6 +78,42 @@ ProductToIssue = {
         issue.push({ pid: 4, iid: 34 });
         issue.push({ pid: 4, iid: 35 });
 
+        issue.push({ pid: 6, iid: 36 });
+        issue.push({ pid: 6, iid: 37 });
+        issue.push({ pid: 6, iid: 38 });
+        issue.push({ pid: 6, iid: 39 });
+        issue.push({ pid: 6, iid: 40 });
+
+        issue.push({ pid: 7, iid: 41 });
+        issue.push({ pid: 7, iid: 42 });
+        issue.push({ pid: 7, iid: 43 });
+        issue.push({ pid: 7, iid: 44 });
+        issue.push({ pid: 7, iid: 45 });
+
+        issue.push({ pid: 8, iid: 46 });
+        issue.push({ pid: 8, iid: 47 });
+        issue.push({ pid: 8, iid: 48 });
+        issue.push({ pid: 8, iid: 49 });
+        issue.push({ pid: 8, iid: 50 });
+
+        issue.push({ pid: 9, iid: 51 });
+        issue.push({ pid: 9, iid: 52 });
+        issue.push({ pid: 9, iid: 53 });
+        issue.push({ pid: 9, iid: 54 });
+
+        issue.push({ pid: 33, iid: 55 });
+        issue.push({ pid: 33, iid: 56 });
+        issue.push({ pid: 33, iid: 57 });
+        issue.push({ pid: 33, iid: 58 });
+        issue.push({ pid: 33, iid: 59 });
+        issue.push({ pid: 33, iid: 60 });
+
+        issue.push({ pid: 31, iid: 61 });
+        issue.push({ pid: 31, iid: 62 });
+        issue.push({ pid: 31, iid: 63 });
+        issue.push({ pid: 31, iid: 64 });
+        
+        
         return issue;
     }
 }
