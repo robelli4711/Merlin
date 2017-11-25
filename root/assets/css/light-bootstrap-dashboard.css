@@ -1,18 +1,18 @@
-/*!
 
- =========================================================
- * Light Bootstrap Dashboard - v1.4.0
- =========================================================
+/* roboto-regular - latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/gfonts/roboto-v18-latin/roboto-v18-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Roboto'), local('Roboto-Regular'),
+         url('../fonts/gfonts/roboto-v18-latin/roboto-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/gfonts/roboto-v18-latin/roboto-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/gfonts/roboto-v18-latin/roboto-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/gfonts/roboto-v18-latin/roboto-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/gfonts/roboto-v18-latin/roboto-v18-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
 
- * Product Page: http://www.creative-tim.com/product/light-bootstrap-dashboard
- * Copyright 2017 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard/blob/master/LICENSE.md)
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
 /*      light colors         */
 @keyframes spin {
     from {
@@ -69,7 +69,7 @@ td,
 button.close {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+    /* font-family: "Roboto","Helvetica Neue",Arial,sans-serif; */
     font-weight: 400;
 }
 
@@ -1000,10 +1000,10 @@ fieldset[disabled] .btn-neutral.active {
 .form-control {
     background-color: #FFFFFF;
     border: 1px solid #E3E3E3;
-    border-radius: 4px;
+    border-radius: 6px;
     color: #565656;
     padding: 8px 12px;
-    height: 40px;
+    height: 30px;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
@@ -1299,10 +1299,10 @@ fieldset[disabled] .btn-neutral.active {
 
 .checkbox label::before,
 .checkbox label::after {
-    font-family: 'FontAwesome';
-    content: "\f096";
+    font-family: 'Roboto';
+    /* content: "\f096"; */
     display: inline-block;
-    position: absolute;
+    position: fixed;
     width: 20px;
     height: 20px;
     left: -1px;
@@ -1312,7 +1312,7 @@ fieldset[disabled] .btn-neutral.active {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     top: 1px;
-    color: #DDDDDD;
+    color: #ffffff;
     transition: color 0.2s linear;
     padding: 1px;
 }
@@ -1327,7 +1327,7 @@ fieldset[disabled] .btn-neutral.active {
 
 .checkbox input[type="checkbox"],
 .radio input[type="radio"] {
-    opacity: 0;
+    opacity: 1;
     margin-left: 0;
 }
 
@@ -1337,7 +1337,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .checkbox input[type="checkbox"]:checked + label::after {
-    color: #1DC7EA;
+    color: #ffffff;
 }
 
 .checkbox input[type="checkbox"]:checked + label::before {
