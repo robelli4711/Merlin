@@ -105,11 +105,11 @@
                                     <div class="col-md-3 ">
                                         <!--start HASHTAG-->
                                         <div class="col-md-4 ">
-                                            <label>Hashtag</label>
+                                            <label style="vertical-align: sub;">Hashtag</label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <select id="_hashtag" class="dropdown" data-toggle="tooltip" title="Hashtag for special actions" onclick="merlin.onClickHashtag() ">
-                                            </select>
+                                                <select id="_hashtag" class="dropdown " data-toggle="tooltip" title="Hashtag for special actions" onclick="merlin.onClickHashtag() " style=" background-color: white; height: 30px; border-radius: 3px;">
+                                                </select>
                                         </div>
                                     </div>
                                     <!--end HASHTAG-->
@@ -117,11 +117,12 @@
                                     <!--start RETAILER-->
                                     <div class="col-md-3 ">
                                         <div class="col-md-4 ">
-                                            <label>Retailer</label>
+                                            <label style="vertical-align: sub;">Retailer</label>
                                         </div>
                                         <div class="col-md-2 ">
-                                            <select id="_retailerDD" class="dropdown " data-toggle="tooltip" title="most frequent Retailer" onclick="merlin.onClickRetailer() ">
-                                            </select>
+                                            <select id="_retailerDD" class="dropdown " data-toggle="tooltip" title="most frequent Retailer" onclick="merlin.onClickRetailer() " style=" background-color: white; height: 30px; border-radius: 3px;">
+                                        </select>
+                                        
                                         </div>
                                     </div>
 
@@ -153,8 +154,8 @@
                                             <label>Group</label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <select id="_group" class="dropdown " data-toggle="tooltip" title="High Level Product Group" onclick="merlin.onClickGroup() ">
-                                            </select>
+                                                <select id="_group" class="dropdown " data-toggle="tooltip" title="High Level Product Group" onclick="merlin.onClickGroup() " style=" background-color: white; height: 30px; border-radius: 3px;">
+                                                </select>
                                         </div>
                                     </div>
                                     <!--end GROUP-->
@@ -165,8 +166,8 @@
                                             <label>Product</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <select id="_product" class="dropdown" data-toggle="tooltip" title="Product" onclick="merlin.onClickProduct()">
-                                            </select>
+                                                <select id="_product" class="dropdown " data-toggle="tooltip" title="Product" onclick="merlin.onClickProduct() " style=" background-color: white; height: 30px; border-radius: 3px;">
+                                                </select>
                                         </div>
                                     </div>
                                 </div>
@@ -245,32 +246,32 @@
                                         <div id="_solution">
                                             <div class="col-md-4">
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_1" type="checkbox" onclick="merlin.onSelectSolution();">
-                                                    <label id="label2" for="s_1">Solved</label>
+                                                    <input id="s_1" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
+                                                    <label id="label2" for="s_1" style="vertical-align: sub;">Solved</label>
                                                 </div>
                                             </div>
                                             <div class='col-md-4'>
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_2" type="checkbox" onclick="merlin.onSelectSolution();">
-                                                    <label id="label2" for="s_2">Service Center</label>
+                                                    <input id="s_2" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
+                                                    <label id="label2" for="s_2" style="vertical-align: sub;">Service Center</label>
                                                 </div>
                                             </div>
                                             <div class='col-md-4'>
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_3" type="checkbox" onclick="merlin.onSelectSolution();">
-                                                    <label id="label2" for="s_3">OLS</label>
+                                                    <input id="s_3" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
+                                                    <label id="label2" for="s_3" style="vertical-align: sub;">OLS</label>
                                                 </div>
                                             </div>
                                             <div class='col-md-4'>
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_4" type="checkbox" onclick="merlin.onSelectSolution();">
-                                                    <label id="label2" for="s_4">EMail</label>
+                                                    <input id="s_4" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
+                                                    <label id="label2" for="s_4" style="vertical-align: sub;">EMail</label>
                                                 </div>
                                             </div>
                                             <div class='col-md-5'>
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_5" type="checkbox" onclick="merlin.onSelectSolution();">
-                                                    <label id="label2" for="s_5">Backline</label>
+                                                    <input id="s_5" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
+                                                    <label id="label2" for="s_5" style="vertical-align: sub;">Backline</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -306,7 +307,7 @@
                                     </div>
 
                                     <div class='col-md-4'>
-                                        <button class="btn btn-w                 btn-round-small"  data-toggle="tooltip" title="Reset the RITS" onclick="merlin.onClickClear();">Clear</button> 
+                                        <button class="btn btn-warning btn-round-small"  data-toggle="tooltip" title="Reset the RITS" onclick="merlin.onClickClear();">Clear</button> 
                                     </div>
                                 </div>
                             </div>
