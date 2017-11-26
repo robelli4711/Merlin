@@ -39,12 +39,17 @@ Retailer = {
 
         retailer.push({
             id: 3,
-            retailer: "Schlecker",
+            retailer: "Becker",
         });
 
         retailer.push({
             id: 3,
             retailer: "Saturn",
+        });
+
+        retailer.push({
+            id: 3,
+            retailer: "KMC",
         });
 
         retailer.push({

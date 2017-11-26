@@ -2,6 +2,11 @@ var output = "";
 
 merlin = {
 
+  /**
+   *Create Outputto Preview as Batch
+   * @param 
+   * @return 
+   */
   createOutput: function () {
 
     output = ""
@@ -17,7 +22,7 @@ merlin = {
       }
     } catch (error) {}
 
-    // retailer (!!!is combined with _customretailer)
+    // retailer 
     try {
       output += 'Retailer: ' + JSON.parse(localStorage.getItem("retailer")) + '\n';
     } catch (error) {
@@ -43,8 +48,8 @@ merlin = {
       });
     } catch (error) {}
 
-    if(document.getElementById('_customIssue').value) {
-      output += document.getElementById('_customIssue').value + '\n';
+    if (document.getElementById('_customIssue').value) {
+      output += JSON.parse(localStorage.getItem("customissue"));
     }
 
     // troubleshooting
@@ -57,7 +62,7 @@ merlin = {
       });
     } catch (error) {}
 
-    if(document.getElementById('_customTroubleshooting').value) {
+    if (document.getElementById('_customTroubleshooting').value) {
       output += document.getElementById('_customTroubleshooting').value + '\n';
     }
 
@@ -70,18 +75,21 @@ merlin = {
       });
     } catch (error) {}
 
-    if(document.getElementById('_customSolution').value) {
+    if (document.getElementById('_customSolution').value) {
       output += document.getElementById('_customSolution').value + '\n';
     }
-    
+
     // finally push it out
     document.getElementById("_preview").value = output;
   },
 
 
-
+  /**
+   * Clear local Storage after reload
+   * @param 
+   * @return 
+   */
   clear: function () {
-
     localStorage.setItem("hashtag", "");
     localStorage.setItem("retailer", "N/A");
     localStorage.setItem("issues", "");
@@ -91,7 +99,7 @@ merlin = {
 
 
   /**
-   * Copy Buttonis clicked
+   * Copy Button clicked
    * @param 
    * @return 
    */
@@ -99,6 +107,16 @@ merlin = {
     $(_preview).select();
     document.execCommand('copy');
     merlin.showNotification("The RITS is copied.\nPaste it in Salesforce (Ctrl + v)", "top", "center", "success");
+  },
+
+
+  /**
+   * Clear Button clicked
+   * @param 
+   * @return 
+   */
+  onClickClear: function () {   
+    location.reload();
   },
 
 
@@ -260,17 +278,29 @@ merlin = {
    * @return 
    */
   leaveRetailer: function () {
+    
+        // retailer is mandatory
+        if (document.getElementById('_customretailer').value === "") {
+          merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
+          return;
+        }
+    
+        localStorage.setItem("retailer", JSON.stringify(document.getElementById('_customretailer').value));
+        this.createOutput();
+      },
 
-    // retailer is mandatory
-    if (document.getElementById('_customretailer').value === "") {
-      merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
-      return;
-    }
 
-    localStorage.setItem("retailer", JSON.stringify(document.getElementById('_customretailer').value));
+  /**
+   * Input for the Custom Issue lost the cursor focus
+   * @param 
+   * @return 
+   */
+  leaveIssue: function () {
+
+    localStorage.setItem("customissue", JSON.stringify(document.getElementById('_customIssue').value));
     this.createOutput();
   },
-
+    
 
   /**
    * Create a IssueList

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Merllin - RITS Wizard</title>
+    <title>Merlin - RITS Wizard</title>
 
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/img/merlin.ico">
@@ -194,7 +194,7 @@
                                 <div class="row ">
                                     <div class="col-md-12">
                                         <div class="form-group form-red label-floating is-empty">
-                                            <input id="_customIssue" type="text" class="form-control" onfocusout="merlin.makeOutput();" placeholder="additional comments... ">
+                                            <input id="_customIssue" type="text" class="form-control" onfocusout="merlin.leaveIssue();" placeholder="additional comments... ">
                                         </div>
                                     </div>
                                 </div>
@@ -297,12 +297,16 @@
                         <div class="card">
                             <div class="header">
                                 <div class='row'>
-                                    <div class='col-md-7'>
+                                    <div class='col-md-4'>
                                         <h4 class="title">Preview</h4>
                                     </div>
 
-                                    <div class='col-md-5'>
-                                        <button class="btn btn-info btn-round" onclick="merlin.onClickCopy();">Copy</button> 
+                                    <div class='col-md-4'>
+                                        <button class="btn btn-info btn-round" data-toggle="tooltip" title="Copy the RITS and insert in Salesforce with Ctrl+v" onclick="merlin.onClickCopy();">Copy</button> 
+                                    </div>
+
+                                    <div class='col-md-4'>
+                                        <button class="btn btn-w                 btn-round-small"  data-toggle="tooltip" title="Reset the RITS" onclick="merlin.onClickClear();">Clear</button> 
                                     </div>
                                 </div>
                             </div>
