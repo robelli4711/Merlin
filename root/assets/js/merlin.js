@@ -333,7 +333,7 @@ merlin = {
       var res = Issue.getTroubleshooting(element);
 
       var line = '<div class="col-md-4"><div id="div2" class="checkbox"><input id="idt' + res.id +
-        '" type="checkbox" onclick=\'merlin.onClickTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
+        '" type="checkbox" onclick=\'merlin.onClickTroubleshooting();\' style="height: 20px;width: 20px;"><label id="label2" for="idt' + res.id + '" style="vertical-align: sub;">' + res.troubleshooting +
         '</label></div></div>';
 
       $(_troubleshooting).append(line);
