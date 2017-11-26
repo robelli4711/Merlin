@@ -43,6 +43,10 @@ merlin = {
       });
     } catch (error) {}
 
+    if(document.getElementById('_customIssue').value) {
+      output += document.getElementById('_customIssue').value + '\n';
+    }
+
     // troubleshooting
     output += "\n\nTroubleshooting:\n"
 
@@ -53,15 +57,23 @@ merlin = {
       });
     } catch (error) {}
 
+    if(document.getElementById('_customTroubleshooting').value) {
+      output += document.getElementById('_customTroubleshooting').value + '\n';
+    }
+
     // Solution
     output += "\nSolution:";
     try {
       var id = JSON.parse(localStorage.getItem("solution"))
       id.forEach(function (element) {
-        output += element;
+        output += element + '\n';
       });
     } catch (error) {}
 
+    if(document.getElementById('_customSolution').value) {
+      output += document.getElementById('_customSolution').value + '\n';
+    }
+    
     // finally push it out
     document.getElementById("_preview").value = output;
   },
