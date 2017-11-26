@@ -1006,7 +1006,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .form-control {
-    background-color: #FFFFFF;
+    background-color: #f9f9f970;
     border: 1px solid #E3E3E3;
     border-radius: 6px;
     color: #000000;
@@ -1221,11 +1221,11 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .alert-success {
-    background-color: #a1e82c;
+    background-color: #65940d;
 }
 
 .alert-warning {
-    background-color: #ffbc67;
+    background-color: #d8831b;
 }
 
 .alert-danger {
