@@ -743,6 +743,8 @@ fieldset[disabled] .btn-info.active {
 .btn-warning {
     border-color: #FF9500;
     color: #FF9500;
+    border-width: thin;
+    border-radius: 10px;
 }
 
 .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active,
@@ -895,6 +897,12 @@ fieldset[disabled] .btn-neutral.active {
     border-width: 1px;
     border-radius: 10px !important;
     padding: 9px 48px;
+}
+
+.btn-round-small {
+    border-width: 1px;
+    border-radius: 10px !important;
+    padding: 9px 24px;
 }
 
 .btn-round.btn-icon {
