@@ -1217,7 +1217,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .alert-info {
-    background-color: #63d8f1;
+    background-color: #1b99af;
 }
 
 .alert-success {
@@ -1225,11 +1225,11 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .alert-warning {
-    background-color: #d8831b;
+    background-color: #bb731c;
 }
 
 .alert-danger {
-    background-color: #fc727a;
+    background-color: #ca2a35;
 }
 
 .table .radio,
