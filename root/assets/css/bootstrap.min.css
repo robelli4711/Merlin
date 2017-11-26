@@ -5804,14 +5804,14 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .label {
     display: inline;
     padding: .2em .6em .3em;
-    font-size: 75%;
+    font-size: 90%;
     font-weight: 700;
     line-height: 1;
     color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25em
+    border-radius: 0.4em;
 }
 
 a.label:focus,
@@ -5840,7 +5840,7 @@ a.label:hover {
 }
 
 .label-primary {
-    background-color: #337ab7
+    background-color: #005688;
 }
 
 .label-primary[href]:focus,

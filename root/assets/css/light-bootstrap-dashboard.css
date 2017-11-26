@@ -743,6 +743,8 @@ fieldset[disabled] .btn-info.active {
 .btn-warning {
     border-color: #FF9500;
     color: #FF9500;
+    border-width: thin;
+    border-radius: 10px;
 }
 
 .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active,
@@ -897,6 +899,12 @@ fieldset[disabled] .btn-neutral.active {
     padding: 9px 48px;
 }
 
+.btn-round-small {
+    border-width: 1px;
+    border-radius: 10px !important;
+    padding: 9px 24px;
+}
+
 .btn-round.btn-icon {
     padding: 9px;
 }
@@ -998,7 +1006,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .form-control {
-    background-color: #FFFFFF;
+    background-color: #f9f9f970;
     border: 1px solid #E3E3E3;
     border-radius: 6px;
     color: #000000;
@@ -1209,19 +1217,19 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .alert-info {
-    background-color: #63d8f1;
+    background-color: #1b99af;
 }
 
 .alert-success {
-    background-color: #a1e82c;
+    background-color: #65940d;
 }
 
 .alert-warning {
-    background-color: #ffbc67;
+    background-color: #bb731c;
 }
 
 .alert-danger {
-    background-color: #fc727a;
+    background-color: #ca2a35;
 }
 
 .table .radio,
