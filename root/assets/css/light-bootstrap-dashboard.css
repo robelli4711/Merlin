@@ -697,15 +697,15 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-    border-color: #1DC7EA;
-    color: #1DC7EA;
+    border-color: #005688;
+    color: #005688;
 }
 
 .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active,
 .open > .btn-info.dropdown-toggle {
     background-color: transparent;
-    color: #42d0ed;
-    border-color: #42d0ed;
+    color: #005688;
+    border-color: #005688;
 }
 
 .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info:disabled, .btn-info:disabled:hover, .btn-info:disabled:focus, .btn-info:disabled.focus, .btn-info:disabled:active, .btn-info:disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, .btn-info[disabled]:active, .btn-info[disabled].active,
@@ -893,8 +893,8 @@ fieldset[disabled] .btn-neutral.active {
 
 .btn-round {
     border-width: 1px;
-    border-radius: 30px !important;
-    padding: 9px 18px;
+    border-radius: 10px !important;
+    padding: 9px 48px;
 }
 
 .btn-round.btn-icon {
@@ -1001,7 +1001,7 @@ fieldset[disabled] .btn-neutral.active {
     background-color: #FFFFFF;
     border: 1px solid #E3E3E3;
     border-radius: 6px;
-    color: #565656;
+    color: #000000;
     padding: 8px 12px;
     height: 30px;
     -webkit-box-shadow: none;
