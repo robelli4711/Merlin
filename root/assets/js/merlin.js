@@ -2,16 +2,104 @@ var output = "";
 
 merlin = {
 
+  createOutput: function () {
+
+    output = ""
+
+    // hastag
+    try {
+      output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+
+      if (JSON.parse(localStorage.getItem("hashtag")) === ' ') {
+        output = JSON.parse(localStorage.getItem("hashtag")) + '\n';
+      } else {
+        output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+      }
+    } catch (error) {}
+
+    // retailer (!!!is combined with _customretailer)
+    try {
+      output += 'Retailer: ' + JSON.parse(localStorage.getItem("retailer")) + '\n';
+    } catch (error) {
+      output += 'Retailer: N/A\n';
+    }
+
+    // issues
+    output += "\nIssue: "
+    var e = document.getElementById("_product");
+    var prod;
+    try {
+      prod = e.options[e.selectedIndex].innerHTML;
+      output += e.options[e.selectedIndex].innerHTML + "\n";
+    } catch (error) {
+
+      prod = "";
+    }
+
+    try {
+      var id = JSON.parse(localStorage.getItem("issues"))
+      id.forEach(function (element) {
+        output += "- " + element + '\n';
+      });
+    } catch (error) {}
+
+    if(document.getElementById('_customIssue').value) {
+      output += document.getElementById('_customIssue').value + '\n';
+    }
+
+    // troubleshooting
+    output += "\n\nTroubleshooting:\n"
+
+    try {
+      var id = JSON.parse(localStorage.getItem("troubleshooting"))
+      id.forEach(function (element) {
+        output += "- " + element + '\n';
+      });
+    } catch (error) {}
+
+    if(document.getElementById('_customTroubleshooting').value) {
+      output += document.getElementById('_customTroubleshooting').value + '\n';
+    }
+
+    // Solution
+    output += "\nSolution:";
+    try {
+      var id = JSON.parse(localStorage.getItem("solution"))
+      id.forEach(function (element) {
+        output += element + '\n';
+      });
+    } catch (error) {}
+
+    if(document.getElementById('_customSolution').value) {
+      output += document.getElementById('_customSolution').value + '\n';
+    }
+    
+    // finally push it out
+    document.getElementById("_preview").value = output;
+  },
+
+
+
+  clear: function () {
+
+    localStorage.setItem("hashtag", "");
+    localStorage.setItem("retailer", "N/A");
+    localStorage.setItem("issues", "");
+    localStorage.setItem("troubleshooting", "");
+    localStorage.setItem("solution", "");
+  },
+
+
   /**
    * Copy Buttonis clicked
    * @param 
    * @return 
    */
   onClickCopy: function () {
-      $(_preview).select();
-      document.execCommand('copy');
-      merlin.showNotification("The RITS is copied.\nPaste it in Salesforce (Ctrl + v)", "top", "center", "success");     
-    },
+    $(_preview).select();
+    document.execCommand('copy');
+    merlin.showNotification("The RITS is copied.\nPaste it in Salesforce (Ctrl + v)", "top", "center", "success");
+  },
 
 
   /**
@@ -21,41 +109,26 @@ merlin = {
    */
   onSelectSolution: function () {
 
-    // clear the previous solution text
-    var TextSearch = document.getElementById("_preview").value;
-    var index = TextSearch.indexOf('Solution:');
-
-    if (index >= 0) { // prevent to clear the text when solution is not written
-      output = TextSearch.substring(0, index);
-    }
-
-    // select the text
-    output += "Solution:";
+    var quest = []; // lists all selected issue Text
 
     if (document.getElementById("s_1").checked) {
-      output += "\n- Das Problem wurde gelöst";
+      quest.push("\n- Das Problem wurde geloest");
     }
-
     if (document.getElementById("s_2").checked) {
-      output += "\n- Ein Reparaturauftrag wurde aufgesetzt, der Kunde ist informiert";
+      quest.push("\n- Ein Reparaturauftrag wurde aufgesetzt, der Kunde ist informiert");
     }
-
     if (document.getElementById("s_3").checked) {
-      output += "\n- Das ERsatzteil ist im Online Shop verfügbar";
+      quest.push("\n- Das Ersatzteil ist im Online Shop verfügbar");
     }
-
     if (document.getElementById("s_4").checked) {
-      output += "\n- Der Kunde bekommt eine EMail mit den notwendigen Instruktionen";
+      quest.push("\n- Der Kunde bekommt eine EMail mit den notwendigen Instruktionen");
     }
-
     if (document.getElementById("s_5").checked) {
-      output += "\n- Der Fall wurde an die Backline eskaliert.";
+      quest.push("\n- Der Fall wurde an die Backline eskaliert.");
     }
 
-    output += "\n- " + document.getElementById("_customSolution").value;
-
-    // put it out
-    document.getElementById("_preview").value = output;
+    localStorage.setItem("solution", JSON.stringify(quest));
+    this.createOutput();
   },
 
   /**
@@ -65,10 +138,12 @@ merlin = {
    */
   onInit: function () {
 
+    this.clear();
+
     Group.get(document.getElementById("_group"));
     Hashtag.get(document.getElementById("_hashtag"));
     Retailer.get(document.getElementById("_retailerDD"));
-    this.makeOutput("");
+    this.createOutput();
   },
 
   /**
@@ -78,8 +153,8 @@ merlin = {
    */
   onClickHashtag: function () {
 
-    output = document.getElementById("_retailerDD").value;
-    document.getElementById("_preview").value = output;
+    localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
+    this.createOutput();
   },
 
   /**
@@ -88,9 +163,10 @@ merlin = {
    * @return 
    */
   onClickRetailer: function () {
-    output += "Retailer: " + document.getElementById("_retailerDD").value + "\n";
+
+    localStorage.setItem("retailer", JSON.stringify(document.getElementById('_retailerDD').value));
     document.getElementById("_customretailer").value = document.getElementById("_retailerDD").value;
-    document.getElementById("_preview").value = output;
+    this.createOutput();
   },
 
 
@@ -104,6 +180,7 @@ merlin = {
     var e = document.getElementById("_group"); // selected element in group box
     Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
 
+    // plausi retailer
     if (document.getElementById('_customretailer').value === "") {
       merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
     }
@@ -126,6 +203,58 @@ merlin = {
   },
 
   /**
+   * Issue Checkbox was clicked
+   * @param 
+   * @return 
+   */
+  onClickIssue: function (id) {
+
+    var quest = []; // lists all selected issue Text
+    var ts = []; // lists all selected issue ID's
+
+    jQuery(issues).find('*').each(function (index, value) {
+
+      if (value.className === 'checkbox') {
+        if (value.children[0].checked) {
+          quest.push(value.children['label1'].innerHTML);
+          ts.push(value.children[0].id.substring(2));
+        }
+      }
+    });
+
+    localStorage.setItem("issues", JSON.stringify(quest));
+    this.createOutput();
+
+    merlin.makeTroubleshooting(ts); // set the possible ts steps   
+  },
+
+
+  /**
+   * Troubleshooting Checkbox was clicked
+   * @param 
+   * @return 
+   */
+  onClickTroubleshooting: function (id) {
+
+    var quest = []; // lists all selected TS Text
+    var ts = []; // lists all selected TS ID's
+
+    jQuery(_troubleshooting).find('*').each(function (index, value) {
+
+      if (value.className === 'checkbox') {
+        if (value.children[0].checked) {
+          quest.push(value.children['label2'].innerHTML);
+          ts.push(value.children[0].id.substring(2));
+        }
+      }
+    });
+
+    localStorage.setItem("troubleshooting", JSON.stringify(quest));
+    this.createOutput();
+  },
+
+
+  /**
    * Input for the Retailer lost the cursor focus
    * @param 
    * @return 
@@ -138,7 +267,8 @@ merlin = {
       return;
     }
 
-    output += "Retailer:\n" + document.getElementById("_customretailer").value + "\n";
+    localStorage.setItem("retailer", JSON.stringify(document.getElementById('_customretailer').value));
+    this.createOutput();
   },
 
 
@@ -173,7 +303,7 @@ merlin = {
       var res = Issue.getTroubleshooting(element);
 
       var line = '<div class="col-md-4"><div id="div2" class="checkbox"><input id="idt' + res.id +
-        '" type="checkbox" onclick=\'merlin.selectTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
+        '" type="checkbox" onclick=\'merlin.onClickTroubleshooting();\'><label id="label2" for="idt' + res.id + '">' + res.troubleshooting +
         '</label></div></div>';
 
       $(_troubleshooting).append(line);
@@ -270,7 +400,7 @@ merlin = {
       }
     });
 
-    output += "\nTroubleshooting:"
+    output += "\n\nTroubleshooting:"
     merlin.makeTroubleshooting(quest);
 
     // Solution

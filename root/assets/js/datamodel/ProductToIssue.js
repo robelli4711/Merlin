@@ -20,7 +20,7 @@ ProductToIssue = {
                 });
 
                 var line = '<div class="col-md-4"><div id="div1" class="checkbox"><input id="id' + element.iid +
-                    '" type="checkbox" onclick=\'merlin.makeOutput("' + element.iid + '");\'><label id="label1" for="id' + element.iid + '">' + result[0].issue +
+                    '" type="checkbox" onclick=\'merlin.onClickIssue("' + element.iid + '");\'><label id="label1" for="id' + element.iid + '">' + result[0].issue +
                     '</label></div></div>';
 
                 $(target).append(line);

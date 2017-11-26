@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Philips Template Wizard</title>
+    <title>Merllin - RITS Wizard</title>
 
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/img/merlin.ico">
@@ -108,7 +108,7 @@
                                             <label>Hashtag</label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <select id="_hashtag" class="dropdown " onclick="merlin.onClickHashtag() ">
+                                            <select id="_hashtag" class="dropdown" data-toggle="tooltip" title="Hashtag for special actions" onclick="merlin.onClickHashtag() ">
                                             </select>
                                         </div>
                                     </div>
@@ -120,15 +120,14 @@
                                             <label>Retailer</label>
                                         </div>
                                         <div class="col-md-2 ">
-                                            <select id="_retailerDD" class="dropdown " onclick="merlin.onClickRetailer() ">
+                                            <select id="_retailerDD" class="dropdown " data-toggle="tooltip" title="most frequent Retailer" onclick="merlin.onClickRetailer() ">
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 ">
                                         <div class="form-group form-red label-floating is-empty ">
-                                            <input id="_customretailer" type="text " class="form-control
-                        " onfocusout="merlin.makeOutput(); " placeholder="Retailer... "
+                                            <input id="_customretailer" type="text " class="form-control" data-toggle="tooltip" title="Customer Retailer" onfocusout="merlin.makeOutput(); " placeholder="Retailer... "
                                                 value="N/A ">
                                         </div>
                                     </div>
@@ -154,7 +153,7 @@
                                             <label>Group</label>
                                         </div>
                                         <div class="col-md-8 ">
-                                            <select id="_group" class="dropdown " onclick="merlin.onClickGroup() ">
+                                            <select id="_group" class="dropdown " data-toggle="tooltip" title="High Level Product Group" onclick="merlin.onClickGroup() ">
                                             </select>
                                         </div>
                                     </div>
@@ -166,7 +165,7 @@
                                             <label>Product</label>
                                         </div>
                                         <div class="col-md-8">
-                                            <select id="_product" class="dropdown" onclick="merlin.onClickProduct()">
+                                            <select id="_product" class="dropdown" data-toggle="tooltip" title="Product" onclick="merlin.onClickProduct()">
                                             </select>
                                         </div>
                                     </div>
@@ -195,8 +194,7 @@
                                 <div class="row ">
                                     <div class="col-md-12">
                                         <div class="form-group form-red label-floating is-empty">
-                                            <input id="_customIssue" type="text" class="form-control" onfocusout="merlin.makeOutput();
-                        " placeholder="additional comments... ">
+                                            <input id="_customIssue" type="text" class="form-control" onfocusout="merlin.makeOutput();" placeholder="additional comments... ">
                                         </div>
                                     </div>
                                 </div>
@@ -223,10 +221,9 @@
 
                                 <!--start CUSTOM TROUBLESHOOTIING-->
                                 <div class="row ">
-                                    <div class="col-md-12 ">
-                                        <div class="form-group form-red label-floating is-empty ">
-                                            <input id="_customTroubleshooting" type="text " class="form-control
-                        " onfocusout="merlin.selectTroubleshooting(); " placeholder="additional comments... ">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-red label-floating is-empty">
+                                            <input id="_customTroubleshooting" type="text" class="form-control" onfocusout="merlin.selectTroubleshooting();" placeholder="additional comments...">
                                         </div>
                                     </div>
                                 </div>
@@ -285,40 +282,31 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group form-red label-floating is-empty ">
-                                            <input id="_customSolution" type="text " class="form-control
-                        " onfocusout="merlin.onSelectSolution(); " placeholder="additional comments... ">
+                                            <input id="_customSolution" type="text" class="form-control" onfocusout="merlin.onSelectSolution();" placeholder="additional comments... ">
                                         </div>
                                     </div>
                                 </div>
                                 <!--end CUSTOM SOLUTION-->
                                 <!-- end SOLUTION -->
-
-                                <!--start SUBMITT-->
-                                <!-- <hr> -->
-                                <!-- <button class="btn btn-danger btn-round " onclick="merlin.makeOutput(); ">Preview -->
-                                <!--<i class="material-icons ">pe-7s-magic-wand</i>-->
-                                <!-- </button> -->
-                                <!--end SUBMITT-->
-
                             </div>
                         </div>
                     </div>
 
                     <!--start PREVIEW-->
-                    <div class="col-md-4 " style="height: 100%; overflow: auto; ">
-                        <div class="card ">
-                            <div class="header ">
+                    <div class="col-md-4" style="height: 100%; overflow: auto;">
+                        <div class="card">
+                            <div class="header">
                                 <div class='row'>
                                     <div class='col-md-7'>
-                                        <h4 class="title ">Preview</h4>
+                                        <h4 class="title">Preview</h4>
                                     </div>
 
                                     <div class='col-md-5'>
-                                        <button class="btn btn-info btn-round " onclick="merlin.onClickCopy();">Copy</button> 
+                                        <button class="btn btn-info btn-round" onclick="merlin.onClickCopy();">Copy</button> 
                                     </div>
                                 </div>
                             </div>
-                            <div class="content ">
+                            <div class="content">
                                 <textarea id="_preview" class="form-control" placeholder='Here will be your nice text' rows="20"></textarea>
                             </div>
                             <!--end SUBMITT-->
@@ -345,6 +333,7 @@
 <script src="assets/js/datamodel/ProductToIssue.js " type="text/javascript "></script>
 <script src="assets/js/datamodel/Hashtag.js " type="text/javascript "></script>
 <script src="assets/js/datamodel/Retailer.js " type="text/javascript "></script>
+<script src="assets/js/datamodel/Output.js " type="text/javascript "></script>
 
 <!--   Core JS Files   -->
 <script src="assets/js/jquery.3.2.1.min.js " type="text/javascript "></script>
