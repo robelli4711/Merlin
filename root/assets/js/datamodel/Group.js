@@ -69,6 +69,18 @@ Group = {
             group: "Ersatzteile",
         });
 
+        // Online Shop
+        group.push({
+            id: 8,
+            group: "Allgemein",
+        });
+
+        // Online Shop
+        group.push({
+            id: 9,
+            group: "Online Shop",
+        });
+
         return group.sort();
     }
 }

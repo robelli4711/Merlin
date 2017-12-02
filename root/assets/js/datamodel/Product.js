@@ -231,6 +231,13 @@ Product = {
             id_group: 7,
             product: "Alle",
         });
+
+        // Group 9
+        product.push({
+            id: 34,
+            id_group: 9,
+            product: "Online Shop",
+        });
         
         return product.sort();
     },

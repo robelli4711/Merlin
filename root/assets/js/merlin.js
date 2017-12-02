@@ -103,19 +103,6 @@ merlin = {
    * @param 
    * @return 
    */
-  onClickOLS: function () {
-
-    alert();
-
-  },
-
-
-
-  /**
-   * Speedy ofered clicked
-   * @param 
-   * @return 
-   */
   onClickSpeedy: function () {
 
     if (document.getElementById("_speedy").checked) {
