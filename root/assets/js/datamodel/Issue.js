@@ -896,6 +896,8 @@ Issue = {
             solution: ""
         }); */
 
-        return issue.sort();
+        // return alphabetically sorted
+        issue.sort(function(a,b) {return (a.issue > b.issue) ? 1 : ((b.issue > a.issue) ? -1 : 0);} );
+        return issue.reverse();
     }
 }

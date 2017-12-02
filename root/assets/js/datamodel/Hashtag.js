@@ -16,6 +16,9 @@ Hashtag = {
             option.value = element.hashtag;
             obj.add(option, 0);
         });
+
+        // set default value
+        obj.value = "N/A";        
     },
 
 
@@ -81,7 +84,8 @@ Hashtag = {
             description: "Kunde beauftragt den Express-Service für 35 EUR  "
         });
 
-
-        return hashtag.sort();
+        // return alphabetically sorted
+        hashtag.sort(function(a,b) {return (a.hashtag > b.hashtag) ? 1 : ((b.hashtag > a.hashtag) ? -1 : 0);} );
+        return hashtag.reverse();
     }
 }

@@ -16,6 +16,9 @@ Group = {
             option.value = element.id;
             obj.add(option, 0);
         });
+
+        // set default value
+        obj.value = "";        
     },
 
     /**
@@ -81,6 +84,8 @@ Group = {
             group: "Online Shop",
         });
 
-        return group.sort();
+        // return alphabetically sorted
+        group.sort(function(a,b) {return (a.group > b.group) ? 1 : ((b.group > a.group) ? -1 : 0);} );
+        return group.reverse();
     }
 }

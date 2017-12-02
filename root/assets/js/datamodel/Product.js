@@ -22,6 +22,8 @@ Product = {
                 obj.add(option, 0);
             }
         });
+                // set default value
+                obj.value = "";                
     },
 
     /**
@@ -239,7 +241,10 @@ Product = {
             product: "Online Shop",
         });
         
-        return product.sort();
+
+        // return alphabetically sorted
+        product.sort(function(a,b) {return (a.product > b.product) ? 1 : ((b.product > a.product) ? -1 : 0);} );
+        return product.reverse();
     },
 }
 

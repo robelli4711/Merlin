@@ -16,6 +16,9 @@ Retailer = {
             option.value = element.retailer;
             obj.add(option, 0);
         });
+
+        // set default value
+        obj.value = "N/A";
     },
 
     /**
@@ -62,6 +65,9 @@ Retailer = {
             retailer: "Zahnarztpraxis",
         });
 
-        return retailer;
+
+        // return alphabetically sorted
+        retailer.sort(function(a,b) {return (a.retailer > b.retailer) ? 1 : ((b.retailer > a.retailer) ? -1 : 0);} );
+        return retailer.reverse();
     }
 }
