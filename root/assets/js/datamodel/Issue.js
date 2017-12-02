@@ -815,11 +815,75 @@ Issue = {
             solution: "N/A"
         }); 
 
-         issue.push({
+        issue.push({
             id: 72,
             issue: "Kompatibilität der Geräte mit Nachfüllstation",
             question: "Ist meine alte Nachfüllstation kompatibel",
             troubleshooting: "Ist meine alte Nachfüllstation kompatibel",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 9001,
+            issue: "Entspricht nicht der Beschreibung",
+            question: "Umtausch",
+            troubleshooting: "Umtausch/Rueckerstattung aufgesetzt",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 9002,
+            issue: "Gefaellt dem Kunden nicht",
+            question: "Umtausch",
+            troubleshooting: "Umtausch/Rueckerstattung aufgesetzt",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 9003,
+            issue: "Ist zu gross oder zu klein",
+            question: "Umtausch",
+            troubleshooting: "Umtausch/Rueckerstattung aufgesetzt",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 9004,
+            issue: "Ist fehlerhaft oder beschaedigt",
+            question: "Umtausch",
+            troubleshooting: "Umtausch/Rueckerstattung aufgesetzt",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 9005,
+            issue: "Wurde falsch bestellt",
+            question: "Umtausch",
+            troubleshooting: "Umtausch/Rueckerstattung aufgesetzt",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 9006,
+            issue: "Wurde falsch geliefert",
+            question: "Umtausch",
+            troubleshooting: "Umtausch/Rueckerstattung aufgesetzt",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 9007,
+            issue: "Zu lange Lieferzeit",
+            question: "Umtausch",
+            troubleshooting: "Umtausch/Rueckerstattung aufgesetzt",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 9008,
+            issue: "Sonstige Gruende",
+            question: "Umtausch",
+            troubleshooting: "Umtausch/Rueckerstattung aufgesetzt",
             solution: "N/A"
         }); 
 

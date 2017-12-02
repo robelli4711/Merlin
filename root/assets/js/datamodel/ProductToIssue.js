@@ -167,7 +167,16 @@ ProductToIssue = {
         issue.push({ pid: 21, iid: 69 });
         issue.push({ pid: 21, iid: 70 });
         issue.push({ pid: 21, iid: 71 });
-       
+
+        // Online Shop
+        issue.push({ pid: 34, iid: 9001 });
+        issue.push({ pid: 34, iid: 9002 });
+        issue.push({ pid: 34, iid: 9003 });
+        issue.push({ pid: 34, iid: 9004 });
+        issue.push({ pid: 34, iid: 9005 });
+        issue.push({ pid: 34, iid: 9006 });
+        issue.push({ pid: 34, iid: 9007 });
+        issue.push({ pid: 34, iid: 9008 });
         
         return issue;
     }

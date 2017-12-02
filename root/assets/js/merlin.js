@@ -1,6 +1,6 @@
-var output = "";            // Output has to be global
-var mySpeedyText = "";      // Speedy Text have to be global
-var isSpeedySelected = 0;   // indicator for selecting speedy (object control)
+var output = ""; // Output has to be global
+var mySpeedyText = ""; // Speedy Text have to be global
+var isSpeedySelected = 0; // indicator for selecting speedy (object control)
 
 merlin = {
 
@@ -34,7 +34,7 @@ merlin = {
       } else {
         isSpeedySelected = 0;
       }
-    } catch (error) { }  
+    } catch (error) {}
 
     // retailer 
     try {
@@ -60,7 +60,7 @@ merlin = {
       id.forEach(function (element) {
         output += "- " + element + '\n';
       });
-    } catch (error) { }
+    } catch (error) {}
 
     if (document.getElementById('_customIssue').value) {
       output += JSON.parse(localStorage.getItem("customissue"));
@@ -74,7 +74,7 @@ merlin = {
       id.forEach(function (element) {
         output += "- " + element + '\n';
       });
-    } catch (error) { }
+    } catch (error) {}
 
     if (document.getElementById('_customTroubleshooting').value) {
       output += document.getElementById('_customTroubleshooting').value + '\n';
@@ -87,7 +87,7 @@ merlin = {
       id.forEach(function (element) {
         output += element + '\n';
       });
-    } catch (error) { }
+    } catch (error) {}
 
     if (document.getElementById('_customSolution').value) {
       output += document.getElementById('_customSolution').value + '\n';
@@ -212,7 +212,7 @@ merlin = {
    */
   onClickHashtag: function () {
     localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
-//    localStorage.setItem("hashtagdescription", JSON.stringify(Hashtag.getDescription(document.getElementById('_hashtag').value)));
+    //    localStorage.setItem("hashtagdescription", JSON.stringify(Hashtag.getDescription(document.getElementById('_hashtag').value)));
     this.createOutput();
   },
 
@@ -244,7 +244,7 @@ merlin = {
       if (document.getElementById('_customretailer ').value === "") {
         merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
       }
-    } catch(error) {}
+    } catch (error) {}
   },
 
 
@@ -519,12 +519,12 @@ merlin = {
       icon: "pe-7s-info",
       message: txt
     }, {
-        type: color,
-        timer: time,
-        placement: {
-          from: from,
-          align: align
-        }
-      });
+      type: color,
+      timer: time,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
   }
 }
