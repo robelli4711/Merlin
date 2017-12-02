@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/img/merlin.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
     <!-- Bootstrap core CSS     -->
@@ -25,149 +25,127 @@
 </head>
 
 <body>
-    <div class="wrapper">
-
-        <!--data-color="blue | azure | green | orange | red | purple"-->
-        <!-- <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-4.jpg">
-            <div class="sidebar-wrapper">
-                <div class="logo">
-                    <a href="htttp://www.philips.de" class="simple-text">
-                        <small>
-                            <small>
-                                Merlin Template Wizard
-                            </small>
-                        </small>
-                    </a>
-                </div>
-
-                <ul class="nav">
-                    <li class="active">
-                        <a href="#" ">
-                            <i class="pe-7s-umbrella "></i>
-                            <p>RITS</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="# " onclick="merlin.notImplemented() ">
-                            <i class="pe-7s-mail-open "></i>
-                            <p>Mails</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div> -->
 
         <!--start MAIN PANEL-->
-        <div class="main-panel " style="max-height: 100vh; width: 100%; overflow: hidden; ">
-            <nav class="navbar navbar-default navbar-fixed ">
-                <div class="container-fluid" style='background-color:#005688    '>
+        <div class="main-panel" style="max-height: 100vh; width: 100%; overflow: auto;">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid" style='background-color:#005688'>
                     <div class="navbar-header>
-                        <button type=" button " class="navbar-toggle " data-toggle="collapse " data-target="#navigation-example-2 ">
-                            <span class="sr-only ">Toggle navigation</span>
-                            <span class="icon-bar "></span>
-                            <span class="icon-bar "></span>
-                            <span class="icon-bar "></span>
+                        <button type="button" class="navbar-toggle">
                         </button>
-                        <a class="navbar-brand ">Merlin - RITS Template</a>
+                        <a class="navbar-brand">Merlin - RITS Template</a>
             </div>
             <div class="collapse navbar-collapse ">
-                <ul class="nav navbar-nav navbar-left ">
+                <ul class="nav navbar-nav navbar-left">
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right ">
+                <ul class="nav navbar-nav navbar-right">
                 </ul>
             </div>
         </div>
-        </nav>
-
+        </div>
+        <!-- </nav> -->
         <!-- start working body -->
-        <div class="content ">
-            <div class="container-fluid ">
-                <div class="row ">
-                    <div id="_workingbody" class="col-md-8 " style="max-height: 90vh; overflow: auto; ">
-                        <div class="card ">
-                            <div class="header ">
-                                <h4 class="title ">Choose Options</h4>
-                                <p class="category ">
-                                    <small>Select the options for the RITS carefully</small>
-                                </p>
-                            </div>
-                            <hr>
-                            <div class="content ">
+        <div class="content">
+            <div class="container-fluid"  style="background-color: #fbfbfb;">
+                    <div id="_workingbody" class="col-md-8" style="max-height: 90vh; overflow: auto;">
+                        <div class="card " style="margin: 15px; margin-right: 0px">
 
+
+				<ul class="nav nav-tabs">
+                      	    		<li class="active"><a href="#Bla" style="-webkit-text-fill-color: #015687; font-weight: bold;">RITS</a></li>
+	                        	<li><a href="#nice" style="font-weight: bold;color: #015687;">Online Shop</a></li>
+         	            	</ul>
+
+				<div class="header">
+					<label class="title">Choose Options</label>
+				        <p class="category">Select the options for the RITS carefully</p>
+				</div>                            
+
+                            <div class="content">
                                 <!-- start RETAILER -->
-                                <div class="row ">
-                                    <div class="col-md-12 ">
-                                        <span class="label label-primary " data-color="blue ">Header</span>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="label label-primary" data-color="blue">Header</span>
                                     </div>
                                 </div>
                                 <br>
-                                <div class="row ">
-                                    <div class="col-md-3 ">
+                                <div class="row">
+                                    <div class="col-md-3">
                                         <!--start HASHTAG-->
-                                        <div class="col-md-4 ">
-                                            <label style="vertical-align: sub;">Hashtag</label>
+                                        <div class="col-md-4">
+                                            <label>Hashtag</label>
                                         </div>
-                                        <div class="col-md-8 ">
-                                                <select id="_hashtag" class="dropdown " data-toggle="tooltip" title="Hashtag for special actions" onclick="merlin.onClickHashtag() " style=" background-color: #f9f9f970; height: 30px; border-radius: 3px;">
+                                        <div class="col-md-8">
+                                                <select id="_hashtag" class="dropdown" data-toggle="tooltip" title="Hashtag for special actions" onclick="merlin.onClickHashtag();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
                                                 </select>
                                         </div>
                                     </div>
                                     <!--end HASHTAG-->
 
                                     <!--start RETAILER-->
-                                    <div class="col-md-3 ">
-                                        <div class="col-md-4 ">
-                                            <label style="vertical-align: sub;">Retailer</label>
+                                    <div class="col-md-3">
+                                        <div class="col-md-4">
+                                            <label>Retailer</label>
                                         </div>
-                                        <div class="col-md-2 ">
-                                            <select id="_retailerDD" class="dropdown " data-toggle="tooltip" title="most frequent Retailer" onclick="merlin.onClickRetailer() " style=" background-color: #f9f9f970; height: 30px; border-radius: 3px;">
+                                        <div class="col-md-2">
+                                            <select id="_retailerDD" class="dropdown" data-toggle="tooltip" title="most frequent Retailer" onclick="merlin.onClickRetailer();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
                                         </select>
                                         
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6 ">
-                                        <div class="form-group form-red label-floating is-empty ">
-                                            <input id="_customretailer" type="text " class="form-control" data-toggle="tooltip" title="Customer Retailer" onfocusout="merlin.makeOutput(); " placeholder="Retailer... "
-                                                value="N/A ">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-red label-floating is-empty">
+                                            <input id="_customretailer" type="text" class="form-control" data-toggle="tooltip" title="Customer Retailer" onfocusout="merlin.makeOutput();" placeholder="Retailer..." value="N/A">
                                         </div>
                                     </div>
                                 </div>
                                 <!--end RETAILER-->
+				
+				<!--start SPEEDY -->
+				<div id="_speedyrow" class="row" style="visibility: hidden; max-height: 1px;">
+                                	<div id="_speedyrow1" class="col-md-12" style="max-height: 50px;">
+						<div class="col-md-6 ">
+							<div id="div3" class="checkbox">
+								<input type="checkbox" id="_speedy" onclick='merlin.onClickSpeedy();' style="height: 20px; width: 20px;">
+									<label id="label3" for="_speedy" style="margin-left: 5px;">Speedy offered?</label>
+								</input>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
 
+				<!--end SPEEDY -->				
 
-                                <hr>
-
-                                <!-- end RETAILER -->
-
-                                <div class="row ">
-                                    <div class="col-md-12 ">
-                                        <span class="label label-primary ">Product</span>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="label label-primary">Product</span>
                                     </div>
                                 </div>
                                 <br>
 
-                                <div class="row ">
-                                    <div class="col-md-6 ">
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <!--start GROUP-->
-                                        <div class="col-md-4 ">
+                                        <div class="col-md-4">
                                             <label>Group</label>
                                         </div>
-                                        <div class="col-md-8 ">
-                                                <select id="_group" class="dropdown " data-toggle="tooltip" title="High Level Product Group" onclick="merlin.onClickGroup() " style=" background-color: #f9f9f970; height: 30px; border-radius: 3px;">
+                                        <div class="col-md-8">
+                                                <select id="_group" class="dropdown" data-toggle="tooltip" title="High Level Product Group" onclick="merlin.onClickGroup();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
                                                 </select>
                                         </div>
                                     </div>
                                     <!--end GROUP-->
 
                                     <!--start PRODUCT-->
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 ">
                                         <div class="col-md-4">
                                             <label>Product</label>
                                         </div>
                                         <div class="col-md-8">
-                                                <select id="_product" class="dropdown " data-toggle="tooltip" title="Product" onclick="merlin.onClickProduct() " style=" background-color: #f9f9f970; height: 30px; border-radius: 3px;">
+                                                <select id="_product" class="dropdown " data-toggle="tooltip " title="Product" onclick="merlin.onClickProduct() " style=" background-color: #f9f9f970; height: 30px; border-radius: 3px; ">
                                                 </select>
                                         </div>
                                     </div>
@@ -177,7 +155,7 @@
                                 <!-- start ISSUE -->
                                 <hr>
                                 <div class="row ">
-                                    <div class="col-md-12 ">
+                                    <div class="col-md-12">
                                         <span class="label label-primary ">Issue</span>
                                     </div>
                                 </div>
@@ -195,8 +173,8 @@
                                 <!--start CUSTOM ISSUE-->
                                 <div class="row ">
                                     <div class="col-md-12">
-                                        <div class="form-group form-red label-floating is-empty">
-                                            <input id="_customIssue" type="text" class="form-control" onfocusout="merlin.leaveIssue();" placeholder="additional comments... ">
+                                        <div class="form-group form-red label-floating is-empty ">
+                                            <input id="_customIssue" type="text " class="form-control " onfocusout="merlin.leaveIssue();" placeholder="additional comments... ">
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +184,7 @@
                                 <!-- start TROUBLESHOOTIING -->
                                 <hr>
                                 <div class="row ">
-                                    <div class="col-md-12 ">
+                                    <div class="col-md-12">
                                         <span class="label label-primary ">Troubleshooting</span>
                                     </div>
                                 </div>
@@ -214,7 +192,7 @@
 
                                 <!--start TROUBLESHOOTIING-->
                                 <div class="row ">
-                                    <div class="col-md-12 ">
+                                    <div class="col-md-12">
                                         <div id="_troubleshooting">
                                         </div>
                                     </div>
@@ -224,8 +202,8 @@
                                 <!--start CUSTOM TROUBLESHOOTIING-->
                                 <div class="row ">
                                     <div class="col-md-12">
-                                        <div class="form-group form-red label-floating is-empty">
-                                            <input id="_customTroubleshooting" type="text" class="form-control" onfocusout="merlin.selectTroubleshooting();" placeholder="additional comments...">
+                                        <div class="form-group form-red label-floating is-empty ">
+                                            <input id="_customTroubleshooting" type="text" class="form-control" onfocusout="merlin.leaveTroubleshooting(); " placeholder="additional comments... ">
                                         </div>
                                     </div>
                                 </div>
@@ -235,56 +213,74 @@
                                 <!-- start SOLUTION -->
                                 <hr>
                                 <div class="row ">
-                                    <div class="col-md-12 ">
+                                    <div class="col-md-12">
                                         <span class="label label-primary ">Solution</span>
                                     </div>
                                 </div>
                                 <br>
 
                                 <!--start SOLUTION-->
-                                <div class="row">
-                                    <div class="col-md-12">
+                                <div class="row ">
+<div class="col-md-12"> 
                                         <div id="_solution">
-                                            <div class="col-md-4">
-                                                <div id="div2" class="checkbox">
+                                            <div class="col-md-3">
+                                                <div id="div2" class="checkbox ">
                                                     <input id="s_1" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
-                                                    <label id="label2" for="s_1" style="vertical-align: sub;">Solved</label>
+                                                    <label id="label2" for="s_1">Gelöst</label>
                                                 </div>
                                             </div>
-                                            <div class='col-md-4'>
-                                                <div id="div2" class="checkbox">
-                                                    <input id="s_2" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
-                                                    <label id="label2" for="s_2" style="vertical-align: sub;">Service Center</label>
+                                            <div class="col-md-3">
+                                                <div id="div2" class="checkbox ">
+                                                    <input id="s_2" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px; ">
+                                                    <label id="label2" for="s_2">Werkstatt</label>
                                                 </div>
                                             </div>
-                                            <div class='col-md-4'>
+                                            <div class="col-md-3">
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_3" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
-                                                    <label id="label2" for="s_3" style="vertical-align: sub;">OLS</label>
+                                                    <input id="s_3" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px; ">
+                                                    <label id="label2" for="s_3">Philips Online Shop</label>
                                                 </div>
                                             </div>
-                                            <div class='col-md-4'>
+                                            <div class="col-md-3">
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_4" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
-                                                    <label id="label2" for="s_4" style="vertical-align: sub;">EMail</label>
+                                                    <input id="s_4" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px; ">
+                                                    <label id="label2" for="s_4">EMail</label>
                                                 </div>
                                             </div>
-                                            <div class='col-md-5'>
+                                            <div class="col-md-3">
                                                 <div id="div2" class="checkbox">
-                                                    <input id="s_5" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
-                                                    <label id="label2" for="s_5" style="vertical-align: sub;">Backline</label>
+                                                    <input id="s_5" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px; ">
+                                                    <label id="label2" for="s_5">Backline</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div id="div2" class="checkbox">
+                                                    <input id="s_6" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px; ">
+                                                    <label id="label2" for="s_6">Rückruf</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div id="div2" class="checkbox">
+                                                    <input id="s_7" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px;">
+                                                    <label id="label2" for="s_7">Kunde meldet sich erneut</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div id="div2" class="checkbox">
+                                                    <input id="s_8" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px; ">
+                                                    <label id="label2" for="s_8">Gutschein</label>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>                                
                                 </div>
                                 <!--end SOLUTION-->
 
                                 <!--start CUSTOM SOLUTION-->
-                                <div class="row">
+                                <div class="row ">
                                     <div class="col-md-12">
                                         <div class="form-group form-red label-floating is-empty ">
-                                            <input id="_customSolution" type="text" class="form-control" onfocusout="merlin.onSelectSolution();" placeholder="additional comments... ">
+                                            <input id="_customSolution" type="text " class="form-control" onfocusout="merlin.onSelectSolution(); " placeholder="additional comments... ">
                                         </div>
                                     </div>
                                 </div>
@@ -296,37 +292,33 @@
 
                     <!--start PREVIEW-->                         
                     <div class="col-md-4">
-                        <div class="card" style="max-height: 90vh; overflow: auto; ">
+                        <div class="card" style="max-height: 90vh; overflow: auto; margin: 15px; margin-left: 0px; margin-right:5px; overflow: initial; min-height: -webkit-fill-available;"> 
                             <div class="header">
                                 <div class='row'>
-                                    <div class='col-md-4'>
-                                        <h4 class="title">Preview</h4>
+                                    <div class='col-md-8'>
+                                        <h4 class="title " style="margin-top: 5px; ">Preview</h4>
+                                    </div>
+                                    <div class='col-md-2'>
+                                        <button class="btn btn-info btn-round " data-toggle="tooltip " title="Copy the RITS and insert in Salesforce with Ctrl+v " onclick="merlin.onClickCopy(); " style="padding: inherit; ">Copy</button> 
                                     </div>
 
-                                    <div class='col-md-4'>
-                                        <button class="btn btn-info btn-round" data-toggle="tooltip" title="Copy the RITS and insert in Salesforce with Ctrl+v" onclick="merlin.onClickCopy();">Copy</button> 
-                                    </div>
-
-                                    <div class='col-md-4'>
-                                        <button class="btn btn-warning btn-round-small"  data-toggle="tooltip" title="Reset the RITS" onclick="merlin.onClickClear();">Clear</button> 
+                                    <div class='col-md-2'>
+                                        <button class="btn btn-warning btn-round-small "  data-toggle="tooltip" title="Reset the RITS " onclick="merlin.onClickClear(); " style="padding: inherit; ">Clear</button> 
                                     </div>
                                 </div>
                             </div>
                             <div class="content">
-                                <textarea id="_preview" class="form-control" style="background-color: white;" placeholder='Here will be your nice text' rows="20"></textarea>
+                                <textarea id="_preview" class="form-control" style="background-color: white;min-height: -webkit-fill-available;font-size: 18px;" placeholder="Here will be your nice text " rows="20 "></textarea>
                             </div>
                             <!--end SUBMITT-->
 
                             </div>
                         </div>
-                    </div>
                     <!--end PREVIEW-->
 
-                </div>
             </div>
         </div>
         <!-- end working body -->
-    </div>
     <!--end MAIN PANEL-->
 
 </body>
@@ -354,7 +346,7 @@
 <!--DOCUMENT READY-->
 <script type="text/javascript ">
     $(document).ready(function () {
-        $("body ").css("overflow ", "hidden ");
+        $("body").css("overflow", "hidden");
 
         var windowHeight = document.innerHeight;
         $('_workingbody').height(windowHeight);

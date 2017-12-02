@@ -123,7 +123,7 @@ Issue = {
             id: 6,
             issue: "Fehlermeldung",
             question: "Welche Fehlermeldung wird angezeigt",
-            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit TBL",
+            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit technischer Backline",
             solution: "Problem behoben und erfolgreich neu versucht. Problem nicht behoben Gerät zur Reparatur eingesendet"
         });
 
@@ -131,7 +131,7 @@ Issue = {
             id: 7,
             issue: "Gerät ist laut",
             question: "Seit Wann? Woher kommt das Geräusch? Was wurde zuletzt gemacht?",
-            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit TBL",
+            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit technischer Backline",
             solution: "Problem behoben und erfolgreich neu versucht. Problem nicht behoben Gerät zur Reparatur eingesendet"
         });
 
@@ -163,7 +163,7 @@ Issue = {
             id: 11,
             issue: "Die Maschine verliert Wasser",
             question: "Wieviel Wasser? Wo genau? Seit Wann? Welche Farbe hat das Wasser?",
-            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit TBL (Welches troubleshooting?)",
+            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit der technischen Backline (Welches troubleshooting?)",
             solution: "Problem behoben und erfolgreich neu versucht.\nProblem nicht behoben Gerät zur Reparatur eingesendet"
         });
 
@@ -216,6 +216,14 @@ Issue = {
         });
 
         issue.push({
+            id: 1017,
+            issue: "Maschine bleibt hängen (Entkalkung, Spülung)",
+            question: "Maschine bleibt hängen (Entkalkung, Spülung)",
+            troubleshooting: "Zurücksetzung mit 3x ein/ausschaltung, Stecker vom Strom und übernachten lassen",
+            solution: "Problem behoben und erfolgreich neu versucht. Gerät zur Werkstatt eingesendet. Kunde meldet sich sollte das Problem nach dem Troubleshooting weiterbestehen"
+        });
+
+        issue.push({
             id: 18,
             issue: "Das Gerät zieht kein Wasser?",
             question: "Wann wurde das Gerät zuletzt entkalkt/entlüftet?",
@@ -256,11 +264,35 @@ Issue = {
         });
 
         issue.push({
+            id: 2022,
+            issue: "Wasser fließt durch den Filterhalter",
+            question: "Wasser fließt durch den Filterhalter",
+            troubleshooting: "Neuen Dripstop zuschicken wenn in Garantie",
+            solution: "Problem behoben und erfolgreich neu versucht. Problem nicht behoben Gerät zur Reparatur eingesendet"
+        });
+
+        issue.push({
+            id: 2023,
+            issue: "Beschichtung löst sich auf",
+            question: "Ist es Gesundheitsgefährdend?",
+            troubleshooting: "Nein, es ist aber Austausch wenn in Garantie",
+            solution: "N/A"
+        });
+
+        issue.push({
             id: 23,
-            issue: "Der Ein/Ausschalter blinkt schnell",
-            question: "Wurde die Maschine bereits neu gestartet?",
+            issue: "Das Gerät zieht kein Wasser? (blinkt schnell)",
+            question: "Der Ein/Ausschalter blinkt schnell",
             troubleshooting: "Wassertank entnommen, Schwimmer (falls vorhanden) überprüft/entklemmt, Wassertank neu eingefügt",
-            solution: "Problem behoben und neu versucht. Gerät ist innerhalb der Garantie neuen Wassertank (Nummer: xxxxxxx) über Parts bestellt.\nGerät ist außerhalb der Garantie, Ersatzteil herausgesucht und Kunden über Kaufmöglichkeiten informiert"
+            solution: "Werkstatt"
+        });
+
+        issue.push({
+            id: 3023,
+            issue: "Das Gerät zieht kein Wasser? (blinkt langsam)",
+            question: "Blinkt die ein/aus Taste langsam, dauerhaft, länger als 90Sek.?",
+            troubleshooting: "Werkstatt",
+            solution: "Werkstatt"
         });
 
         issue.push({
@@ -283,7 +315,7 @@ Issue = {
             id: 26,
             issue: "Die Maschine verliert Wasser",
             question: "Wieviel Wasser? Wo genau? Seit Wann? Welche Farbe hat das Wasser?",
-            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit TBL (Welches troubleshooting?)",
+            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit der technischen Backline (Welches troubleshooting?)",
             solution: "Problem behoben und erfolgreich neu versucht.\nProblem nicht behoben Gerät zur Reparatur eingesendet"
         });
 
@@ -360,6 +392,22 @@ Issue = {
         });
 
         issue.push({
+            id: 4036,
+            issue: "Passen die Zubehörteile von XL in XXL Airfryer",
+            question: "Passender Zubehör",
+            troubleshooting: "Diese Zubehör passt nicht zum XXL ",
+            solution: "N/A"
+        });
+
+        issue.push({
+            id: 5001,
+            issue: "Kunde kann den Mixbecher/Behälter nicht abdrehen",
+            question: "Kunde kann den Mixbecher/Behälter nicht abdrehen",
+            troubleshooting: "Austausch",
+            solution: "N/A"
+        });
+
+        issue.push({
             id: 36,
             issue: "Gerät geht nicht an",
             question: "Ist die Maschine am Strom angeschlossen?",
@@ -395,8 +443,16 @@ Issue = {
             id: 40,
             issue: "Mein Staubsauger hat an Saugkraft verloren",
             question: "Seit wann besteht dass Problem?\nIst der Beutel/Auffangbehälter voll?\nSind die Filter verstopft? Ist der Schlauch/die Bürste verstopft?",
-            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit TBL (Welches troubleshooting?)",
+            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit der technischen Backline (Welches troubleshooting?)",
             solution: "Problem behoben und erfolgreich neu versucht.\nGerät zur Werkstatt eingesendet.\nKunde meldet sich sollte das Problem nach dem Troubleshooting weiterbestehen"
+        }); 
+
+        issue.push({
+            id: 6001,
+            issue: "Technische Daten (Abmeßungen, Leistungsangaben, usw.",
+            question: "Wie laut ist der Staubsauger?",
+            troubleshooting: "Technische Daten",
+            solution: "N/A"
         }); 
 
         issue.push({
@@ -427,7 +483,7 @@ Issue = {
             id: 44,
             issue: "Die Maschine verliert Wasser",
             question: "Wieviel Wasser? Wo genau? Seit Wann? Welche Farbe hat das Wasser?",
-            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit TBL (Welches troubleshooting?)",
+            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit der technischen Backline (Welches troubleshooting?)",
             solution: "Problem behoben und erfolgreich neu versucht.\nProblem nicht behoben Gerät zur Reparatur eingesendet"
         }); 
 
@@ -437,6 +493,22 @@ Issue = {
             question: "N/A",
             troubleshooting: "Kunden über verschiedene Modi informiert (BDA Seite: *****)",
             solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 7001,
+            issue: "Lampe(n) hören nicht auf zu blinken/leuchten",
+            question: "Lampe(n) hören nicht auf zu blinken/leuchten",
+            troubleshooting: "Knowledge Management Artikel",
+            solution: "Knowledge Management Artikel"
+        }); 
+
+        issue.push({
+            id: 7002,
+            issue: "Reinigung des Wassertanks",
+            question: "Reinigung des Wassertanks",
+            troubleshooting: "Knowledge Management Artikel",
+            solution: "Knowledge Management Artikel"
         }); 
 
         issue.push({
@@ -467,7 +539,7 @@ Issue = {
             id: 49,
             issue: "Gerät ist laut",
             question: "Seit Wann? Woher kommt das Geräusch? Was wurde zuletzt gemacht?",
-            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt. Troubleshooting nach Rücksprache mit TBL",
+            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt. Troubleshooting nach Rücksprache mit der technischen Backline",
             solution: "Problem behoben und erfolgreich neu versucht.\nProblem nicht behoben Gerät zur Reparatur eingesendet"
         }); 
 
@@ -475,8 +547,24 @@ Issue = {
             id: 50,
             issue: "Fehlermeldung",
             question: "Welche Fehlermeldung wird angezeigt",
-            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit TBL",
+            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit der technischen Backline",
             solution: "Problem behoben und erfolgreich neu versucht.\nProblem nicht behoben Gerät zur Reparatur eingesendet"
+        }); 
+
+        issue.push({
+            id: 8001,
+            issue: "Was wird von den Filtern gefiltert",
+            question: "Was wird von den Filtern gefiltert",
+            troubleshooting: "Alles was größer als 0,2nm",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 8002,
+            issue: "Filter schimmelt",
+            question: "Wie reinige ich, verhindere ich das?",
+            troubleshooting: "Wenn waschbar, sauber machen und gut trocknen. Wenn nicht dann austauschen.",
+            solution: "N/A"
         }); 
 
         issue.push({
@@ -512,10 +600,90 @@ Issue = {
         }); 
 
         issue.push({
+            id: 10001,
+            issue: "Macht komische Geräusche",
+            question: "Ist das normal?",
+            troubleshooting: "Austausch",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 11001,
+            issue: "Kompatibilität der Sauger mit Flaschen",
+            question: "Kompatibilität der Sauger mit Flaschen",
+            troubleshooting: "Handouts",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 12001,
+            issue: "Sind die Schnuller BPA-frei?",
+            question: "Sind die Schnuller BPA-frei?",
+            troubleshooting: "Ja die Schnuller sind BPA-frei",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 14001,
+            issue: "Essenreste in Behälter geblieben",
+            question: "Wie kann ich die Essenreste reinigen",
+            troubleshooting: "Nach BDA Anweisung",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 15001,
+            issue: "Keine Verbindung möglich",
+            question: "Kunde kann sein Handy nicht mit der Babyeinheit (Kamera) verbinden",
+            troubleshooting: "Kompatibilität Handy/App prüfen, App neuinstallieren",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 16001,
+            issue: "Klingen stumpf, rasiert nicht gut.",
+            question: "Klingen stumpf, rasiert nicht gut.",
+            troubleshooting: "Klingen sind selbstschärfend, die brauchen ein bisschen Zeit sich einzuschleifen",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 17001,
+            issue: "Passender Zubehör/Kompatibilität",
+            question: "Passender Zubehör/Kompatibilität",
+            troubleshooting: "Website",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 18001,
+            issue: "Unterschiede der Geräte",
+            question: "Kunde fragt wo der Unterschied zwischen den Geräten ist.",
+            troubleshooting: "Website",
+            solution: "N/A"
+        }); 
+
+        issue.push({
+            id: 19001,
+            issue: "Braucht Info über bestimmten HT",
+            question: "Wie laut ist der Haartrockner?",
+            troubleshooting: "Wie laut ist der Haartrockner?",
+            solution: "CCI>>Service Manual"
+        }); 
+
+        issue.push({
+            id: 20001,
+            issue: "Welche Information ist richtig, wo ist der Unterschied?",
+            question: "Wo ist der Unterschied zwischen 31.000 und 62.000 Bürstenkopfbewegungen?",
+            troubleshooting: "Wo ist der Unterschied zwischen 31.000 und 62.000 Bürstenkopfbewegungen?",
+            solution: "N/A"
+        }); 
+
+        issue.push({
             id: 55,
             issue: "Gerät ist laut.",
             question: "Seit Wann? Woher kommt das Geräusch? Was wurde zuletzt gemacht?",
-            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit TBL",
+            troubleshooting: "Troubleshooting laut Bediennungsanleitung (Seite?) durchgeführt.\nTroubleshooting nach Rücksprache mit der technischen Backline",
             solution: "Problem behoben und erfolgreich neu versucht.\nProblem nicht behoben Gerät zur Reparatur eingesendet"
         }); 
 
@@ -565,6 +733,94 @@ Issue = {
             question: "Um Welche Promo Aktion handlet es sich? Wann haben Sie sich registiriert?",
             troubleshooting: "Kunde ist in AYS vorhanden und vollständig registriert. Kunde ist in AYS aber Adresse fehlt. Kunde ist in AYS aber Rechnung fehlt.",
             solution: "< 2 Wochen: Fehlende Daten, Kunde gebeten sich erneut zu registrieren, da Registrierung. \n>2 Wochen: Fehlende Daten aufgenommen und an CBL eskaliert.\n>4 Wochen: Daten erneut abgeglichen und an CBL eskaliert"
+        }); 
+
+        issue.push({
+            id: 62,
+            issue: "Gerät startet nicht",
+            question: "Warum funktioniert der Rasierer nicht, wenn ich den Ein-/Ausschalter drücke?",
+            troubleshooting: "Aus Sicherheitsgründen funktioniert dieser Rasierer nicht, wenn er an eine Steckdose angeschlossen ist",
+            solution: "Gerät nicht am Strom anschliessen wenn es in Gebrauch ist."
+        }); 
+
+        issue.push({
+            id: 63,
+            issue: "Neues Gerät startet nicht",
+            question: "Versuchen Sie, den Rasierer 2 Stunden lang aufzuladen. Ziehen Sie den Stecker des Rasierers dann aus der Steckdose, und prüfen Sie, ob er funktioniert.",
+            troubleshooting: "Möglicherweise war die Batterie fast leer. Dies kann vor dem ersten Gebrauch auftreten. Wenn Sie den Rasierer an die Stromversorgung anschließen, beginnt der Akku zuerst langsam mit dem Aufladen, um Beschädigungen zu vermeiden. Nach ca. 30 Minuten sollte der Akku soweit aufgeladen sein, dass die Ladeanzeige aufleuchtet.",
+            solution: "Problem behoben und erfolgreich neu versucht. Problem nicht behoben Gerät zur Reparatur eingesendet"
+        }); 
+
+        issue.push({
+            id: 64,
+            issue: "Der Klang des Rasieres ändert sich.",
+            question: "Haben Sie die +/- Taste gedrückt?",
+            troubleshooting: "Wenn Sie die Taste “+” oder “-” auf dem Rasierer drücken, erhöht oder verringert sich die Drehgeschwindigkeit der Schermesser. Sie können dies hören, weil sich die Lautstärke des Motors im Inneren des Rasierers erhöht bzw. verringert.",
+            solution: "Problem behoben und erfolgreich neu versucht. Problem nicht behoben Gerät zur Reparatur eingesendet"
+        }); 
+
+        issue.push({
+            id: 65,
+            issue: "Das Schereinheitssymbol blinkt auf meinem Philips Rasierer.",
+            question: "Das Schereinheitssymbol wird automatisch für 7 bis 10 aufeinanderfolgende Rasuren angezeigt und erlischt anschließend.",
+            troubleshooting: "Sie können es auch manuell zurücksetzen. Halten Sie den Ein-/Aus-Schalter (ON/OFF) ungefähr 10 Sekunden lang gedrückt.",
+            solution: "Problem behoben und erfolgreich neu versucht. Problem nicht behoben Gerät zur Reparatur eingesendet"
+        }); 
+
+        issue.push({
+            id: 66,
+            issue: "Lautes Geräusch",
+            question: "Haben Sie den Bürstenkopf bereits gewechselt?",
+            troubleshooting: "Haben Sie den Bürstenkopf bereits gewechselt?",
+            solution: "Problem behoben und erfolgreich neu versucht. Problem nicht behoben Gerät zur Reparatur eingesendet"
+        }); 
+
+        issue.push({
+            id: 67,
+            issue: "Lebensdauer der Bürstenköpfe",
+            question: "Wann haben Sie den Bürstenkopf zuletzt gewechselt?",
+            troubleshooting: "2-3 Monate",
+            solution: "Problem behoben und erfolgreich"
+        }); 
+
+        issue.push({
+            id: 68,
+            issue: "Das Gerät ist sehr laut",
+            question: "Wann haben Sie den Bürstenkopf zuletzt gewechselt?",
+            troubleshooting: "Bürstenköpfe wechseln",
+            solution: "Problem behoben und erfolgreich"
+        }); 
+
+         issue.push({
+            id: 69,
+            issue: "Welche BK sind kompatibel?",
+            question: "Passen alle Bürstenkopfe auf alle Handstücke?",
+            troubleshooting: "Passen alle Bürstenkopfe auf alle Handstücke?",
+            solution: "Ja, meistens. Wenn nicht dann im Handouts die Bürstenköpfe Kompatibilität aufsuchen und vergleichen."
+        }); 
+
+         issue.push({
+            id: 70,
+            issue: "Gerät startet nicht",
+            question: "Das Gerät startet nicht mehr",
+            troubleshooting: "Laden Sie das Gerät mindestens 24 Stunden auf",
+            solution: "Problem behoben und erfolgreich neu versucht. Problem nicht behoben Gerät zur Reparatur eingesendet"
+        }); 
+
+         issue.push({
+            id: 71,
+            issue: "Kunde will eine UV-Station kaufen",
+            question: "Passen alle BK in die UV-Reinigungsstation",
+            troubleshooting: "Passen alle BK in die UV-Reinigungsstation",
+            solution: "N/A"
+        }); 
+
+         issue.push({
+            id: 72,
+            issue: "Kompatibilität der Geräte mit Nachfüllstation",
+            question: "Ist meine alte Nachfüllstation kompatibel",
+            troubleshooting: "Ist meine alte Nachfüllstation kompatibel",
+            solution: "N/A"
         }); 
 
 

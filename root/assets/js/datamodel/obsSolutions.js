@@ -43,6 +43,11 @@ Retailer = {
         });
 
         retailer.push({
+            id: 4,
+            retailer: "Becker",
+        });
+
+        retailer.push({
             id: 5,
             retailer: "Amazon",
         });
@@ -59,7 +64,7 @@ Retailer = {
 
         retailer.push({
             id: 8,
-            retailer: "Zahnarztpraxis",
+            retailer: "Schlecker",
         });
 
         return retailer;

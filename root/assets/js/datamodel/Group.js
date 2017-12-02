@@ -54,7 +54,7 @@ Group = {
         // Referral
         group.push({
             id: 5,
-            group: "Referral",
+            group: "Weiterleitung",
         });
 
         // Promotion
