@@ -388,14 +388,14 @@ Issue = {
             issue: "Das Gerät gibt weißen Rauch ab",
             question: "Warum raucht das Gerät?",
             troubleshooting: "Kunden informiert, dass dies normal ist (zuviel Oel wird zu heiß)",
-            solution: "Oel wird zu heiss"
+            solution: "Das Oel wird zu heiss"
         });
 
         issue.push({
             id: 4036,
-            issue: "Passen die Zubehörteile von XL in XXL Airfryer",
-            question: "Passender Zubehör",
-            troubleshooting: "Diese Zubehör passt nicht zum XXL ",
+            issue: "Passen die Zubehörteile des Airfryer XL zum XXL Airfryer",
+            question: "Passendes Zubehör",
+            troubleshooting: "Das Zubehör des Airfryer XL passt nicht zum Airfryer XXL",
             solution: "N/A"
         });
 
@@ -403,7 +403,7 @@ Issue = {
             id: 5001,
             issue: "Kunde kann den Mixbecher/Behälter nicht abdrehen",
             question: "Kunde kann den Mixbecher/Behälter nicht abdrehen",
-            troubleshooting: "Austausch",
+            troubleshooting: "Wenn sich das Geraet in der Garantiezeit befindet, kann es ausgetauscht werden",
             solution: "N/A"
         });
 
@@ -458,7 +458,7 @@ Issue = {
         issue.push({
             id: 41,
             issue: "Gerät geht nicht an",
-            question: "Ist die Maschiene am Strom angeschlossen?",
+            question: "Ist die Maschine am Strom angeschlossen?",
             troubleshooting: "Gerät an Strom angeschlossen.",
             solution: "Problem behoben und erfolgreich neu versucht.\nProblem nicht behoben Gerät zur Reparatur eingesendet"
         }); 
@@ -514,7 +514,7 @@ Issue = {
         issue.push({
             id: 46,
             issue: "Gerät geht nicht an",
-            question: "Ist die Maschiene am Strom angeschlossen?",
+            question: "Ist die Maschine am Strom angeschlossen?",
             troubleshooting: "Gerät an Strom angeschlossen.",
             solution: "Problem behoben und erfolgreich neu versucht.\nProblem nicht behoben Gerät zur Reparatur eingesendet"
         }); 
@@ -690,7 +690,7 @@ Issue = {
         issue.push({
             id: 56,
             issue: "Gerät geht nicht an.",
-            question: "Ist die Maschiene am Strom angeschlossen?",
+            question: "Ist die Maschine am Strom angeschlossen?",
             troubleshooting: "Gerät an Strom angeschlossen.",
             solution: "Problem behoben und erfolgreich neu versucht.\nProblem nicht behoben Gerät zur Reparatur eingesendet"
         }); 

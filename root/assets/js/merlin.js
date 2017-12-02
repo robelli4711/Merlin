@@ -242,7 +242,7 @@ merlin = {
     // plausi retailer
     try {
       if (document.getElementById('_customretailer ').value === "") {
-        merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
+        merlin.showNotification("Don't forget the Retailer", "top", "center", "danger");
       }
     } catch (error) {}
   },
@@ -324,7 +324,7 @@ merlin = {
 
     // retailer is mandatory
     if (document.getElementById('_customretailer').value === "") {
-      merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
+      merlin.showNotification("Don't forget the Retailer", "top", "center", "danger");
       return;
     }
 
