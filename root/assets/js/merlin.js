@@ -5,7 +5,7 @@ var isSpeedySelected = 0; // indicator for selecting speedy (object control)
 merlin = {
 
   /**
-   *Create Outputto Preview as Batch
+   *Create Output to Preview as Batch
    * @param 
    * @return 
    */

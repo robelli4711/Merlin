@@ -127,8 +127,16 @@ ProductToIssue = {
         issue.push({ pid: 11, iid: 11001 });
         issue.push({ pid: 12, iid: 12001 });
         issue.push({ pid: 14, iid: 14001 });
+        issue.push({ pid: 14, iid: 900000 });
+        issue.push({ pid: 14, iid: 900001 });
+        issue.push({ pid: 14, iid: 900002 });
         issue.push({ pid: 15, iid: 15001 });
-
+        issue.push({ pid: 15, iid: 15002 });
+        issue.push({ pid: 15, iid: 15003 });
+        issue.push({ pid: 15, iid: 900000 });
+        issue.push({ pid: 15, iid: 900001 });
+        issue.push({ pid: 15, iid: 900002 });
+        
         // ALL
         issue.push({ pid: 33, iid: 55 });
         issue.push({ pid: 33, iid: 56 });
@@ -137,9 +145,12 @@ ProductToIssue = {
         issue.push({ pid: 33, iid: 59 });
         issue.push({ pid: 33, iid: 60 });
 
+        // SPARE PARTS
+        issue.push({ pid: 32, iid: 900000 });
+
         // ALL
         issue.push({ pid: 31, iid: 61 });
-
+        
         // SHAVER
         issue.push({ pid: 16, iid: 62 });
         issue.push({ pid: 16, iid: 63 });
@@ -150,23 +161,23 @@ ProductToIssue = {
 
         // Hair Removal
         issue.push({ pid: 18, iid: 18001 });
-
+        issue.push({ pid: 18, iid: 999999 });
+        
         // Hair Care
         issue.push({ pid: 19, iid: 19001 });
-
-        // TOOTHBRUSH HEADS
-        issue.push({ pid: 21, iid: 66 });
-        issue.push({ pid: 21, iid: 67 });
 
         // SONICARE
         issue.push({ pid: 20, iid: 68 });
         issue.push({ pid: 20, iid: 69 });
         issue.push({ pid: 20, iid: 20001 });
-
+        issue.push({ pid: 20, iid: 900001 });
+        issue.push({ pid: 20, iid: 900002 });
+        
         // SONICARE Heads
         issue.push({ pid: 21, iid: 69 });
-        issue.push({ pid: 21, iid: 70 });
         issue.push({ pid: 21, iid: 71 });
+        issue.push({ pid: 21, iid: 66 });
+        issue.push({ pid: 21, iid: 67 });
 
         // Online Shop
         issue.push({ pid: 34, iid: 9001 });
