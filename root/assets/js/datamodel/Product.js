@@ -234,6 +234,13 @@ Product = {
             product: "Alle",
         });
 
+        // Group 8
+        product.push({
+            id: 33,
+            id_group: 8,
+            product: "Andere",
+        });
+
         // Group 9
         product.push({
             id: 34,

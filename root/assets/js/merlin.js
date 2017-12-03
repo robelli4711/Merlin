@@ -93,8 +93,13 @@ merlin = {
       output += document.getElementById('_customSolution').value + '\n';
     }
 
+    // set timesamp
+    var myTimestamp = "\n\n\n(merlin"; 
+    var d = new Date();
+    output += myTimestamp + d.getTime();
+
     // finally push it out
-    document.getElementById("_preview").value = output;
+    document.getElementById("_preview").value = output + ')';
   },
 
 
