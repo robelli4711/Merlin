@@ -203,6 +203,8 @@ merlin = {
     Hashtag.get(document.getElementById("_hashtag"));
     Retailer.get(document.getElementById("_retailerDD"));
     this.createOutput();
+
+    $(_loader).hide();
   },
 
   /**

@@ -20,13 +20,15 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
 
+    <!-- 5Sigma/Teleperformance -->
+    <link href="assets/css/teleperformance.css" rel="stylesheet" />
+
     <!--     Fonts and icons     -->
     <link href="assets/fonts/font-awesome.min.css" rel='stylesheet'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 
 <body>
-
     <!--start MAIN PANEL-->
     <div class="main-panel" style="max-height: 100vh; width: 100%; overflow: auto;">
         <nav class="navbar navbar-default navbar-fixed">
@@ -48,10 +50,10 @@
     <!-- </nav> -->
     <!-- start working body -->
     <div class="content">
-        <div class="container-fluid" style="background-color: #fbfbfb;">
+        <div class="container-fluid">
             <div id="_workingbody" class="col-xs-8 col-md-8" style="max-height: 90vh; overflow: auto;">
-                <div class="card " style="margin: 15px; margin-right: 0px">
-
+                <div class="workingbody card">
+                    <div id="_loader" class="loader"></div>
                     <div class="header">
                         <label class="title">Choose Options</label>
                         <p class="category">Select the options for the RITS carefully</p>
@@ -61,7 +63,7 @@
                         <!-- start RETAILER -->
                         <div class="row">
                             <div class="col-md-12">
-                                <span class="label label-primary" data-color="blue">Header</span>
+                                <span class="label label-primary">Header</span>
                             </div>
                         </div>
                         <br>
@@ -102,7 +104,7 @@
                         <!--end RETAILER-->
 
                         <!--start SPEEDY -->
-                        <div id="_speedyrow" class="row" style="visibility: hidden; max-height: 1px;">
+                        <!-- <div id="_speedyrow" class="row" style="visibility: hidden; max-height: 1px;">
                             <div id="_speedyrow1" class="col-md-12" style="max-height: 50px;">
                                 <div class="col-md-6 ">
                                     <div id="div3" class="checkbox">
@@ -112,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <hr>
 
                         <!--end SPEEDY -->
@@ -126,6 +128,7 @@
 
                         <div class="row">
                             <div class="col-md-6">
+
                                 <!--start GROUP-->
                                 <div class="col-md-4">
                                     <label>Group</label>
@@ -151,8 +154,11 @@
                         </div>
                         <!--end PRODUCT-->
 
-                        <!-- start ISSUE -->
+                        <!-- never ask why - it needs a double <hr> -->
                         <hr>
+                        <hr>
+
+                        <!-- start ISSUE -->
                         <div class="row ">
                             <div class="col-md-12">
                                 <span class="label label-primary ">Issue</span>
@@ -172,8 +178,8 @@
                         <!--start CUSTOM ISSUE-->
                         <div class="row ">
                             <div class="col-md-12">
-                                <div class="form-group form-red label-floating is-empty ">
-                                    <input id="_customIssue" type="text " class="form-control " onfocusout="merlin.leaveIssue();" placeholder="additional comments... ">
+                                <div class="form-group form-red label-floating is-empty">
+                                    <input id="_customIssue" type="text " class="form-control" onfocusout="merlin.leaveIssue();" placeholder="additional comments... ">
                                 </div>
                             </div>
                         </div>
