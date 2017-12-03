@@ -13,7 +13,7 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    
+
     <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet" />
 
@@ -21,15 +21,14 @@
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
 
     <!-- 5Sigma/Teleperformance -->
-    <link href="assets/css/teleperformance.css" rel="stylesheet" />  
-    
+    <link href="assets/css/teleperformance.css" rel="stylesheet" />
+
     <!--     Fonts and icons     -->
     <link href="assets/fonts/font-awesome.min.css" rel='stylesheet'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 
 <body>
-
     <!--start MAIN PANEL-->
     <div class="main-panel" style="max-height: 100vh; width: 100%; overflow: auto;">
         <nav class="navbar navbar-default navbar-fixed">
@@ -54,7 +53,7 @@
         <div class="container-fluid">
             <div id="_workingbody" class="col-xs-8 col-md-8" style="max-height: 90vh; overflow: auto;">
                 <div class="workingbody card">
-
+                    <div id="_loader" class="loader"></div>
                     <div class="header">
                         <label class="title">Choose Options</label>
                         <p class="category">Select the options for the RITS carefully</p>
@@ -156,8 +155,9 @@
                         <!--end PRODUCT-->
 
                         <!-- never ask why - it needs a double <hr> -->
-                        <hr><hr>        
-                        
+                        <hr>
+                        <hr>
+
                         <!-- start ISSUE -->
                         <div class="row ">
                             <div class="col-md-12">
