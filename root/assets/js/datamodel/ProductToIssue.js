@@ -137,14 +137,6 @@ ProductToIssue = {
         issue.push({ pid: 15, iid: 900001 });
         issue.push({ pid: 15, iid: 900002 });
         
-        // ALL
-        issue.push({ pid: 33, iid: 55 });
-        issue.push({ pid: 33, iid: 56 });
-        issue.push({ pid: 33, iid: 57 });
-        issue.push({ pid: 33, iid: 58 });
-        issue.push({ pid: 33, iid: 59 });
-        issue.push({ pid: 33, iid: 60 });
-
         // SPARE PARTS
         issue.push({ pid: 32, iid: 900000 });
 
@@ -178,6 +170,9 @@ ProductToIssue = {
         issue.push({ pid: 21, iid: 71 });
         issue.push({ pid: 21, iid: 66 });
         issue.push({ pid: 21, iid: 67 });
+
+        // Allgemein
+        issue.push({ pid: 33, iid: 3300 });
 
         // Online Shop
         issue.push({ pid: 34, iid: 9001 });

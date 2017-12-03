@@ -903,6 +903,14 @@ Issue = {
             solution: "N/A"
         });
 
+        issue.push({
+            id: 3300,
+            issue: "Allgemeine Informationen",
+            question: "Der Kunde wuenscht eine Auskunft",
+            troubleshooting: "Die gewuenschte Auskunft weitergegeben",
+            solution: "N/A"
+        });
+
         // STANDARD 
         issue.push({
             id: 900000,
