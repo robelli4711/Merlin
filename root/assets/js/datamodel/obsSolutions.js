@@ -16,9 +16,6 @@ Retailer = {
             option.value = element.retailer;
             obj.add(option, 0);
         });
-
-        // set default value
-        obj.value = "N/A";
     },
 
     /**
@@ -46,6 +43,11 @@ Retailer = {
         });
 
         retailer.push({
+            id: 4,
+            retailer: "Becker",
+        });
+
+        retailer.push({
             id: 5,
             retailer: "Amazon",
         });
@@ -62,12 +64,9 @@ Retailer = {
 
         retailer.push({
             id: 8,
-            retailer: "Zahnarztpraxis",
+            retailer: "Schlecker",
         });
 
-
-        // return alphabetically sorted
-        retailer.sort(function(a,b) {return (a.retailer > b.retailer) ? 1 : ((b.retailer > a.retailer) ? -1 : 0);} );
-        return retailer.reverse();
+        return retailer;
     }
 }

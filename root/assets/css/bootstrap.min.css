@@ -2005,6 +2005,7 @@ pre code {
 }
 
 .container-fluid {
+    background-color: #fbfbfb;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -4243,7 +4244,7 @@ tbody.collapse.in {
 
 .dropdown,
 .dropup {
-    position: relative
+    position: relative;
 }
 
 .dropdown-toggle:focus {
@@ -5805,7 +5806,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
     display: inline;
     padding: .2em .6em .3em;
     font-size: 90%;
-    font-weight: 700;
+    font-weight: 100;
     line-height: 1;
     color: #fff;
     text-align: center;

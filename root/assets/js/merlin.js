@@ -1,14 +1,16 @@
-var output = "";
+var output = ""; // Output has to be global
+var mySpeedyText = ""; // Speedy Text have to be global
+var isSpeedySelected = 0; // indicator for selecting speedy (object control)
 
 merlin = {
 
   /**
-   *Create Outputto Preview as Batch
+   *Create Output to Preview as Batch
    * @param 
    * @return 
    */
   createOutput: function () {
-
+    var isFirst = true;
     output = ""
 
     // hastag
@@ -16,9 +18,21 @@ merlin = {
       output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
 
       if (JSON.parse(localStorage.getItem("hashtag")) === ' ') {
-        output = JSON.parse(localStorage.getItem("hashtag")) + '\n';
+        output = "";
       } else {
         output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+        output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
+      }
+
+      // for speedy show for a receipt
+      if (JSON.parse(localStorage.getItem("hashtag")) === "Speedy") {
+        if (isSpeedySelected == 0) {
+          merlin.showNotification("Has the customer accepted Speedy?", "top", "center", "danger");
+          isSpeedySelected = 1;
+          output += mySpeedyText;
+        }
+      } else {
+        isSpeedySelected = 0;
       }
     } catch (error) {}
 
@@ -67,7 +81,7 @@ merlin = {
     }
 
     // Solution
-    output += "\nSolution:";
+    output += "\nSolution:\n";
     try {
       var id = JSON.parse(localStorage.getItem("solution"))
       id.forEach(function (element) {
@@ -79,8 +93,30 @@ merlin = {
       output += document.getElementById('_customSolution').value + '\n';
     }
 
+    // set timesamp
+    var myTimestamp = "\n\n\n(merlin"; 
+    var d = new Date();
+    output += myTimestamp + d.getTime();
+
     // finally push it out
-    document.getElementById("_preview").value = output;
+    document.getElementById("_preview").value = output + ')';
+  },
+
+
+  /**
+   * Speedy ofered clicked
+   * @param 
+   * @return 
+   */
+  onClickSpeedy: function () {
+
+    if (document.getElementById("_speedy").checked) {
+      mySpeedyText = "Speedy vom Kunden akzeptiert\n\n";
+    } else {
+      mySpeedyText = "\n";
+    }
+
+    this.createOutput();
   },
 
 
@@ -90,11 +126,12 @@ merlin = {
    * @return 
    */
   clear: function () {
-    localStorage.setItem("hashtag", "");
+    localStorage.setItem("hashtag", "---");
+    localStorage.setItem("hashtagdescription", "---");
     localStorage.setItem("retailer", "N/A");
-    localStorage.setItem("issues", "");
-    localStorage.setItem("troubleshooting", "");
-    localStorage.setItem("solution", "");
+    localStorage.setItem("issues", "---");
+    localStorage.setItem("troubleshooting", "---");
+    localStorage.setItem("solution", "---");
   },
 
 
@@ -115,7 +152,7 @@ merlin = {
    * @param 
    * @return 
    */
-  onClickClear: function () {   
+  onClickClear: function () {
     location.reload();
   },
 
@@ -130,19 +167,28 @@ merlin = {
     var quest = []; // lists all selected issue Text
 
     if (document.getElementById("s_1").checked) {
-      quest.push("\n- Das Problem wurde geloest");
+      quest.push("- Das Problem wurde gelöst");
     }
     if (document.getElementById("s_2").checked) {
-      quest.push("\n- Ein Reparaturauftrag wurde aufgesetzt, der Kunde ist informiert");
+      quest.push("- Ein Reparaturauftrag wurde aufgesetzt, der Kunde ist informiert");
     }
     if (document.getElementById("s_3").checked) {
-      quest.push("\n- Das Ersatzteil ist im Online Shop verfügbar");
+      quest.push("- Das Ersatzteil ist im Online Shop verfügbar");
     }
     if (document.getElementById("s_4").checked) {
-      quest.push("\n- Der Kunde bekommt eine EMail mit den notwendigen Instruktionen");
+      quest.push("- Der Kunde bekommt eine EMail mit den notwendigen Instruktionen");
     }
     if (document.getElementById("s_5").checked) {
-      quest.push("\n- Der Fall wurde an die Backline eskaliert.");
+      quest.push("- Der Fall wurde an die Backline eskaliert.");
+    }
+    if (document.getElementById("s_6").checked) {
+      quest.push("- Den Kunden erneut kontaktieren");
+    }
+    if (document.getElementById("s_7").checked) {
+      quest.push("- Der Kunde wird sich noch einmal melden");
+    }
+    if (document.getElementById("s_8").checked) {
+      quest.push("- Gutschein ausgestellt");
     }
 
     localStorage.setItem("solution", JSON.stringify(quest));
@@ -162,6 +208,8 @@ merlin = {
     Hashtag.get(document.getElementById("_hashtag"));
     Retailer.get(document.getElementById("_retailerDD"));
     this.createOutput();
+
+    $(_loader).hide();
   },
 
   /**
@@ -170,8 +218,8 @@ merlin = {
    * @return 
    */
   onClickHashtag: function () {
-
     localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
+    //    localStorage.setItem("hashtagdescription", JSON.stringify(Hashtag.getDescription(document.getElementById('_hashtag').value)));
     this.createOutput();
   },
 
@@ -199,9 +247,11 @@ merlin = {
     Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
 
     // plausi retailer
-    if (document.getElementById('_customretailer').value === "") {
-      merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
-    }
+    try {
+      if (document.getElementById('_customretailer ').value === "") {
+        merlin.showNotification("Don't forget the Retailer", "top", "center", "danger");
+      }
+    } catch (error) {}
   },
 
 
@@ -278,16 +328,16 @@ merlin = {
    * @return 
    */
   leaveRetailer: function () {
-    
-        // retailer is mandatory
-        if (document.getElementById('_customretailer').value === "") {
-          merlin.showNotification("Don't forget the Retailer", "top", "center", "warning");
-          return;
-        }
-    
-        localStorage.setItem("retailer", JSON.stringify(document.getElementById('_customretailer').value));
-        this.createOutput();
-      },
+
+    // retailer is mandatory
+    if (document.getElementById('_customretailer').value === "") {
+      merlin.showNotification("Don't forget the Retailer", "top", "center", "danger");
+      return;
+    }
+
+    localStorage.setItem("retailer", JSON.stringify(document.getElementById('_customretailer').value));
+    this.createOutput();
+  },
 
 
   /**
@@ -300,7 +350,19 @@ merlin = {
     localStorage.setItem("customissue", JSON.stringify(document.getElementById('_customIssue').value));
     this.createOutput();
   },
-    
+
+
+  /**
+   * Input for the Custom Issue lost the cursor focus
+   * @param 
+   * @return 
+   */
+  leaveTroubleshooting: function () {
+
+    localStorage.setItem("cutsomtroubleshooting", JSON.stringify(document.getElementById('_customTroubleshooting').value));
+    this.createOutput();
+  },
+
 
   /**
    * Create a IssueList
@@ -371,7 +433,7 @@ merlin = {
 
     // write out the ts steps
     arr.forEach(function (element) {
-      output += '-' + Issue.getTroubleshooting(element).troubleshooting + " = OK\n"; // TODO: should be removed after testing
+      output += '-' + Issue.getTroubleshooting(element).troubleshooting + "\n"; // TODO: should be removed after testing
     });
 
     // additional custom comments

@@ -22,6 +22,8 @@ Product = {
                 obj.add(option, 0);
             }
         });
+                // set default value
+                obj.value = "";                
     },
 
     /**
@@ -231,8 +233,25 @@ Product = {
             id_group: 7,
             product: "Alle",
         });
+
+        // Group 8
+        product.push({
+            id: 33,
+            id_group: 8,
+            product: "Andere",
+        });
+
+        // Group 9
+        product.push({
+            id: 34,
+            id_group: 9,
+            product: "Online Shop",
+        });
         
-        return product.sort();
+
+        // return alphabetically sorted
+        product.sort(function(a,b) {return (a.product > b.product) ? 1 : ((b.product > a.product) ? -1 : 0);} );
+        return product.reverse();
     },
 }
 
