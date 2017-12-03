@@ -1,3 +1,20 @@
+/*!
+ =========================================================
+ * Teleperformance Material Kit - v1.1.1.0
+ =========================================================
+ * Copyright 2017 5Sigma Software Athens, Robert Niederer
+ ========================================================= 
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.*/
+
+.card.workingbody {
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    margin-right: 0px;
+}
+
+.form-control.tp-input {
+    border-color: greenyellow;
+}
 
 /* roboto-regular - latin */
 @font-face {
