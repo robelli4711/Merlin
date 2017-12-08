@@ -29,6 +29,51 @@
 </head>
 
 <body>
+    <!-- Modal OLS -->
+    <div id="ols_modal" role="modal-dialog modal-lg" class="modal fade">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 id="_modaltitle" class="modal-title">Online Shop Process</h4>
+                </div>
+
+                <!--start Speedy Modal Body-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="div2" class="checkbox">
+                                <div class="col-md-6">
+                                    <p id="label2" for="s_8">ELOD?</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="_ols_elod" type="checkbox" style="height: 20px;width: 20px; ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--start Footer-->
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p id="_speedyError">All the above ticks have to be clicked</p>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-info btn-round " data-toggle="tooltip " data-dismiss="modal" title="This will proof the Speedy Order"
+                                onclick="merlin.onClickSpeedy(); ">Done</button>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--end Footer-->
+            </div>
+        </div>
+    </div>
+    <!--end OLS Modal Body-->
+
     <!-- Modal SPEEDY -->
     <div id="speedy_modal" role="modal-dialog modal-lg" class="modal fade">
         <div class="modal-dialog">
@@ -90,14 +135,13 @@
                 </div>
 
                 <!--start Footer-->
-                <div class="modal-footer">
+                <div class="modal-footer" >
                     <div class="row">
                         <div class="col-md-8">
                             <p id="_speedyError">All the above ticks have to be clicked</p>
                         </div>
                         <div class="col-md-4">
-                            <button class="btn btn-info btn-round " data-toggle="tooltip " data-dismiss="modal" title="This will proof the Speedy Order"
-                                onclick="merlin.onClickSpeedy(); ">Done</button>
+                            <button class="btn btn-info btn-round " data-dismiss="modal" data-toggle="tooltip " data- title="This will proof the Speedy Order" onclick="merlin.onClickSpeedy(); ">Done</button>
                             </button>
                         </div>
                     </div>

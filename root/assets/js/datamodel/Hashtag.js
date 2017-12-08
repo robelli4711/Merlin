@@ -101,7 +101,7 @@ Hashtag = {
     },
 
     getSpeedyText_Payment: function () {
-        return "Der Kunde ist ueber die Zahlungsmodalitaeten informiert"
+        return "Der Kunde ist ueber die Zahlungsmodalitäten informiert"
     },
 
     getSpeedyText_notInteressed: function () {

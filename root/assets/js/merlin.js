@@ -29,13 +29,21 @@ merlin = {
           if (document.getElementById('speedy_check_made').checked) {
 
             output += Hashtag.getSpeedyText_Main() + '\n';
-            output += Hashtag.getSpeedyText_Weekday() + '\n';
-            output += Hashtag.getSpeedyText_Payment() + '\n\n';
-            merlin.showNotification(Hashtag.getSpeedyText_Aktiv_1, "top", "center", "danger");
+
+            if (document.getElementById('speedy_check_thursday').checked) {
+              output += Hashtag.getSpeedyText_Weekday() + '\n';
+            }
+
+            if (document.getElementById('speedy_check_aware').checked) {
+              output += Hashtag.getSpeedyText_Payment() + '\n';
+            }
+
+            output += '\n';
+            merlin.showNotification(Hashtag.getSpeedyText_Aktiv_1, "top", "center", "warning");
 
           } else {
             output = Hashtag.getSpeedyText_notInteressed() + '\n\n';
-            merlin.showNotification(Hashtag.getSpeedyText_Aktiv_2, "top", "center", "danger");
+            merlin.showNotification(Hashtag.getSpeedyText_Aktiv_2, "top", "center", "warning");
           }
 
           isSpeedySelected = 0;
@@ -52,6 +60,7 @@ merlin = {
 
           // show speedy dialog for further data entries
           $('#speedy_modal').modal('show');
+
         }
       } else {
         isSpeedySelected = 0;
@@ -263,6 +272,11 @@ merlin = {
 
     var e = document.getElementById("_group"); // selected element in group box
     Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
+
+    // Special treatment for Online Shop
+    if (e.options[e.selectedIndex].value == 9) {
+      $('#ols_modal').modal('show');
+    }
 
     // plausi retailer
     try {

@@ -403,7 +403,7 @@ Issue = {
             id: 5001,
             issue: "Kunde kann den Mixbecher/Behälter nicht abdrehen",
             question: "Kunde kann den Mixbecher/Behälter nicht abdrehen",
-            troubleshooting: "Wenn sich das Geraet in der Garantiezeit befindet, kann es ausgetauscht werden",
+            troubleshooting: "Wenn sich das Gerät in der Garantiezeit befindet, kann es ausgetauscht werden",
             solution: "N/A"
         });
 
@@ -650,8 +650,8 @@ Issue = {
         issue.push({
             id: 15003,
             issue: "Verbindung zwischenEltern- zu Babystation bricht ab",
-            question: "Storgeraete?",
-            troubleshooting: "Geraete wie z.B. Mikrowelle entfernen",
+            question: "Storgeräte?",
+            troubleshooting: "Geräte wie z.B. Mikrowelle entfernen",
             solution: "N/A"
         });
 
@@ -849,7 +849,7 @@ Issue = {
 
         issue.push({
             id: 9002,
-            issue: "Gefaellt dem Kunden nicht",
+            issue: "Gefällt dem Kunden nicht",
             question: "Umtausch",
             troubleshooting: "Umtausch/Rueckerstattung aufgesetzt",
             solution: "N/A"
@@ -915,7 +915,7 @@ Issue = {
         issue.push({
             id: 900000,
             issue: "Ersatzteile",
-            question: "Der Kunde sucht Ersatzteile fuer das Geraet",
+            question: "Der Kunde sucht Ersatzteile fuer das Gerät",
             troubleshooting: "Philips Online Shop und Servicepartner",
             solution: "N/A"
         });
@@ -923,7 +923,7 @@ Issue = {
         issue.push({
             id: 900001,
             issue: "Reparatur in Garantie",
-            question: "Das Geraet ist defekt in Garantie",
+            question: "Das Gerät ist defekt in Garantie",
             troubleshooting: "Werkstatt Auftrag aufsetzen",
             solution: "N/A"
         });
@@ -931,7 +931,7 @@ Issue = {
         issue.push({
             id: 900002,
             issue: "Reparatur ausserhalb der Garantie",
-            question: "Das Geraet ist defekt ausserhalb der Garantie",
+            question: "Das Geät ist defekt ausserhalb der Garantie",
             troubleshooting: "Gutschein anbieten",
             solution: "N/A"
         });
