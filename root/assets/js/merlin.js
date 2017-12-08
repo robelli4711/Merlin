@@ -30,6 +30,9 @@ merlin = {
           merlin.showNotification("Has the customer accepted Speedy?", "top", "center", "danger");
           isSpeedySelected = 1;
           output += mySpeedyText;
+
+          // show speedy dialog for further data entries
+          $('#speedy_modal').modal('show');
         }
       } else {
         isSpeedySelected = 0;
@@ -94,7 +97,7 @@ merlin = {
     }
 
     // set timesamp
-    var myTimestamp = "\n\n\n(merlin"; 
+    var myTimestamp = "\n\n\n(merlin";
     var d = new Date();
     output += myTimestamp + d.getTime();
 
@@ -115,7 +118,6 @@ merlin = {
     } else {
       mySpeedyText = "\n";
     }
-
     this.createOutput();
   },
 
