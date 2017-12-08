@@ -30,7 +30,7 @@
 
 <body>
     <!-- Modal SPEEDY -->
-    <div id="speedy_modal" role="dialog" class="modal fade">
+    <div id="speedy_modal" role="modal-dialog modal-lg" class="modal fade">
         <div class="modal-dialog">
 
             <div class="modal-content">
@@ -38,33 +38,52 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 id="_modaltitle" class="modal-title">Speedy Process</h4>
                 </div>
-                <!--start Modal Body-->
+
+                <!--start Speedy Modal Body-->
                 <div class="modal-body">
-                    <div class="col-md-12">
-                        <div id="div2" class="checkbox">
-                            <div class="col-md-8">
-                                <label id="label2" for="s_8">The customer accepted Speedy?</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input id="s_8" type="checkbox" onclick="merlin.onSelectSolution();" style="height: 20px;width: 20px; ">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="div2" class="checkbox">
+                                <div class="col-md-6">
+                                    <p id="label2" for="s_8">The customer accepted Speedy?</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="speedy_check_made" type="checkbox" style="height: 20px;width: 20px; ">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <br>
-                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="div2" class="checkbox">
+                                <div class="col-md-6">
+                                    <p id="label2" for="s_8">Is the offer made before Thursday?</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="speedy_check_thursday" type="checkbox" style="height: 20px;width: 20px; ">
+                                </div>
+                                <div class="col-md-4">
+                                    <i>
+                                        <p id="_weekday" style="color: red;"></p>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!--start Footer-->
                 <div class="modal-footer">
                     <button class="btn btn-info btn-round " data-toggle="tooltip " data-dismiss="modal" title="Copy the RITS and insert in Salesforce with Ctrl+v "
-                        onclick="merlin.onClickCopy(); ">Done</button>
+                        onclick="merlin.onClickSpeedy(); ">Done</button>
                     </button>
                 </div>
                 <!--end Footer-->
             </div>
         </div>
     </div>
-    <!--end Modal Body-->
+    <!--end Speedy Modal Body-->
+
     <!--start MAIN PANEL-->
     <div class="main-panel" style="max-height: 100vh; width: 100%; overflow: auto;">
         <nav class="navbar navbar-default navbar-fixed">
@@ -144,22 +163,7 @@
                         </div>
                         <!--end RETAILER-->
 
-                        <!--start SPEEDY -->
-                        <!-- <div id="_speedyrow" class="row" style="visibility: hidden; max-height: 1px;">
-                            <div id="_speedyrow1" class="col-md-12" style="max-height: 50px;">
-                                <div class="col-md-6 ">
-                                    <div id="div3" class="checkbox">
-                                        <input type="checkbox" id="_speedy" onclick='merlin.onClickSpeedy();' style="height: 20px; width: 20px;">
-                                        <label id="label3" for="_speedy" style="margin-left: 5px;">Speedy offered?</label>
-                                        </input>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <hr>
-
-                        <!--end SPEEDY -->
-
+                        <!-- start grou/product -->
                         <div class="row">
                             <div class="col-md-12">
                                 <span class="label label-primary">Product</span>
@@ -194,6 +198,7 @@
                             </div>
                         </div>
                         <!--end PRODUCT-->
+                        <!-- end grou/product -->
 
                         <!-- never ask why - it needs a double <hr> -->
                         <hr>
@@ -401,7 +406,50 @@
         $('_workingbody').height(windowHeight);
 
         merlin.onInit();
+        getWeekday();
     });
+</script>
+
+<script>
+    var isRed = false;
+
+    Date.prototype.myMet = function () {
+        if (this.getDay() == 0) {
+            this.myProp = "Monday"
+        };
+        if (this.getDay() == 2) {
+            this.myProp = "Tuesday"
+        };
+        if (this.getDay() == 3) {
+            this.myProp = "Wendnesday"
+        };
+        if (this.getDay() == 4) {
+            this.myProp = "Thursday"
+            isRed = true;
+        };
+        if (this.getDay() == 5) {
+            this.myProp = "Friday"
+            isRed = true;
+        };
+        if (this.getDay() == 6) {
+            this.myProp = "Saturday"
+        };
+        if (this.getDay() == 1) {
+            this.myProp = "Sunday"
+            isRed = true;
+        };
+    };
+
+    function getWeekday() {
+        var d = new Date();
+        d.myMet();
+
+        if (!isRed) {
+            document.getElementById("_weekday").style.color = 'green';
+        }
+
+        document.getElementById("_weekday").innerHTML = 'Today is ' + d.myProp;
+    }
 </script>
 
 </html>

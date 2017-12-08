@@ -113,12 +113,8 @@ merlin = {
    */
   onClickSpeedy: function () {
 
-    if (document.getElementById("_speedy").checked) {
-      mySpeedyText = "Speedy vom Kunden akzeptiert\n\n";
-    } else {
-      mySpeedyText = "\n";
-    }
-    this.createOutput();
+    // alert();
+    // this.createOutput();
   },
 
 
