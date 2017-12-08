@@ -102,5 +102,17 @@ Hashtag = {
 
     getSpeedyText_Payment: function () {
         return "Der Kunde ist ueber die Zahlungsmodalitaeten informiert"
+    },
+
+    getSpeedyText_notInteressed: function () {
+        return "Kein Interesse am Express-Service"
+    },
+
+    getSpeedyText_Aktiv_1: function() {
+        return 'Bitte Aktivität bearbeiten: Alert Message = Sales PH, Status = Completed, Sales Offered = Completed';
+    },
+
+    getSpeedyText_Aktiv_2: function() {
+        return 'Bitte Aktivität bearbeiten: Alert Message = Sales PH, Status = Completed, Sales Offered = Deferred';
     }
 }

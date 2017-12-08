@@ -21,7 +21,25 @@ merlin = {
         output = "";
       } else {
         output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
-        output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
+
+        if (isSpeedySelected == 0) {
+          output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
+        } else {
+          // After Speedy Dialog
+          if (document.getElementById('speedy_check_made').checked) {
+
+            output += Hashtag.getSpeedyText_Main() + '\n';
+            output += Hashtag.getSpeedyText_Weekday() + '\n';
+            output += Hashtag.getSpeedyText_Payment() + '\n\n';
+            merlin.showNotification(Hashtag.getSpeedyText_Aktiv_1, "top", "center", "danger");
+
+          } else {
+            output = Hashtag.getSpeedyText_notInteressed() + '\n\n';
+            merlin.showNotification(Hashtag.getSpeedyText_Aktiv_2, "top", "center", "danger");
+          }
+
+          isSpeedySelected = 0;
+        }
       }
 
       // for speedy show for a receipt
@@ -114,10 +132,7 @@ merlin = {
    */
   onClickSpeedy: function () {
 
-mySpeedyText = "figgdi";
-isSpeedySelected = 0;
-
-
+    isSpeedySelected = 1;
     this.createOutput();
   },
 
@@ -220,8 +235,9 @@ isSpeedySelected = 0;
    * @return 
    */
   onClickHashtag: function () {
+
+    isSpeedySelected = 0;
     localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
-    //    localStorage.setItem("hashtagdescription", JSON.stringify(Hashtag.getDescription(document.getElementById('_hashtag').value)));
     this.createOutput();
   },
 
