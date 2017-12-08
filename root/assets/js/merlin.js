@@ -21,15 +21,46 @@ merlin = {
         output = "";
       } else {
         output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
-        output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
+
+        if (isSpeedySelected == 0) {
+          output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
+        } else {
+          // After Speedy Dialog
+          if (document.getElementById('speedy_check_made').checked) {
+
+            output += Hashtag.getSpeedyText_Main() + '\n';
+
+            if (document.getElementById('speedy_check_thursday').checked) {
+              output += Hashtag.getSpeedyText_Weekday() + '\n';
+            }
+
+            if (document.getElementById('speedy_check_aware').checked) {
+              output += Hashtag.getSpeedyText_Payment() + '\n';
+            }
+
+            output += '\n';
+            merlin.showNotification(Hashtag.getSpeedyText_Aktiv_1, "top", "center", "warning");
+
+          } else {
+            output = Hashtag.getSpeedyText_notInteressed() + '\n\n';
+            merlin.showNotification(Hashtag.getSpeedyText_Aktiv_2, "top", "center", "warning");
+          }
+
+          isSpeedySelected = 0;
+        }
       }
 
       // for speedy show for a receipt
       if (JSON.parse(localStorage.getItem("hashtag")) === "Speedy") {
         if (isSpeedySelected == 0) {
-          merlin.showNotification("Has the customer accepted Speedy?", "top", "center", "danger");
+
+          // merlin.showNotification("Has the customer accepted Speedy?", "top", "center", "danger");
           isSpeedySelected = 1;
           output += mySpeedyText;
+
+          // show speedy dialog for further data entries
+          $('#speedy_modal').modal('show');
+
         }
       } else {
         isSpeedySelected = 0;
@@ -94,7 +125,7 @@ merlin = {
     }
 
     // set timesamp
-    var myTimestamp = "\n\n\n(merlin"; 
+    var myTimestamp = "\n\n\n(merlin";
     var d = new Date();
     output += myTimestamp + d.getTime();
 
@@ -110,12 +141,7 @@ merlin = {
    */
   onClickSpeedy: function () {
 
-    if (document.getElementById("_speedy").checked) {
-      mySpeedyText = "Speedy vom Kunden akzeptiert\n\n";
-    } else {
-      mySpeedyText = "\n";
-    }
-
+    isSpeedySelected = 1;
     this.createOutput();
   },
 
@@ -218,8 +244,9 @@ merlin = {
    * @return 
    */
   onClickHashtag: function () {
+
+    isSpeedySelected = 0;
     localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
-    //    localStorage.setItem("hashtagdescription", JSON.stringify(Hashtag.getDescription(document.getElementById('_hashtag').value)));
     this.createOutput();
   },
 
@@ -245,6 +272,11 @@ merlin = {
 
     var e = document.getElementById("_group"); // selected element in group box
     Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
+
+    // Special treatment for Online Shop
+    if (e.options[e.selectedIndex].value == 9) {
+      $('#ols_modal').modal('show');
+    }
 
     // plausi retailer
     try {
