@@ -70,13 +70,37 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="div2" class="checkbox">
+                                <div class="col-md-6">
+                                    <p id="label2" for="s_8">Is the customer aware to pay the extra fee while pickup?</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="speedy_check_aware" type="checkbox" style="height: 20px;width: 20px; ">
+                                </div>
+                                <div class="col-md-4">
+                                    <i>
+                                        <p style="color: #538600;">35€</p>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!--start Footer-->
                 <div class="modal-footer">
-                    <button class="btn btn-info btn-round " data-toggle="tooltip " data-dismiss="modal" title="Copy the RITS and insert in Salesforce with Ctrl+v "
-                        onclick="merlin.onClickSpeedy(); ">Done</button>
-                    </button>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p id="_speedyError">All the above ticks have to be clicked</p>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-info btn-round " data-toggle="tooltip " data-dismiss="modal" title="This will proof the Speedy Order"
+                                onclick="merlin.onClickSpeedy(); ">Done</button>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <!--end Footer-->
             </div>

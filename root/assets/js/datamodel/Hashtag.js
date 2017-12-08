@@ -1,12 +1,10 @@
-
-
 Hashtag = {
 
-   /**
-   * setup Porduct GROUP Combo
-   * @param Selection Box 
-   * @return none
-   */
+    /**
+     * setup Porduct GROUP Combo
+     * @param Selection Box 
+     * @return none
+     */
     get: function (obj) {
 
         x = this.set();
@@ -18,38 +16,40 @@ Hashtag = {
         });
 
         // set default value
-        obj.value = "N/A";        
+        obj.value = "N/A";
     },
 
 
-   /**
-   * Get Hashtag Description
-   * @param String - Hashtag
-   * @return STRING - Hastag Description
-   */
+    /**
+     * Get Hashtag Description
+     * @param String - Hashtag
+     * @return STRING - Hastag Description
+     */
     getDescription: function (obj) {
 
-       if(obj === " ") { return; }
+        if (obj === " ") {
+            return;
+        }
 
-       var x = this.set();
+        var x = this.set();
 
-       var result = $.grep(x, function (e) {
-           return e.hashtag == obj;
-       });
+        var result = $.grep(x, function (e) {
+            return e.hashtag == obj;
+        });
 
-       try {
-           return result[0].description;            
-       } catch (error) {
-           return "";
-       }
+        try {
+            return result[0].description;
+        } catch (error) {
+            return "";
+        }
     },
 
-  
+
     /**
-   * Get content Data
-   * @param none 
-   * @return Object Array with Group Data
-   */
+     * Get content Data
+     * @param none 
+     * @return Object Array with Group Data
+     */
     set: function () {
 
         var hashtag = [];
@@ -81,11 +81,26 @@ Hashtag = {
         hashtag.push({
             id: 6,
             hashtag: "Speedy",
-            description: "Kunde beauftragt den Express-Service für 35 EUR  "
+            // description: "Kunde beauftragt den Express-Service für 35 EUR  "
+            description: "Speedy not captured yet..."
         });
 
         // return alphabetically sorted
-        hashtag.sort(function(a,b) {return (a.hashtag > b.hashtag) ? 1 : ((b.hashtag > a.hashtag) ? -1 : 0);} );
+        hashtag.sort(function (a, b) {
+            return (a.hashtag > b.hashtag) ? 1 : ((b.hashtag > a.hashtag) ? -1 : 0);
+        });
         return hashtag.reverse();
+    },
+
+    getSpeedyText_Main: function () {
+        return "Kunde beauftragt den Express-Service für 35 EUR";
+    },
+
+    getSpeedyText_Weekday: function () {
+        return "Der Auftrag wurde zeitgerecht erstellt"
+    },
+
+    getSpeedyText_Payment: function () {
+        return "Der Kunde ist ueber die Zahlungsmodalitaeten informiert"
     }
 }

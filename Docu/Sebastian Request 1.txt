@@ -1,0 +1,24 @@
+erstmal: schönes Tool – ich halte das für sehr sinnvoll!
+ 
+SPEEDY:
+Bei Speedy würde ich folgendes vorschlagen (wir werden Speedy bald erweitern und sind damit flexibel):
+ 
+Dropdown 1: Auswahl Speedy (das vorhandene mit allen Hashtags)
+Dropdown 2: kein Angebot gemacht, Kunde hat kein Interesse, Express-Service für 35 EUR, … (zukünftig gibt es hier verschiedene Optionen, z.B. Preis)
+ 
+Text Logging:
+Wenn Angebot akzeptiert: #Speedy: Kunde beauftragt den Express-Service für 35 EUR     ->    Kursiv = Variable von Dropdown 2
+Wenn Angebot abgelehnt: #Speedy: Kein Interesse am Express-Service      ->    Fix
+Wenn kein Angebot gemacht: Leer
+ 
+Text Meldung:
+Wenn Angebot akzeptiert: Bitte Aktivität bearbeiten: Alert Message = Sales PH, Status = Completed, Sales Offered = Completed
+Wenn Angebot abgelehnt: Bitte Aktivität bearbeiten: Alert Message = Sales PH, Status = Completed, Sales Offered = Deferred
+Wenn kein Angebot gemacht: Bitte Aktivität bearbeiten: Status = Completed
+ 
+Gib Bescheid, falls das zu kompliziert ist. Muss dann aufs Wichtigste kürzen!
+ 
+Flagshipstore
+Können wir ein Dropdown für Return Reasons einbauen?
+Macht es Sinn auch den Entscheidungsbaum aufzunehmen: ELOD True – Return mit Refund - ….?
+Daraus könnten wir einen Code für die Hybris Notiz machen, z.B. ELOD-True-Return-Refund

@@ -27,7 +27,8 @@ merlin = {
       // for speedy show for a receipt
       if (JSON.parse(localStorage.getItem("hashtag")) === "Speedy") {
         if (isSpeedySelected == 0) {
-          merlin.showNotification("Has the customer accepted Speedy?", "top", "center", "danger");
+
+          // merlin.showNotification("Has the customer accepted Speedy?", "top", "center", "danger");
           isSpeedySelected = 1;
           output += mySpeedyText;
 
@@ -113,8 +114,11 @@ merlin = {
    */
   onClickSpeedy: function () {
 
-    // alert();
-    // this.createOutput();
+mySpeedyText = "figgdi";
+isSpeedySelected = 0;
+
+
+    this.createOutput();
   },
 
 
