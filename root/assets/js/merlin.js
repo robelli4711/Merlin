@@ -1,6 +1,4 @@
 var output = ""; // Output has to be global
-var mySpeedyText = ""; // Speedy Text have to be global
-var isOLSSelected = 0; // indicator for selecting OLS (object control)
 
 merlin = {
 
@@ -23,6 +21,7 @@ merlin = {
                 output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
                 output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
 
+                // SPEEDY Treatment
                 if (JSON.parse(localStorage.getItem("hashtag")) === 'Speedy') {
 
                     output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
@@ -49,6 +48,15 @@ merlin = {
                 }
             }
         } catch (error) {}
+
+
+        // OLS Treatment
+        if (JSON.parse(localStorage.getItem("group")) === 'Online Shop') {
+
+            if (document.getElementById('_ols_elod').checked) {
+                output = 'ELOD-True-Return-Refund\n';
+            }
+        }
 
         // retailer 
         try {
