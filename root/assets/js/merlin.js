@@ -22,11 +22,12 @@ merlin = {
                 output = "";
             } else {
                 output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+                output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
 
-                if (isSpeedySelected == 0) {
-                    output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
-                } else {
-                    // After Speedy Dialog
+                if (JSON.parse(localStorage.getItem("hashtag")) === 'Speedy') {
+
+                    output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+
                     if (document.getElementById('speedy_check_made').checked) {
 
                         output += Hashtag.getSpeedyText_Main() + '\n';
@@ -40,32 +41,31 @@ merlin = {
                         }
 
                         output += '\n';
-                        merlin.showNotification(Hashtag.getSpeedyText_Aktiv_1, "top", "center", "warning");
+                        // merlin.showNotification(Hashtag.getSpeedyText_Aktiv_1, "top", "center", "warning");
 
                     } else {
                         output = Hashtag.getSpeedyText_notInteressed() + '\n\n';
-                        merlin.showNotification(Hashtag.getSpeedyText_Aktiv_2, "top", "center", "warning");
+                        // merlin.showNotification(Hashtag.getSpeedyText_Aktiv_2, "top", "center", "warning");
                     }
-
-                    isSpeedySelected = 0;
                 }
             }
 
             // for speedy show for a receipt
-            if (JSON.parse(localStorage.getItem("hashtag")) === "Speedy") {
-                if (isSpeedySelected == 0) {
+            // if (JSON.parse(localStorage.getItem("hashtag")) === "Speedy") {
+            // if (isSpeedySelected == 0) {
 
-                    // merlin.showNotification("Has the customer accepted Speedy?", "top", "center", "danger");
-                    isSpeedySelected = 1;
-                    output += mySpeedyText;
+            // merlin.showNotification("Has the customer accepted Speedy?", "top", "center", "danger");
+            // isSpeedySelected = 1;
+            // isOLSSelected = 0;
+            // output += mySpeedyText;
 
-                    // show speedy dialog for further data entries
-                    $('#speedy_modal').modal('show');
+            // show speedy dialog for further data entries
+            // $('#speedy_modal').modal('show');
 
-                }
-            } else {
-                isSpeedySelected = 0;
-            }
+            // }
+            // } else {
+            // isSpeedySelected = 0;
+            // }
         } catch (error) {}
 
         // retailer 
@@ -143,6 +143,7 @@ merlin = {
     onClickOLS: function() {
 
         isOLSSelected = 1;
+        isSpeedySelected = 0;
         this.createOutput();
     },
 
@@ -155,6 +156,7 @@ merlin = {
     onClickSpeedy: function() {
 
         isSpeedySelected = 1;
+        isOLSSelected = 0;
         this.createOutput();
     },
 
@@ -204,6 +206,8 @@ merlin = {
     onSelectSolution: function() {
 
         localStorage.setItem("solution", JSON.stringify(Solution.set()));
+        isSpeedySelected = 0;
+        isOLSSelected = 0;
         this.createOutput();
     },
 
@@ -231,7 +235,13 @@ merlin = {
      */
     onClickHashtag: function() {
 
-        isSpeedySelected = 0;
+        localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
+
+        // show speedy dialog for further data entries
+        if (document.getElementById('_hashtag').value === 'Speedy') {
+            $('#speedy_modal').modal('show');
+        }
+
         localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
         this.createOutput();
     },
@@ -260,8 +270,11 @@ merlin = {
         Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
 
         // Special treatment for Online Shop
-        if (e.options[e.selectedIndex].value == 9) {
+        if (e.options[e.selectedIndex].value == 9 && isOLSSelected == 0) {
             $('#ols_modal').modal('show');
+            isOLSSelected = 1;
+        } else {
+            isOLSSelected = 0;
         }
 
         // plausi retailer

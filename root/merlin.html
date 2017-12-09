@@ -89,7 +89,7 @@
                         <div class="col-md-12">
                             <div id="div2" class="checkbox">
                                 <div class="col-md-6">
-                                    <p id="label2" for="s_8">The customer accepted Speedy?</p>
+                                    <p id="label21" for="s_8">The customer accepted Speedy?</p>
                                 </div>
                                 <div class="col-md-2">
                                     <input id="speedy_check_made" type="checkbox" style="height: 20px;width: 20px; ">
@@ -101,7 +101,7 @@
                         <div class="col-md-12">
                             <div id="div2" class="checkbox">
                                 <div class="col-md-6">
-                                    <p id="label2" for="s_8">Is the offer made before Thursday?</p>
+                                    <p id="label22" for="s_8">Is the offer made before Thursday?</p>
                                 </div>
                                 <div class="col-md-2">
                                     <input id="speedy_check_thursday" type="checkbox" style="height: 20px;width: 20px; ">
@@ -118,7 +118,7 @@
                         <div class="col-md-12">
                             <div id="div2" class="checkbox">
                                 <div class="col-md-6">
-                                    <p id="label2" for="s_8">Is the customer aware to pay the extra fee while pickup?</p>
+                                    <p id="label23" for="s_8">Is the customer aware to pay the extra fee while pickup?</p>
                                 </div>
                                 <div class="col-md-2">
                                     <input id="speedy_check_aware" type="checkbox" style="height: 20px;width: 20px; ">
@@ -201,7 +201,7 @@
                                     <label>Hashtag</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <select id="_hashtag" class="dropdown" data-toggle="tooltip" title="Hashtag for special actions" onclick="merlin.onClickHashtag();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
+                                    <select id="_hashtag" class="dropdown" data-toggle="tooltip" title="Hashtag for special actions" onchange="merlin.onClickHashtag();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
                                     </select>
                                 </div>
                             </div>
@@ -476,27 +476,28 @@
 
     Date.prototype.myMet = function() {
         if (this.getDay() == 0) {
-            this.myProp = "Monday"
+            this.myProp = "Monday";
         };
         if (this.getDay() == 2) {
-            this.myProp = "Tuesday"
+            this.myProp = "Tuesday";
         };
         if (this.getDay() == 3) {
-            this.myProp = "Wendnesday"
+            this.myProp = "Wendnesday";
         };
         if (this.getDay() == 4) {
-            this.myProp = "Thursday"
+            this.myProp = "Thursday";
             isRed = true;
         };
         if (this.getDay() == 5) {
-            this.myProp = "Friday"
+            this.myProp = "Friday";
             isRed = true;
         };
         if (this.getDay() == 6) {
-            this.myProp = "Saturday"
+            this.myProp = "Saturday";
+            isRed = true;
         };
         if (this.getDay() == 1) {
-            this.myProp = "Sunday"
+            this.myProp = "Sunday";
             isRed = true;
         };
     };
