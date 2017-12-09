@@ -1,6 +1,5 @@
 var output = ""; // Output has to be global
 var mySpeedyText = ""; // Speedy Text have to be global
-var isSpeedySelected = 0; // indicator for selecting speedy (object control)
 var isOLSSelected = 0; // indicator for selecting OLS (object control)
 
 merlin = {
@@ -49,23 +48,6 @@ merlin = {
                     }
                 }
             }
-
-            // for speedy show for a receipt
-            // if (JSON.parse(localStorage.getItem("hashtag")) === "Speedy") {
-            // if (isSpeedySelected == 0) {
-
-            // merlin.showNotification("Has the customer accepted Speedy?", "top", "center", "danger");
-            // isSpeedySelected = 1;
-            // isOLSSelected = 0;
-            // output += mySpeedyText;
-
-            // show speedy dialog for further data entries
-            // $('#speedy_modal').modal('show');
-
-            // }
-            // } else {
-            // isSpeedySelected = 0;
-            // }
         } catch (error) {}
 
         // retailer 
@@ -142,8 +124,6 @@ merlin = {
      */
     onClickOLS: function() {
 
-        isOLSSelected = 1;
-        isSpeedySelected = 0;
         this.createOutput();
     },
 
@@ -155,8 +135,6 @@ merlin = {
      */
     onClickSpeedy: function() {
 
-        isSpeedySelected = 1;
-        isOLSSelected = 0;
         this.createOutput();
     },
 
@@ -206,8 +184,6 @@ merlin = {
     onSelectSolution: function() {
 
         localStorage.setItem("solution", JSON.stringify(Solution.set()));
-        isSpeedySelected = 0;
-        isOLSSelected = 0;
         this.createOutput();
     },
 
@@ -266,15 +242,16 @@ merlin = {
      */
     onClickGroup: function() {
 
+        // get selected element
         var e = document.getElementById("_group"); // selected element in group box
         Product.get(document.getElementById("_product"), e.options[e.selectedIndex].value);
 
+        // setup the group in local storage
+        localStorage.setItem("group", JSON.stringify(e.options[e.selectedIndex].text));
+
         // Special treatment for Online Shop
-        if (e.options[e.selectedIndex].value == 9 && isOLSSelected == 0) {
+        if (e.options[e.selectedIndex].value == 9) {
             $('#ols_modal').modal('show');
-            isOLSSelected = 1;
-        } else {
-            isOLSSelected = 0;
         }
 
         // plausi retailer
