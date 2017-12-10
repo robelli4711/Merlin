@@ -8,24 +8,27 @@ merlin = {
      * @return 
      */
     createOutput: function() {
-        var isFirst = true;
         output = ""
 
         // hastag
         try {
-            output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
 
+            // no hashtag
             if (JSON.parse(localStorage.getItem("hashtag")) === ' ') {
                 output = "";
-            } else {
+            } else
+            // with hashtag
+            {
+                // get hashtag from local storage and put out
                 output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
                 output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
 
-                // SPEEDY Treatment
+                // special SPEEDY Treatment
                 if (JSON.parse(localStorage.getItem("hashtag")) === 'Speedy') {
 
-                    output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+                    output = '#Speedy\n';
 
+                    // check the selected speedy options
                     if (document.getElementById('speedy_check_made').checked) {
 
                         output += Hashtag.getSpeedyText_Main() + '\n';
