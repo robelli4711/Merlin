@@ -13,18 +13,20 @@ merlin = {
         // hastag
         try {
 
+            // keep hashtag single readed for performance
+            var hashtag = JSON.parse(localStorage.getItem("hashtag"));
+
             // no hashtag
-            if (JSON.parse(localStorage.getItem("hashtag")) === ' ') {
+            if (hashtag === ' ') {
                 output = "";
-            } else
-            // with hashtag
-            {
+            } else {
+                // with hashtag
                 // get hashtag from local storage and put out
-                output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+                output = '#' + hashtag + '\n';
                 output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
 
                 // special SPEEDY Treatment
-                if (JSON.parse(localStorage.getItem("hashtag")) === 'Speedy') {
+                if (hashtag === 'Speedy') {
 
                     output = '#Speedy\n';
 
@@ -42,18 +44,14 @@ merlin = {
                         }
 
                         output += '\n';
-                        // merlin.showNotification(Hashtag.getSpeedyText_Aktiv_1, "top", "center", "warning");
-
                     } else {
                         output = Hashtag.getSpeedyText_notInteressed() + '\n\n';
-                        // merlin.showNotification(Hashtag.getSpeedyText_Aktiv_2, "top", "center", "warning");
                     }
                 }
             }
         } catch (error) {}
 
-
-        // OLS Treatment
+        // special OLS Treatment
         if (JSON.parse(localStorage.getItem("group")) === 'Online Shop') {
 
             if (document.getElementById('_ols_elod').checked) {
@@ -81,8 +79,7 @@ merlin = {
         }
 
         try {
-            var id = JSON.parse(localStorage.getItem("issues"))
-            id.forEach(function(element) {
+            JSON.parse(localStorage.getItem("issues")).forEach(function(element) {
                 output += "- " + element + '\n';
             });
         } catch (error) {}
@@ -95,8 +92,7 @@ merlin = {
         output += "\n\nTroubleshooting:\n"
 
         try {
-            var id = JSON.parse(localStorage.getItem("troubleshooting"))
-            id.forEach(function(element) {
+            JSON.parse(localStorage.getItem("troubleshooting")).forEach(function(element) {
                 output += "- " + element + '\n';
             });
         } catch (error) {}
@@ -108,8 +104,7 @@ merlin = {
         // Solution
         output += "\nSolution:\n";
         try {
-            var id = JSON.parse(localStorage.getItem("solution"))
-            id.forEach(function(element) {
+            JSON.parse(localStorage.getItem("solution")).forEach(function(element) {
                 output += element + '\n';
             });
         } catch (error) {}
