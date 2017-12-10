@@ -52,12 +52,14 @@ merlin = {
         } catch (error) {}
 
         // special OLS Treatment
-        if (JSON.parse(localStorage.getItem("group")) === 'Online Shop') {
+        try {
+            if (JSON.parse(localStorage.getItem("group")) === 'Online Shop') {
 
-            if (document.getElementById('_ols_elod').checked) {
-                output = 'ELOD-True-Return-Refund\n';
+                if (document.getElementById('_ols_elod').checked) {
+                    output = 'ELOD-True-Return-Refund\n';
+                }
             }
-        }
+        } catch (error) {}
 
         // retailer 
         try {
@@ -84,9 +86,11 @@ merlin = {
             });
         } catch (error) {}
 
-        if (document.getElementById('_customIssue').value) {
-            output += JSON.parse(localStorage.getItem("customissue"));
-        }
+        try {
+            if (document.getElementById('_customIssue').value) {
+                output += JSON.parse(localStorage.getItem("customissue"));
+            }
+        } catch (error) {}
 
         // troubleshooting
         output += "\n\nTroubleshooting:\n"
