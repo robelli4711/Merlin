@@ -1,3 +1,15 @@
+/**
+ * Main class and derrived functionalities for Issue handling
+ *
+ * @summary Issue Class 
+ *
+ * @link   URL
+ * @file   merlin.js
+ * @author Robert Niederer
+ * @since  10/12/2017
+ * @revision 1.0
+ */
+
 Issue = {
 
     /**
@@ -5,7 +17,7 @@ Issue = {
      * @param 
      * @return Array - Alle Products Datas
      */
-    get: function () {
+    get: function() {
 
         return this.set();
     },
@@ -16,10 +28,10 @@ Issue = {
      * @param int - product id
      * @return String - the question
      */
-    getQuestion: function (id) {
+    getQuestion: function(id) {
         var x = this.set();
 
-        var result = $.grep(x, function (e) {
+        var result = $.grep(x, function(e) {
             return e.id == id;
         });
 
@@ -36,10 +48,10 @@ Issue = {
      * @param int - product id
      * @return String - the issue
      */
-    getIssue: function (id) {
+    getIssue: function(id) {
         var x = this.set();
 
-        var result = $.grep(x, function (e) {
+        var result = $.grep(x, function(e) {
             return e.id == id;
         });
 
@@ -56,10 +68,10 @@ Issue = {
      * @param int - product id
      * @return String - the troubleshooting
      */
-    getTroubleshooting: function (id) {
+    getTroubleshooting: function(id) {
         var x = this.set();
 
-        var result = $.grep(x, function (e) {
+        var result = $.grep(x, function(e) {
             return e.id == id;
         });
 
@@ -75,7 +87,7 @@ Issue = {
      * @param none 
      * @return Object Array with Group Data
      */
-    set: function () {
+    set: function() {
 
         issue = [];
 
@@ -945,7 +957,7 @@ Issue = {
         });
 
         // return alphabetically sorted
-        issue.sort(function (a, b) {
+        issue.sort(function(a, b) {
             return (a.issue > b.issue) ? 1 : ((b.issue > a.issue) ? -1 : 0);
         });
         return issue.reverse();

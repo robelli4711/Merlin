@@ -1,3 +1,15 @@
+/**
+ * Main class and derrived functionalities for Solution handling
+ *
+ * @summary Solution Class 
+ *
+ * @link   URL
+ * @file   merlin.js
+ * @author Robert Niederer
+ * @since  10/12/2017
+ * @revision 1.0
+ */
+
 Solution = {
 
     /**

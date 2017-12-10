@@ -1,16 +1,26 @@
-
+/**
+ * Main class and derrived functionalities for Group handling
+ *
+ * @summary Group Class 
+ *
+ * @link   URL
+ * @file   merlin.js
+ * @author Robert Niederer
+ * @since  10/12/2017
+ * @revision 1.0
+ */
 
 Group = {
 
     /**
-   * setup Porduct GROUP Combo
-   * @param Selection Box 
-   * @return none
-   */
-    get: function (obj) {
+     * setup Porduct GROUP Combo
+     * @param Selection Box 
+     * @return none
+     */
+    get: function(obj) {
 
         x = this.set();
-        x.forEach(function (element) {
+        x.forEach(function(element) {
             var option = document.createElement('option');
             option.text = element.group;
             option.value = element.id;
@@ -18,15 +28,15 @@ Group = {
         });
 
         // set default value
-        obj.value = "";        
+        obj.value = "";
     },
 
     /**
-   * Get content Data
-   * @param none 
-   * @return Object Array with Group Data
-   */
-    set: function () {
+     * Get content Data
+     * @param none 
+     * @return Object Array with Group Data
+     */
+    set: function() {
 
         var group = [];
 
@@ -85,7 +95,7 @@ Group = {
         });
 
         // return alphabetically sorted
-        group.sort(function(a,b) {return (a.group > b.group) ? 1 : ((b.group > a.group) ? -1 : 0);} );
+        group.sort(function(a, b) { return (a.group > b.group) ? 1 : ((b.group > a.group) ? -1 : 0); });
         return group.reverse();
     }
 }

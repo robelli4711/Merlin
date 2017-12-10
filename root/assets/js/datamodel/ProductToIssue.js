@@ -1,3 +1,15 @@
+/**
+ * Main class and derrived functionalities for ProductToIssue handling
+ *
+ * @summary ProductToIssue Class 
+ *
+ * @link   URL
+ * @file   merlin.js
+ * @author Robert Niederer
+ * @since  10/12/2017
+ * @revision 1.0
+ */
+
 ProductToIssue = {
 
     /**
@@ -5,17 +17,17 @@ ProductToIssue = {
      * @param Selection Box 
      * @return Array
      */
-    get: function (obj, target, index) {
+    get: function(obj, target, index) {
 
         var x = this.set();
         var i = 0;
         var issue = Issue.get();
 
-        x.forEach(function (element) {
+        x.forEach(function(element) {
 
             if (element.pid === parseInt(index)) {
 
-                var result = $.grep(issue, function (e) {
+                var result = $.grep(issue, function(e) {
                     return e.id == element.iid;
                 });
 
@@ -35,10 +47,10 @@ ProductToIssue = {
      * @param none 
      * @return Object Array with Comparing Data
      */
-    set: function () {
+    set: function() {
 
         issue = [];
-        
+
         // ESPRESSO FULL HALF/AUTOMATIC
         issue.push({ pid: 1, iid: 1 });
         issue.push({ pid: 1, iid: 2 });
@@ -56,7 +68,7 @@ ProductToIssue = {
         issue.push({ pid: 1, iid: 14 });
         issue.push({ pid: 1, iid: 15 });
         issue.push({ pid: 1, iid: 16 });
-        issue.push({ pid: 1, iid: 17 });        
+        issue.push({ pid: 1, iid: 17 });
         issue.push({ pid: 1, iid: 1017 });
 
         // FILTERKAFFEE
@@ -136,13 +148,13 @@ ProductToIssue = {
         issue.push({ pid: 15, iid: 900000 });
         issue.push({ pid: 15, iid: 900001 });
         issue.push({ pid: 15, iid: 900002 });
-        
+
         // SPARE PARTS
         issue.push({ pid: 32, iid: 900000 });
 
         // ALL
         issue.push({ pid: 31, iid: 61 });
-        
+
         // SHAVER
         issue.push({ pid: 16, iid: 62 });
         issue.push({ pid: 16, iid: 63 });
@@ -154,7 +166,7 @@ ProductToIssue = {
         // Hair Removal
         issue.push({ pid: 18, iid: 18001 });
         issue.push({ pid: 18, iid: 999999 });
-        
+
         // Hair Care
         issue.push({ pid: 19, iid: 19001 });
 
@@ -164,7 +176,7 @@ ProductToIssue = {
         issue.push({ pid: 20, iid: 20001 });
         issue.push({ pid: 20, iid: 900001 });
         issue.push({ pid: 20, iid: 900002 });
-        
+
         // SONICARE Heads
         issue.push({ pid: 21, iid: 69 });
         issue.push({ pid: 21, iid: 71 });
@@ -183,8 +195,7 @@ ProductToIssue = {
         issue.push({ pid: 34, iid: 9006 });
         issue.push({ pid: 34, iid: 9007 });
         issue.push({ pid: 34, iid: 9008 });
-        
+
         return issue;
     }
 }
-

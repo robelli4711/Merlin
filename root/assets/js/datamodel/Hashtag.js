@@ -1,3 +1,15 @@
+/**
+ * Main class and derrived functionalities for Hashtag handling
+ *
+ * @summary Hashtag Class 
+ *
+ * @link   URL
+ * @file   merlin.js
+ * @author Robert Niederer
+ * @since  10/12/2017
+ * @revision 1.0
+ */
+
 Hashtag = {
 
     /**
@@ -5,10 +17,10 @@ Hashtag = {
      * @param Selection Box 
      * @return none
      */
-    get: function (obj) {
+    get: function(obj) {
 
         x = this.set();
-        x.forEach(function (element) {
+        x.forEach(function(element) {
             var option = document.createElement('option');
             option.text = element.hashtag;
             option.value = element.hashtag;
@@ -25,7 +37,7 @@ Hashtag = {
      * @param String - Hashtag
      * @return STRING - Hastag Description
      */
-    getDescription: function (obj) {
+    getDescription: function(obj) {
 
         if (obj === " ") {
             return;
@@ -33,7 +45,7 @@ Hashtag = {
 
         var x = this.set();
 
-        var result = $.grep(x, function (e) {
+        var result = $.grep(x, function(e) {
             return e.hashtag == obj;
         });
 
@@ -50,7 +62,7 @@ Hashtag = {
      * @param none 
      * @return Object Array with Group Data
      */
-    set: function () {
+    set: function() {
 
         var hashtag = [];
 
@@ -86,25 +98,25 @@ Hashtag = {
         });
 
         // return alphabetically sorted
-        hashtag.sort(function (a, b) {
+        hashtag.sort(function(a, b) {
             return (a.hashtag > b.hashtag) ? 1 : ((b.hashtag > a.hashtag) ? -1 : 0);
         });
         return hashtag.reverse();
     },
 
-    getSpeedyText_Main: function () {
+    getSpeedyText_Main: function() {
         return "Kunde beauftragt den Express-Service für 35 EUR";
     },
 
-    getSpeedyText_Weekday: function () {
+    getSpeedyText_Weekday: function() {
         return "Der Auftrag wurde zeitgerecht erstellt"
     },
 
-    getSpeedyText_Payment: function () {
+    getSpeedyText_Payment: function() {
         return "Der Kunde ist ueber die Zahlungsmodalitäten informiert"
     },
 
-    getSpeedyText_notInteressed: function () {
+    getSpeedyText_notInteressed: function() {
         return "Kein Interesse am Express-Service"
     },
 

@@ -1,3 +1,15 @@
+/**
+ * Main Functionality and Control of  Merlin. 
+ *
+ * @summary Main Functions and Control of Merlin
+ *
+ * @link   URL
+ * @file   merlin.js
+ * @author Robert Niederer
+ * @since  10/12/2017
+ * @revision 1.0
+ */
+
 var output = ""; // Output has to be global
 
 merlin = {
@@ -8,24 +20,29 @@ merlin = {
      * @return 
      */
     createOutput: function() {
-        var isFirst = true;
         output = ""
 
         // hastag
         try {
-            output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
 
-            if (JSON.parse(localStorage.getItem("hashtag")) === ' ') {
+            // keep hashtag single readed for performance
+            var hashtag = JSON.parse(localStorage.getItem("hashtag"));
+
+            // no hashtag
+            if (hashtag === ' ') {
                 output = "";
             } else {
-                output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+                // with hashtag
+                // get hashtag from local storage and put out
+                output = '#' + hashtag + '\n';
                 output += Hashtag.getDescription(document.getElementById('_hashtag').value) + '\n\n';
 
-                // SPEEDY Treatment
-                if (JSON.parse(localStorage.getItem("hashtag")) === 'Speedy') {
+                // special SPEEDY Treatment
+                if (hashtag === 'Speedy') {
 
-                    output = '#' + JSON.parse(localStorage.getItem("hashtag")) + '\n';
+                    output = '#Speedy\n';
 
+                    // check the selected speedy options
                     if (document.getElementById('speedy_check_made').checked) {
 
                         output += Hashtag.getSpeedyText_Main() + '\n';
@@ -39,24 +56,22 @@ merlin = {
                         }
 
                         output += '\n';
-                        // merlin.showNotification(Hashtag.getSpeedyText_Aktiv_1, "top", "center", "warning");
-
                     } else {
                         output = Hashtag.getSpeedyText_notInteressed() + '\n\n';
-                        // merlin.showNotification(Hashtag.getSpeedyText_Aktiv_2, "top", "center", "warning");
                     }
                 }
             }
         } catch (error) {}
 
+        // special OLS Treatment
+        try {
+            if (JSON.parse(localStorage.getItem("group")) === 'Online Shop') {
 
-        // OLS Treatment
-        if (JSON.parse(localStorage.getItem("group")) === 'Online Shop') {
-
-            if (document.getElementById('_ols_elod').checked) {
-                output = 'ELOD-True-Return-Refund\n';
+                if (document.getElementById('_ols_elod').checked) {
+                    output = 'ELOD-True-Return-Refund\n';
+                }
             }
-        }
+        } catch (error) {}
 
         // retailer 
         try {
@@ -78,22 +93,22 @@ merlin = {
         }
 
         try {
-            var id = JSON.parse(localStorage.getItem("issues"))
-            id.forEach(function(element) {
+            JSON.parse(localStorage.getItem("issues")).forEach(function(element) {
                 output += "- " + element + '\n';
             });
         } catch (error) {}
 
-        if (document.getElementById('_customIssue').value) {
-            output += JSON.parse(localStorage.getItem("customissue"));
-        }
+        try {
+            if (document.getElementById('_customIssue').value) {
+                output += JSON.parse(localStorage.getItem("customissue"));
+            }
+        } catch (error) {}
 
         // troubleshooting
         output += "\n\nTroubleshooting:\n"
 
         try {
-            var id = JSON.parse(localStorage.getItem("troubleshooting"))
-            id.forEach(function(element) {
+            JSON.parse(localStorage.getItem("troubleshooting")).forEach(function(element) {
                 output += "- " + element + '\n';
             });
         } catch (error) {}
@@ -105,8 +120,7 @@ merlin = {
         // Solution
         output += "\nSolution:\n";
         try {
-            var id = JSON.parse(localStorage.getItem("solution"))
-            id.forEach(function(element) {
+            JSON.parse(localStorage.getItem("solution")).forEach(function(element) {
                 output += element + '\n';
             });
         } catch (error) {}
@@ -131,7 +145,6 @@ merlin = {
      * @return 
      */
     onClickOLS: function() {
-
         this.createOutput();
     },
 
@@ -142,7 +155,6 @@ merlin = {
      * @return 
      */
     onClickSpeedy: function() {
-
         this.createOutput();
     },
 
@@ -159,6 +171,9 @@ merlin = {
         localStorage.setItem("issues", "---");
         localStorage.setItem("troubleshooting", "---");
         localStorage.setItem("solution", "---");
+        localStorage.setItem("customissue", "---");
+        localStorage.setItem("customtroubleshooting", "---");
+        localStorage.setItem("group", "---");
     },
 
 
@@ -190,7 +205,6 @@ merlin = {
      * @return 
      */
     onSelectSolution: function() {
-
         localStorage.setItem("solution", JSON.stringify(Solution.set()));
         this.createOutput();
     },
@@ -201,7 +215,6 @@ merlin = {
      * @return 
      */
     onInit: function() {
-
         this.clear();
 
         Group.get(document.getElementById("_group"));
@@ -218,7 +231,6 @@ merlin = {
      * @return 
      */
     onClickHashtag: function() {
-
         localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
 
         // show speedy dialog for further data entries
@@ -484,10 +496,8 @@ merlin = {
         var e = document.getElementById("_product");
         var prod;
         try {
-
             prod = e.options[e.selectedIndex].innerHTML;
         } catch (error) {
-
             prod = "";
         }
 
@@ -523,7 +533,6 @@ merlin = {
      * Show "not implemented" Notification
      */
     notImplemented: function() {
-
         merlin.showNotification("Sorry, not implemented yet", 'top', 'center', 'warning', 500);
     },
 
@@ -537,7 +546,6 @@ merlin = {
      * @param time - Time to show the notification ('', 'info', 'success', 'warning', 'danger') 
      */
     showNotification: function(txt, from, align, color, time) {
-
         $.notify({
             icon: "pe-7s-info",
             message: txt
