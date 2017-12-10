@@ -107,8 +107,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <i>
-                                        <p id="_weekday" style="color: red;"></p>
-                                    </i>
+                                            <p id="_weekday" style="color: red;"></p>
+                                        </i>
                                 </div>
                             </div>
                         </div>
@@ -124,8 +124,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <i>
-                                        <p style="color: #538600;">35€</p>
-                                    </i>
+                                            <p style="color: #538600;">35€</p>
+                                        </i>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
             <div class="container-fluid" style='background-color:#005688'>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle">
-                    </button>
+                        </button>
                     <a class="navbar-brand">Merlin - RITS Wizard</a>
                 </div>
                 <div class="collapse navbar-collapse ">
@@ -193,34 +193,43 @@
                             </div>
                         </div>
                         <br>
+
                         <div class="row">
-                            <div class="col-md-3">
-                                <!--start HASHTAG-->
+                            <div class="col-md-12">
                                 <div class="col-md-4">
-                                    <label>Hashtag</label>
+                                    <!-- <div class="col-md-12"> -->
+                                    <!--start HASHTAG-->
+                                    <div class="col-md-6 text-left">
+                                        <label>Hashtag</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select id="_hashtag" class="dropdown" data-toggle="tooltip" title="Hashtag for special actions" onchange="merlin.onClickHashtag();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
+                                                </select>
+                                    </div>
+                                    <!-- </div> -->
                                 </div>
-                                <div class="col-md-8">
-                                    <select id="_hashtag" class="dropdown" data-toggle="tooltip" title="Hashtag for special actions" onchange="merlin.onClickHashtag();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
-                                    </select>
-                                </div>
-                            </div>
-                            <!--end HASHTAG-->
+                                <!--end HASHTAG-->
 
-                            <!--start RETAILER-->
-                            <div class="col-md-3">
+                                <!--start RETAILER-->
                                 <div class="col-md-4">
-                                    <label>Retailer</label>
-                                </div>
-                                <div class="col-md-2">
-                                    <select id="_retailerDD" class="dropdown" data-toggle="tooltip" title="most frequent Retailer" onclick="merlin.onClickRetailer();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
-                                    </select>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <label>Retailer</label>
+                                        </div>
+                                        <div class="col-md-6  text-left">
+                                            <select id="_retailerDD" class="dropdown" data-toggle="tooltip" title="most frequent Retailer" onclick="merlin.onClickRetailer();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
+                                                </select>
 
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group form-red label-floating is-empty">
-                                    <input id="_customretailer" type="text" class="form-control" data-toggle="tooltip" title="Customer Retailer" onfocusout="merlin.makeOutput();" placeholder="Retailer..." value="N/A">
+                                <div class="col-md-4">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-red label-floating is-empty">
+                                            <input id="_customretailer" type="text" class="form-control" data-toggle="tooltip" title="Customer Retailer" onfocusout="merlin.makeOutput();" placeholder="Retailer..." value="N/A">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -235,27 +244,29 @@
                         <br>
 
                         <div class="row">
-                            <div class="col-md-6">
-
-                                <!--start GROUP-->
+                            <div class="col-md-12">
                                 <div class="col-md-4">
-                                    <label>Group</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <select id="_group" class="dropdown" data-toggle="tooltip" title="High Level Product Group" onchange="merlin.onClickGroup();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
-                                    </select>
-                                </div>
-                            </div>
-                            <!--end GROUP-->
 
-                            <!--start PRODUCT-->
-                            <div class="col-md-6 ">
-                                <div class="col-md-4">
-                                    <label>Product</label>
+                                    <!--start GROUP-->
+                                    <div class="col-md-6">
+                                        <label>Group</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select id="_group" class="dropdown" data-toggle="tooltip" title="High Level Product Group" onchange="merlin.onClickGroup();" style="background-color: #fbfbfb; height: 30px; border-radius: 3px;">
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <select id="_product" class="dropdown " data-toggle="tooltip " title="Product" onclick="merlin.onClickProduct() " style=" background-color: #f9f9f970; height: 30px; border-radius: 3px; ">
-                                    </select>
+                                <!--end GROUP-->
+
+                                <!--start PRODUCT-->
+                                <div class="col-md-4">
+                                    <div class="col-md-6 text-right">
+                                        <label>Product</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select id="_product" class="dropdown " data-toggle="tooltip " title="Product" onclick="merlin.onClickProduct() " style=" background-color: #f9f9f970; height: 30px; border-radius: 3px; ">
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -408,16 +419,20 @@
                 <div class="card" style="max-height: 90vh; overflow: auto; margin: 15px; margin-left: 0px; margin-right:5px; overflow: initial; min-height: -webkit-fill-available;">
                     <div class="header">
                         <div class='row'>
-                            <div class='col-md-8'>
+                            <!-- <div class='col-md-12'> -->
+                            <div class='col-md-4'>
                                 <h4 class="title " style="margin-top: 5px; ">Preview</h4>
                             </div>
-                            <div class='col-md-2'>
-                                <button class="btn btn-info btn-round " data-toggle="tooltip " title="Copy the RITS and insert in Salesforce with Ctrl+v " onclick="merlin.onClickCopy(); " style="padding: inherit; ">Copy</button>
+                            <!-- </div>
+                        <div class='row'> -->
+                            <div class='col-md-4'>
+                                <button class="btn btn-info btn-round-small" data-toggle="tooltip " title="Copy the RITS and insert in Salesforce with Ctrl+v " onclick="merlin.onClickCopy(); " style="vertical-align: -webkit-baseline-middle;">Copy</button>
                             </div>
 
-                            <div class='col-md-2'>
-                                <button class="btn btn-warning btn-round-small " data-toggle="tooltip" title="Reset the RITS " onclick="merlin.onClickClear(); " style="padding: inherit; ">Clear</button>
+                            <div class='col-md-4'>
+                                <button class="btn btn-warning btn-round-small" data-toggle="tooltip" title="Reset the RITS " onclick="merlin.onClickClear(); " style="vertical-align: -webkit-baseline-middle;">Clear</button>
                             </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                     <div class="content">
@@ -474,7 +489,9 @@
     var isRed = false;
 
     Date.prototype.myMet = function() {
-        if (this.getDay() == 0) {
+        var xxx = this.getDay();
+
+        if (this.getDay() == 1) {
             this.myProp = "Monday";
         };
         if (this.getDay() == 2) {
@@ -495,7 +512,7 @@
             this.myProp = "Saturday";
             isRed = true;
         };
-        if (this.getDay() == 1) {
+        if (this.getDay() == 0) {
             this.myProp = "Sunday";
             isRed = true;
         };
