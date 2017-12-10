@@ -129,7 +129,6 @@ merlin = {
      * @return 
      */
     onClickOLS: function() {
-
         this.createOutput();
     },
 
@@ -140,7 +139,6 @@ merlin = {
      * @return 
      */
     onClickSpeedy: function() {
-
         this.createOutput();
     },
 
@@ -157,6 +155,9 @@ merlin = {
         localStorage.setItem("issues", "---");
         localStorage.setItem("troubleshooting", "---");
         localStorage.setItem("solution", "---");
+        localStorage.setItem("customissue", "---");
+        localStorage.setItem("customtroubleshooting", "---");
+        localStorage.setItem("group", "---");
     },
 
 
@@ -188,7 +189,6 @@ merlin = {
      * @return 
      */
     onSelectSolution: function() {
-
         localStorage.setItem("solution", JSON.stringify(Solution.set()));
         this.createOutput();
     },
@@ -199,7 +199,6 @@ merlin = {
      * @return 
      */
     onInit: function() {
-
         this.clear();
 
         Group.get(document.getElementById("_group"));
@@ -216,7 +215,6 @@ merlin = {
      * @return 
      */
     onClickHashtag: function() {
-
         localStorage.setItem("hashtag", JSON.stringify(document.getElementById('_hashtag').value));
 
         // show speedy dialog for further data entries
@@ -482,10 +480,8 @@ merlin = {
         var e = document.getElementById("_product");
         var prod;
         try {
-
             prod = e.options[e.selectedIndex].innerHTML;
         } catch (error) {
-
             prod = "";
         }
 
@@ -521,7 +517,6 @@ merlin = {
      * Show "not implemented" Notification
      */
     notImplemented: function() {
-
         merlin.showNotification("Sorry, not implemented yet", 'top', 'center', 'warning', 500);
     },
 
@@ -535,7 +530,6 @@ merlin = {
      * @param time - Time to show the notification ('', 'info', 'success', 'warning', 'danger') 
      */
     showNotification: function(txt, from, align, color, time) {
-
         $.notify({
             icon: "pe-7s-info",
             message: txt
