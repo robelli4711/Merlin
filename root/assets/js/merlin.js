@@ -1,3 +1,15 @@
+/**
+ * Main Functionality and Control of  Merlin. 
+ *
+ * @summary Main Functions and Control of Merlin
+ *
+ * @link   URL
+ * @file   merlin.js
+ * @author Robert Niederer
+ * @since  10/12/2017
+ * @revision 1.0
+ */
+
 var output = ""; // Output has to be global
 
 merlin = {

@@ -1,16 +1,26 @@
-
+/**
+ * Main class and derrived functionalities for Retailer handling
+ *
+ * @summary Retailer Class 
+ *
+ * @link   URL
+ * @file   merlin.js
+ * @author Robert Niederer
+ * @since  10/12/2017
+ * @revision 1.0
+ */
 
 Retailer = {
 
     /**
-   * setup Porduct GROUP Combo
-   * @param Selection Box 
-   * @return none
-   */
-    get: function (obj) {
+     * setup Porduct GROUP Combo
+     * @param Selection Box 
+     * @return none
+     */
+    get: function(obj) {
 
         x = this.set();
-        x.forEach(function (element) {
+        x.forEach(function(element) {
             var option = document.createElement('option');
             option.text = element.retailer;
             option.value = element.retailer;
@@ -22,11 +32,11 @@ Retailer = {
     },
 
     /**
-   * Get content Data
-   * @param none 
-   * @return Object Array with Group Data
-   */
-    set: function () {
+     * Get content Data
+     * @param none 
+     * @return Object Array with Group Data
+     */
+    set: function() {
 
         var retailer = [];
 
@@ -67,7 +77,7 @@ Retailer = {
 
 
         // return alphabetically sorted
-        retailer.sort(function(a,b) {return (a.retailer > b.retailer) ? 1 : ((b.retailer > a.retailer) ? -1 : 0);} );
+        retailer.sort(function(a, b) { return (a.retailer > b.retailer) ? 1 : ((b.retailer > a.retailer) ? -1 : 0); });
         return retailer.reverse();
     }
 }

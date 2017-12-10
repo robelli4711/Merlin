@@ -1,18 +1,28 @@
-
+/**
+ * Main class and derrived functionalities for Product handling
+ *
+ * @summary Product Class 
+ *
+ * @link   URL
+ * @file   merlin.js
+ * @author Robert Niederer
+ * @since  10/12/2017
+ * @revision 1.0
+ */
 
 Product = {
 
     /**
-   * setup Product Combo
-   * @param Selection Box 
-   * @return none
-   */
-    get: function (obj, index) {
+     * setup Product Combo
+     * @param Selection Box 
+     * @return none
+     */
+    get: function(obj, index) {
 
-        $(obj).empty();     // clear the selection box
+        $(obj).empty(); // clear the selection box
 
         x = this.set();
-        x.forEach(function (element) {
+        x.forEach(function(element) {
 
             if (element.id_group === parseInt(index)) {
 
@@ -22,16 +32,16 @@ Product = {
                 obj.add(option, 0);
             }
         });
-                // set default value
-                obj.value = "";                
+        // set default value
+        obj.value = "";
     },
 
     /**
-   * Get content Data
-   * @param none 
-   * @return Object Array with Group Data
-   */
-    set: function () {
+     * Get content Data
+     * @param none 
+     * @return Object Array with Group Data
+     */
+    set: function() {
 
         product = [];
 
@@ -247,12 +257,10 @@ Product = {
             id_group: 9,
             product: "Online Shop",
         });
-        
+
 
         // return alphabetically sorted
-        product.sort(function(a,b) {return (a.product > b.product) ? 1 : ((b.product > a.product) ? -1 : 0);} );
+        product.sort(function(a, b) { return (a.product > b.product) ? 1 : ((b.product > a.product) ? -1 : 0); });
         return product.reverse();
     },
 }
-
-
