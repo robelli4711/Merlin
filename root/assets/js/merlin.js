@@ -5,7 +5,7 @@
  *
  * @link   URL
  * @file   merlin.js
- * @author Robert Niederer
+ * @author Robert Niederer, Teleperformance Athens
  * @since  10/12/2017
  * @revision 1.0
  */
@@ -16,6 +16,8 @@ merlin = {
 
     /**
      *Create Output to Preview as Batch
+     * this function reads always the whole existing selections and clears the previous selections completely.
+     * the output will write directly into the _preview textarea
      * @param 
      * @return 
      */
@@ -222,7 +224,9 @@ merlin = {
         Retailer.get(document.getElementById("_retailerDD"));
         this.createOutput();
 
-        $(_loader).hide();
+        // finishing the gui preparation        
+        $(_preview).prop('readonly', true); // hide preview textarea because it will be cleared after update
+        $(_loader).hide();      // hide Wait indicator
     },
 
     /**
@@ -466,65 +470,6 @@ merlin = {
 
         // additional custom comments
         output += document.getElementById("_customTroubleshooting").value + '\n';
-        document.getElementById("_preview").value = output;
-    },
-
-
-    /**
-     * Create the Preview Output
-     * @param String - Control ID
-     * @return 
-     */
-    makeOutput: function(txt) {
-
-        output = "";
-        this.leaveRetailer();
-
-        // make ISSUES
-        var i = 0; // counter 
-        var quest = []; // lists all selected issues
-
-        jQuery(issues).find('*').each(function(index, value) {
-
-            if (value.className === 'checkbox') {
-                if (value.children[0].checked) {
-                    quest.push(value.children[0].id.substring(2));
-                }
-            }
-        });
-
-        var e = document.getElementById("_product");
-        var prod;
-        try {
-            prod = e.options[e.selectedIndex].innerHTML;
-        } catch (error) {
-            prod = "";
-        }
-
-        output += "\nIssue: "
-        output += prod + "\n";
-
-        merlin.makeIssue(quest);
-
-        // make TROUBLESHOOTING
-        jQuery(_troubleshooting).find('*').each(function(index, value) {
-
-            if (value.className === 'checkbox') {
-                if (value.children[0].checked) {
-                    quest.push(value.children[0].id.substring(2));
-
-                    console.log(value.children[0].checked);
-                }
-            }
-        });
-
-        output += "\n\nTroubleshooting:"
-        merlin.makeTroubleshooting(quest);
-
-        // Solution
-        output += "\nSolution:"
-
-        // finally push it out
         document.getElementById("_preview").value = output;
     },
 

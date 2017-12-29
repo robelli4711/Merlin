@@ -1409,7 +1409,7 @@ fieldset[disabled] .btn-neutral.active {
 .form-control[readonly],
 fieldset[disabled] .form-control {
     background-color: #F5F5F5;
-    color: #888888;
+    color: #000000;
     cursor: not-allowed;
 }
 
@@ -2598,7 +2598,7 @@ fieldset[disabled] .form-control {
 .card label {
     font-size: 14px;
     margin-bottom: 5px;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .card .title {

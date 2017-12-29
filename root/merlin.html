@@ -229,7 +229,7 @@
                                 <div class="col-md-4">
                                     <div class="col-md-12">
                                         <div class="form-group form-red label-floating is-empty">
-                                            <input id="_customretailer" type="text" class="form-control" data-toggle="tooltip" title="Customer Retailer" onfocusout="merlin.makeOutput();" placeholder="Retailer..." value="N/A">
+<input id="_customretailer" type="text" class="form-control" data-toggle="tooltip" title="Customer Retailer" onfocusout="merlin.leaveRetailer();" placeholder="Retailer..." value="N/A" onkeyup="merlin.leaveRetailer();">
                                         </div>
                                     </div>
                                 </div>
@@ -300,7 +300,7 @@
                         <div class="row ">
                             <div class="col-md-12">
                                 <div class="form-group form-red label-floating is-empty">
-                                    <input id="_customIssue" type="text " class="form-control" onfocusout="merlin.leaveIssue();" placeholder="additional comments... ">
+                                    <textarea id="_customIssue" type="text" class="form-control" onfocusout="merlin.leaveIssue();" onkeyup="merlin.leaveIssue();" placeholder="additional Issues... "></textarea>
                                 </div>
                             </div>
                         </div>
@@ -329,7 +329,7 @@
                         <div class="row ">
                             <div class="col-md-12">
                                 <div class="form-group form-red label-floating is-empty ">
-                                    <input id="_customTroubleshooting" type="text" class="form-control" onfocusout="merlin.leaveTroubleshooting(); " placeholder="additional comments... ">
+                                    <textarea id="_customTroubleshooting" type="text" class="form-control" onfocusout="merlin.leaveTroubleshooting();" onkeyup="merlin.leaveTroubleshooting();" placeholder="additional Troubleshooting..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -406,7 +406,7 @@
                         <div class="row ">
                             <div class="col-md-12">
                                 <div class="form-group form-red label-floating is-empty ">
-                                    <input id="_customSolution" type="text " class="form-control" onfocusout="merlin.onSelectSolution(); " placeholder="additional comments... ">
+                                    <textarea id="_customSolution" type="text " class="form-control" onfocusout="merlin.onSelectSolution();" onkeyup="merlin.onSelectSolution();" placeholder="additional Solution... "></textarea>
                                 </div>
                             </div>
                         </div>
@@ -414,7 +414,7 @@
                         <!-- end SOLUTION -->
                     </div>
                     <footer class="footer">
-                        <div class="container-fluid" style="background-color: white;">
+                        <div class="container-fluid"  style="background-color: white;">
                             <nav class="pull-left">
                                 <ul>
                                     <li>
@@ -444,7 +444,7 @@
                                     <label class="title" style="margin-top: 5px; ">Your Notes</label>
                                 </div>
                             </div>
-                            <textarea id="_notes" class="form-control" style="background-color: white;font-size: 16px;" placeholder="your personal notes" rows="2"></textarea>
+                            <textarea id="_notes" class="form-control" style="background-color: white;font-size: 16px;" placeholder="your personal notes." rows="2"></textarea>
                             <br>
                         </div>
                     </div>
@@ -453,7 +453,7 @@
 
                 <!-- START PREVIEW SECTION -->
                 <div class="row" style="max-height: 100vh; overflow: auto; ">
-                    <div class="card" style="max-height: 100vh;overflow: auto;margin: 15px;height: 70vh;margin-left: 0px;margin-right:5px;overflow: initial;">
+			<div class="card" style="max-height: 100vh;overflow: auto;margin: 15px;height: 70vh;margin-left: 0px;margin-right:5px;overflow: initial;">
                         <div class="header">
                             <div class='row'>
                                 <div class='col-md-4'>
@@ -470,7 +470,7 @@
                             </div>
                         </div>
                         <div class="content" style="overflow: auto;">
-                            <textarea id="_preview" class="form-control" style="background-color: white;min-height: 60vh;font-size: 18px;" placeholder="Here will be your nice text "></textarea> </div>
+			<textarea id="_preview" class="form-control" style="background-color: white;min-height: 60vh;font-size: 18px;" placeholder="Here will be your nice text "></textarea>                        </div>
                         <!--end SUBMITT-->
 
                     </div>
